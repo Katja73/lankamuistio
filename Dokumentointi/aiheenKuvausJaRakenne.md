@@ -13,9 +13,11 @@ Toisessa osassa käyttäjä voi syöttää listalle omistamansa langat (merkki, määrä,
 Ristipistojen tekijät.  
 
 **Kaikkien käyttäjien toiminnot:**
-- järjestelmään kirjautuminen
-- onnistuu jos salasana ja käyttäjätunnus oikein
-- Ristipistotyön syöttäminen
+- Ristipistotyön syöttäminen. 
+    - Työ-ikkunalla voidaan syöttää työn tiedot pistojen määrän mukaan (yhteispistot tai väreittäin)
 - Lankojen ja merkkien tietojen syöttäminen
 - Kaikkien lankojen listaus hakuehdon mukaan
+
+**Jatkokehittelyn mahdollisuus**
+- Mahdollisuus tallentaa kuvana värikarttoja
 

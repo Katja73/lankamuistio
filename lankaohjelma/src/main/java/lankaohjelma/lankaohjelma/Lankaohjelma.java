@@ -17,11 +17,12 @@ public class Lankaohjelma {
     public static void main(String[] args) {
         System.out.println("Katjan lankamaailma");
         System.out.println("Ei viela koodia");
+        System.out.println("");
         
         // Kysytaan, haluaako aloittaa tai jatkaa tyota, vai syottaa lankoja
         
         
-        // Valitun mukaan jatketaan, avataan käyttöliittymä sen mukaan
+        // Valitun mukaan jatketaan, avataan kÃ¤yttÃ¶liittymÃ¤ sen mukaan
     }
     
     /** Metodi avaa valitun toiminnon ikkunan, riippuen parametrista
