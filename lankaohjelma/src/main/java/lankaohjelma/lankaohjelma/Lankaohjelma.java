@@ -16,11 +16,28 @@ public class Lankaohjelma {
      */
     public static void main(String[] args) {
         System.out.println("Katjan lankamaailma");
-        System.out.println("Ei vielä mitään koodia");
+        System.out.println("Ei viela koodia");
         
-        // Kysytään, haluaako aloittaa tai jatkaa työtä, vai syöttää lankoja
+        // Kysytaan, haluaako aloittaa tai jatkaa tyota, vai syottaa lankoja
         
-        // Valitun mukaan jatketaan
+        
+        // Valitun mukaan jatketaan, avataan käyttöliittymä sen mukaan
     }
+    
+    /** Metodi avaa valitun toiminnon ikkunan, riippuen parametrista
+     * 
+     * @param toiminto Kayttajan antama toimintokoodi    
+     */
+    public void ValittuToiminto(int toiminto)
+    {
+        if (toiminto == 1) 
+        {
+             System.out.println("Avataan tyoikkuna");   
+        }
+        else
+        {   
+            System.out.println("Avataan lankaikkuna");
+        }
+     }
     
 }
