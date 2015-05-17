@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package lankaohjelma.lankaohjelma;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -15,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author Katja
  */
-public class MerkkiTest {
+public class RistipistoTyoTest {
     
-    public MerkkiTest() {
+    public RistipistoTyoTest() {
     }
     
     @BeforeClass
@@ -36,9 +37,17 @@ public class MerkkiTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    /**
+     * Testataan oletuskonstruktori
+     */
+    @Test
+    public void TestaaOletuskonstruktori() {
+        
+        // luodaan ristipistotyo oletuskonstruktorilla
+        RistipistoTyo oletusTyo = new RistipistoTyo();
+        // ja tulostetaan se 
+        System.out.println(oletusTyo);
+      
+    }
+    
 }

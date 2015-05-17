@@ -6,9 +6,9 @@
 package lankaohjelma.lankaohjelma;
 
 /**
- * Luokka käsittelee langan merkkitietoja
+ *
  * @author Katja
  */
-public class Merkki {
+public class Kangas {
     
 }
