@@ -1,3 +1,5 @@
+package lankaohjelma.lankaohjelma;
+
 
 import java.util.ArrayList;
 import lankaohjelma.lankaohjelma.Kangas;

@@ -11,37 +11,58 @@ package lankaohjelma.lankaohjelma;
  */
 public class TyonLanka {
     
-    private int lankanro;
-    private LankaMerkki lankamerkki;
+    private double maara;
+    private Lanka lankamerkki;
+    
     
      /**
      * Oletuskonstruktori
      */
     public TyonLanka()
     {
-        setLankanro(0);
+        setMaara(0);
         setLankamerkki(null);        
     }
     
     /**
      * Parametrit vastaanottava konstruktori
-     * @param lankanro
-     * @param lankamerkki
+     * @param maara
+     * @param lanka
      */
-    public TyonLanka(int lankanro, LankaMerkki lankamerkki)
+    public TyonLanka(double maara, Lanka lankamerkki)
     {
-        setLankanro(lankanro);
+        setMaara(maara);
         setLankamerkki(lankamerkki);        
     }
+    
+    /**
+     * Getteri
+     * @return maara
+     */
+    public double getMaara(){return maara;}
 
-    private void setLankanro(int lankanro) {
-       this.lankanro = lankanro;
+    private void setMaara(double maara) {
+       this.maara = maara;
     }
+    
+     /**
+     * Getteri
+     * @return lankamerkki
+     */
+    public Lanka getLankamerkki(){return lankamerkki;}
 
-    private void setLankamerkki(LankaMerkki lankamerkki) {
+    private void setLankamerkki(Lanka lankamerkki) {
         this.lankamerkki = lankamerkki;
     }
-
     
+    /**
+     * Tulostetaan merkin tiedot
+     */
+    @Override
+    public String toString()
+    {
+        return lankamerkki + ", " 
+                + maara + ".";    
+    }        
 }
 

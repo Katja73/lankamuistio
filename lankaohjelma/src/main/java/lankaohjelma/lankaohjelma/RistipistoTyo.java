@@ -94,12 +94,16 @@ public class RistipistoTyo {
         this.korkeus = korkeus;
     }
     
+    /**
+     * Tulostetaan
+     */
+    @Override
     public String toString()
     {
-        return tyonLangat + "," 
-                + tyonKangas + ","
-                + tyonTekija + ","
-                + leveys + "pistoa ,"
-                + korkeus + "pistoa.";    
+        return tyonLangat + ", " 
+                + tyonKangas + ", "
+                + tyonTekija + ", "
+                + leveys + " pistoa ,"
+                + korkeus + " pistoa.";    
     }    
 }

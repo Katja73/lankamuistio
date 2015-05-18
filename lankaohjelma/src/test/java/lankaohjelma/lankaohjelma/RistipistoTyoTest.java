@@ -5,6 +5,7 @@
  */
 package lankaohjelma.lankaohjelma;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -45,6 +46,28 @@ public class RistipistoTyoTest {
         
         // luodaan ristipistotyo oletuskonstruktorilla
         RistipistoTyo oletusTyo = new RistipistoTyo();
+        // ja tulostetaan se 
+        System.out.println(oletusTyo);
+      
+    }
+    
+    /**
+     * Testataan parametrikonstruktori antamalla tietoja
+     */
+   // @Test
+    public void TestaaparametriKonstruktori() {
+        
+        // Syötetään testitiedot
+        ArrayList<TyonLanka> langat = null;        
+        langat.add(1, null);       
+        
+        Kangas kangas = new Kangas();
+        Kayttaja kayttaja = new Kayttaja();
+        int leveys = 10;
+        int korkeus = 5;       
+        
+        RistipistoTyo oletusTyo = new RistipistoTyo(langat, kangas, kayttaja, leveys, korkeus);
+        
         // ja tulostetaan se 
         System.out.println(oletusTyo);
       
