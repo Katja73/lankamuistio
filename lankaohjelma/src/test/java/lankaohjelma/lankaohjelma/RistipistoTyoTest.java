@@ -54,13 +54,11 @@ public class RistipistoTyoTest {
     /**
      * Testataan parametrikonstruktori antamalla tietoja
      */
-   // @Test
+    @Test
     public void TestaaparametriKonstruktori() {
         
         // Syötetään testitiedot
         ArrayList<TyonLanka> langat = null;        
-        langat.add(1, null);       
-        
         Kangas kangas = new Kangas();
         Kayttaja kayttaja = new Kayttaja();
         int leveys = 10;
@@ -69,8 +67,29 @@ public class RistipistoTyoTest {
         RistipistoTyo oletusTyo = new RistipistoTyo(langat, kangas, kayttaja, leveys, korkeus);
         
         // ja tulostetaan se 
-        System.out.println(oletusTyo);
-      
+        System.out.println(oletusTyo);      
     }
+    
+    /**
+     * Testataan, palauttaako parametrikonstruktori oikein
+     */
+    @Test
+   public void PalauttaakoParametriKonstruktoriOikein()
+   {
+        // Syötetään testitiedot
+        ArrayList<TyonLanka> langat = null;          
+        Kangas kangas = new Kangas();
+        Kayttaja kayttaja = new Kayttaja();
+        int leveys = 30;
+        int korkeus = 45;       
+        
+        RistipistoTyo oletusTyo = new RistipistoTyo(langat, kangas, kayttaja, leveys, korkeus);
+        int korkeus1 = oletusTyo.getKorkeus();
+        int leveys1 = oletusTyo.getLeveys();
+        
+        assertEquals(45, korkeus1);
+        assertEquals(30, leveys1);
+      
+   }
     
 }

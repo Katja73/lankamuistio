@@ -67,8 +67,6 @@ public class LankaTest {
         
         assertEquals(2, lankaid);
         assertEquals(368, lankanro);
-        assertEquals("DMC", lankaMerkki);
-       
-        
+        assertEquals("DMC", lankaMerkki);        
     }
 }

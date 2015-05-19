@@ -58,7 +58,12 @@ public class TyonLankaTest {
       lanka.setLankanro(365);
       lanka.setMerkki("DMC"); 
     
-      TyonLanka tlanka = new TyonLanka(5.2, lanka);      
-      System.out.println(tlanka);    
+      TyonLanka tlanka = new TyonLanka(5.2, lanka);  
+      Lanka lankamerkki = tlanka.getLankamerkki();
+      double maara = tlanka.getMaara();
+      System.out.println(tlanka);  
+
+       assertEquals(5,2, maara);
+       assertEquals("DMC", lankamerkki.getMerkki());        
     }
 }

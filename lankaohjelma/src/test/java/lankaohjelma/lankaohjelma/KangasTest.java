@@ -38,9 +38,23 @@ public class KangasTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+  /**
+     * Testataan oletuskonstruktori
+     */
+    @Test
+    public void TestaaOletuskonstruktori() {
+        
+        Kangas kangas = new Kangas();
+        System.out.println(kangas); 
+    }
+    
+    /**
+     * Testataan parametrikonstruktori
+     */
+    @Test
+    public void TestaaParametrikonstruktori() {    
+        
+       Kangas kangas = new Kangas(10, "Aida");
+       System.out.println(kangas);          
+    }
 }

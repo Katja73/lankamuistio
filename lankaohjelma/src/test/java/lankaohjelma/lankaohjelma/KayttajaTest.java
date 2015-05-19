@@ -5,6 +5,7 @@
  */
 package lankaohjelma.lankaohjelma;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -37,9 +38,23 @@ public class KayttajaTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+     /**
+     * Testataan oletuskonstruktori
+     */
+    @Test
+    public void TestaaOletuskonstruktori() {
+        
+        Kayttaja kayttaja = new Kayttaja();
+        System.out.println(kayttaja); 
+    }
+    
+    /**
+     * Testataan parametrikonstruktori
+     */
+    @Test
+    public void TestaaParametrikonstruktori() {    
+        
+       Kayttaja kayttaja = new Kayttaja(1, "Katja", null, null );
+       System.out.println(kayttaja);          
+    }
 }

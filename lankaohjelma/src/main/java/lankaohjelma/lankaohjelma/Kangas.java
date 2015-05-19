@@ -12,6 +12,7 @@ package lankaohjelma.lankaohjelma;
 public class Kangas {
     private int kangasnro;
     private String kangasMerkki;
+
     
     /**
      * Oletuskonstruktori

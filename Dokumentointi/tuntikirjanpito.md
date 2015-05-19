@@ -21,3 +21,6 @@
 
 **Ma 16.5.2015**
 - 2 h Koodauksen jatkaminen. Muutama luokka meni kokonaan uusiksi. niiden refaktotointi.
+
+**Ti 17.5.2015**
+- 2 h Luokkakaavio, muutama testi ja seuraavan askeleen miettimist‰. Nyt p‰‰luokat olisi koodattu. Pit‰‰ alkaa rakentaa itse ohjelmaa.
