@@ -86,5 +86,5 @@ public class Kayttaja {
                 + etunimi + ", "
                 + omatLangat + ", "
                 + ristipistotyot + ".";               
-    }      
+    }     
 }

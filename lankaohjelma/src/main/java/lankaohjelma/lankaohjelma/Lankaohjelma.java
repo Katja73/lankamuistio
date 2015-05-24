@@ -17,12 +17,12 @@ public class Lankaohjelma {
       /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner lukija = new Scanner(System.in);
         
         // Kysytaan, haluaako aloittaa tai jatkaa tyota, vai syottaa lankoja
         System.out.println("Haluatko tehdä uuden työn tai jatkaa vanhaa, vai syöttää lankoja?");
-        System.out.println("Työ = 1, Langat = 2");
+        System.out.println("Työ = 1, Langat = 2, Kankaat = 3");
         
         int tieto = Integer.parseInt(lukija.nextLine());       
         ValittuToiminto(tieto);       
@@ -32,15 +32,21 @@ public class Lankaohjelma {
      * 
      * @param toiminto Kayttajan antama toimintokoodi    
      */
-    public static void ValittuToiminto(int toiminto)
+    public static void ValittuToiminto(int toiminto) throws Exception
     {
         if (toiminto == 1) 
         {
              System.out.println("Avataan tyoikkuna");   
         }
-        else
+        if (toiminto == 2)
         {   
-            System.out.println("Avataan lankaikkuna");
+            Lanka lanka = new Lanka();
+            lanka.aja();
+        }
+        if (toiminto == 3)
+        {
+            Kangas kangas = new Kangas();
+            kangas.kayta();
         }
      }
     
