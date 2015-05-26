@@ -53,7 +53,7 @@ public class Tiedosto implements Serializable {
      */
     public ArrayList LataaTiedosto(String tiedNimi) throws Exception
     {
-        ArrayList paluulista = new ArrayList();
+        ArrayList<Lanka> paluulista = new ArrayList();
         File nimi = new File(tiedNimi);
         if (!nimi.exists()) {
             System.out.println("Tiedostoa "+nimi+" ei löydy!");
@@ -74,8 +74,11 @@ public class Tiedosto implements Serializable {
         //String[] myStringArray = new String[]{rivi.split(",")};
         String[] riviArvot = rivi.split(",");
         System.out.println("**riviArvot**"+riviArvot);
-        Collections.addAll(paluulista, riviArvot);
-          rivi = syotto.readLine();
+        rivi = syotto.readLine();
+          
+          Lanka omaLanka = new Lanka(Integer.parseInt(riviArvot[0]), Integer.parseInt(riviArvot[1]), riviArvot[0]);
+          
+          paluulista.add(omaLanka);
 
         }
         //String[] riviArvot = rivi.split(",");
