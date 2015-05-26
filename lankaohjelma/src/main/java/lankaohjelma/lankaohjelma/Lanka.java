@@ -116,11 +116,14 @@ public class Lanka implements Serializable {
                 case 0:
                 System.out.println("Kiitos ohjelman käytöstä!");
                 //Tallennetaan tiedosto talteen seuraavaa kertaa varten
-//                Tiedosto tiedosto = new Tiedosto();
-                String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\testi3.ser";
+                Tiedosto tiedosto = new Tiedosto();
+//                String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\testi3.ser";
+                String tiedNimi = "C:\\Omat\\testi.txt";
 //                tiedosto.TallennaOlio(tiedNimi, lankaLista);
-                TallennaTiedostoon(tiedNimi, lankaLista);
-                LataaTiedosto(tiedNimi, lankaLista);
+                tiedosto.Tallenna(tiedNimi, lankaLista);
+                tiedosto.LataaTiedosto(tiedNimi);
+//                TallennaTiedostoon(tiedNimi, lankaLista);
+//                LataaTiedosto(tiedNimi, lankaLista);
                 System.exit(0);
                 default:
                 System.out.println("Virheellinen valinta.");

@@ -63,18 +63,21 @@ public class Tiedosto implements Serializable {
         BufferedReader syotto =  new BufferedReader(new InputStreamReader(
                       new FileInputStream(nimi)));
 
-        String rivi;
- 
-        while ((rivi = syotto.readLine()) != null)        
-        System.out.println("**testirivi: **"+rivi);
+        String rivi = "";
+        rivi = syotto.readLine();
         
+        while (rivi != null ){
+            System.out.println("**testirivi: **"+rivi);
+                  
         // Konvertoidaan string Arraylistiksi. 
         //Tehdään ensin taulukko
         //String[] myStringArray = new String[]{rivi.split(",")};
         String[] riviArvot = rivi.split(",");
         System.out.println("**riviArvot**"+riviArvot);
         Collections.addAll(paluulista, riviArvot);
-    
+          rivi = syotto.readLine();
+
+        }
         //String[] riviArvot = rivi.split(",");
         //System.out.println("**arvot: **"+riviArvot);
         
