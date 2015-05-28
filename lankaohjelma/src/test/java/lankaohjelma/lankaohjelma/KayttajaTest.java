@@ -55,6 +55,23 @@ public class KayttajaTest {
     public void TestaaParametrikonstruktori() {    
         
        Kayttaja kayttaja = new Kayttaja(1, "Katja", null, null );
-       System.out.println(kayttaja);          
+       System.out.println(kayttaja);       
+       
     }
+    
+     @Test
+    public void Testaaxml() {  
+        
+        Kayttaja kayttaja = new Kayttaja(1, "Katja", new ArrayList<RistipistoTyo>(), new ArrayList<LankaKokoelma>());
+     
+        ArrayList<Kayttaja> kayttajat = new ArrayList();
+        kayttajat.add(kayttaja);
+        
+        WriteFile wr = new WriteFile();
+        wr.writeXmlFile(kayttajat);
+        
+       
+       
+    }
+    
 }

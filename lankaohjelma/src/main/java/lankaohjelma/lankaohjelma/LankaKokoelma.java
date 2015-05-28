@@ -38,7 +38,7 @@ class LankaKokoelma {
         return lanka;
     }
     
-    private void setLanka(Lanka lanka) {
+    public void setLanka(Lanka lanka) {
         this.lanka = lanka;
     }
     
@@ -46,7 +46,7 @@ class LankaKokoelma {
         return maara;
     }
 
-    private void setMaara(int maara) {
+    public void setMaara(int maara) {
         this.maara = maara;
     }
     
@@ -54,7 +54,7 @@ class LankaKokoelma {
         return osta;
     }
 
-    private void setOsta(boolean osta) {
+    public void setOsta(boolean osta) {
         this.osta = osta;
     }   
     

@@ -36,3 +36,6 @@
 
 **Ke 27.5.2015**
 - 3 h Tein ensimmäisen käyttöliittymä -näytön. Toimi yllättävän hyvin.
+
+**To 28.2.2015**
+- 1 h. Päätin ottaa xml:n käyttöön, toimii paremmin kokoelmissa, kuin pelkkä tiedosto. Jäi pahasti kesken.
