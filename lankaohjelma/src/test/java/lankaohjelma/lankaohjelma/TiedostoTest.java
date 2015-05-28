@@ -77,23 +77,56 @@ public class TiedostoTest {
         }
     }
     
- @Test
- public void TestaaTiedostonLataus()
- {
-     Tiedosto tiedosto = new Tiedosto();
-     
-     String tiedostonNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\testi2.txt";
-    
-     
+         /**
+     * Testataan tiedostoon tallennus siten, että Arraylistillä on useita tiedostoja
+     */
+    @Test
+    public void TestaaKangasTallennusUsempi()
+    { Tiedosto tiedosto = new Tiedosto();
+        String tiedostonNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\testi5.txt";
+        ArrayList<Kangas> lista = new ArrayList();
+        lista.add(new Kangas(1, "Aida"));
+        lista.add(new Kangas(2, "Muu"));
+        
         try {
-         ArrayList ladattuTiedosto = tiedosto.LataaTiedosto(tiedostonNimi);
-          System.out.println("Testilista: "+ladattuTiedosto);
-          
+            tiedosto.Tallenna(tiedostonNimi, lista);
         } catch (Exception ex) {
             Logger.getLogger(TiedostoTest.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-       
+    }
+    
+ @Test
+ public void TestaaTiedostonLataus()
+ {
+    Tiedosto tiedosto = new Tiedosto();
+    ArrayList expo = new ArrayList();
+    expo.add(new Lanka(1,555,"DMC"));
+     
+    String tiedostonNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\testi2.txt";   
+    
+    try {
+        ArrayList LataaTiedosto = tiedosto.LataaLankaTiedosto(tiedostonNimi);
+        Object get = LataaTiedosto.get(0);
+        assertEquals("1,555,DMC", get.toString());
                 
- }
+        } catch (Exception ex) {
+            Logger.getLogger(TiedostoTest.class.getName()).log(Level.SEVERE, null, ex);
+        }               
+    }
+ 
+    @Test
+    public void TestaaKangasTiedostonLataus() {
+        Tiedosto tiedosto = new Tiedosto();
+     
+        String tiedostonNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\testi5.txt";   
+    
+        try {
+            ArrayList LataaTiedosto = tiedosto.LataaKangasTiedosto(tiedostonNimi);
+            Object get = LataaTiedosto.get(0);
+            assertEquals("1,  Aida", get.toString());
+       
+            } catch (Exception ex) {
+                Logger.getLogger(TiedostoTest.class.getName()).log(Level.SEVERE, null, ex);
+            }               
+        }
 }

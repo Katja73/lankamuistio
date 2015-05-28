@@ -7,6 +7,7 @@ package lankaohjelma.lankaohjelma;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -18,14 +19,17 @@ public class Lankaohjelma {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-        Scanner lukija = new Scanner(System.in);
-        
-        // Kysytaan, haluaako aloittaa tai jatkaa tyota, vai syottaa lankoja
-        System.out.println("Haluatko tehdä uuden työn tai jatkaa vanhaa, vai syöttää lankoja?");
-        System.out.println("Työ = 1, Langat = 2, Kankaat = 3");
-        
-        int tieto = Integer.parseInt(lukija.nextLine());       
-        ValittuToiminto(tieto);       
+//        Scanner lukija = new Scanner(System.in);
+//        
+//        // Kysytaan, haluaako aloittaa tai jatkaa tyota, vai syottaa lankoja
+//        System.out.println("Haluatko tehdä uuden työn tai jatkaa vanhaa, vai syöttää lankoja?");
+//        System.out.println("Työ = 1, Langat = 2, Kankaat = 3");
+//        
+//        int tieto = Integer.parseInt(lukija.nextLine());       
+//        ValittuToiminto(tieto);   
+       
+//        Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
+//        SwingUtilities.invokeLater(kayttoliittyma);
     }
     
     /** Metodi avaa valitun toiminnon ikkunan, riippuen parametrista

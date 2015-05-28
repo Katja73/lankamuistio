@@ -24,3 +24,15 @@
 
 **Ti 17.5.2015**
 - 2 h Luokkakaavio, muutama testi ja seuraavan askeleen miettimist‰. Nyt p‰‰luokat olisi koodattu. Pit‰‰ alkaa rakentaa itse ohjelmaa.
+
+**To 19.5.2015**
+- 2 h Lis‰‰ koodausta
+
+**Su 24.5.2015**
+- 3 h Yritin saada tiedostoon tallennusta toimimaan. Meni hyvin hakemiseen asti. Olisi pit‰nyt harkita jonkun pienen tietokannan tekoa, olisi ollut helpompaa.
+
+**Ti 26.5.2015**
+- 4 h K‰vin koululla saamassa apua tiedosto -ongelmaan. Nyt p‰‰sen eteenp‰in. Katselmoinnista tuli viesti‰, pit‰‰ siihen perehty‰ viimeist‰‰n perjantaina.
+
+**Ke 27.5.2015**
+- 3 h Tein ensimm‰isen k‰yttˆliittym‰ -n‰ytˆn. Toimi yll‰tt‰v‰n hyvin.

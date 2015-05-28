@@ -6,6 +6,7 @@
 package lankaohjelma.lankaohjelma;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -15,7 +16,6 @@ import java.util.Scanner;
 public class Kangas implements Serializable {
     private int kangasnro;
     private String kangasMerkki;
-
     
     /**
      * Oletuskonstruktori
@@ -48,6 +48,8 @@ public class Kangas implements Serializable {
         this.kangasMerkki = kangasMerkki;
     }
     
+    private int toimintokoodi;
+    
     /**
      * Tulostetaan merkin tiedot
      * @return merkkinro ja merkki
@@ -56,7 +58,7 @@ public class Kangas implements Serializable {
     public String toString()
     {
         return kangasnro + ", " 
-                + kangasMerkki + ".";    
+                + kangasMerkki;    
     } 
     
     /**
@@ -64,134 +66,106 @@ public class Kangas implements Serializable {
      */
     public void kayta() throws Exception{
         
-        Scanner lukija = new Scanner(System.in);
-        //luodaan taulukko, johon mahtuu 20 kangas-luokkaan kuuluvaa oliota
-        Kangas kangasTaulukko[] = new Kangas[20];
-        int valinta;
-
-        while (true) {
-        //annetaan käyttäjälle vaihtoehdot ikuisessa loopissa
-        System.out.println("Valitse toiminto: ");
-        System.out.println("1. Lisää kangas");
-        System.out.println("2. Etsi kangas");
-        System.out.println("3. Tulosta kaikki kangaat");
-        System.out.println("4. Lopeta");
-        valinta = lukija.nextInt();
-
-        //valitaan switchillä, mitä metodia kulloinkin ajetaan (tai lopetetaanko ohjelma tms)
-        switch (valinta) {
-        case 1:
-        lisaaKangas(kangasTaulukko);
-        break;
-        case 2:
-        etsiKangas(kangasTaulukko);
-        break;
-        case 3:
-        tulostaKankaat(kangasTaulukko);
-        break;
-        case 4:
-        System.out.println("Kiitos ohjelman käytöstä!");
-        //Tallennetaan tiedosto talteen seuraavaa kertaa varten
-                Tiedosto tiedosto = new Tiedosto();
-                String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\testi4.txt";
-                tiedosto.TallennaOlio(tiedNimi, kangasTaulukko);
-        System.exit(0);
-        default:
-        System.out.println("Virheellinen valinta.");        
-        }
-    }
-    }
-
-    private void lisaaKangas(Kangas[] kangasTaulukko) {
-        Scanner lukija = new Scanner(System.in);
-
-        int tallennuspaikka = 0;
-        //etsitään tyhjä tallennuspaikka;
-        //katsotaan niin kauan kuin taulukkoa riittää onko taulukon rivi tyhjä.
-        while (tallennuspaikka < kangasTaulukko.length) {
-        
-        //jos on, breikki.
-        if (kangasTaulukko[tallennuspaikka] == null)
-            break;
-        else
-            tallennuspaikka++;
-        }
-        
-        //jos taulukkoon mahtuu
-        if (tallennuspaikka < kangasTaulukko.length) {
-        
-            //luodaan uusi Kappale-luokan olio kyseiseen tallennuspaikkaan
-            kangasTaulukko[tallennuspaikka] = new Kangas();
-            int kangasnro1;
-            String kangasMerkki1;        
-
-            //ja pyydetään käyttäjältä arvot riveille
-
-            System.out.print("Anna kankaan nro: ");
-            kangasnro1 = lukija.nextInt();
-
-            //taulukon tallennuspaikka-riville asetetaan arvoksi saveltaja-muuttuja setSaveltaja-metodin avulla
-            kangasTaulukko[tallennuspaikka].setKangasnro(kangasnro1);
-
-            System.out.print("Anna kankaan merkki, esim. Aida: ");
-            kangasMerkki1 = lukija.next();
-            
-            kangasTaulukko[tallennuspaikka].setKangasMerkki(kangasMerkki1);
-        } 
-        else
-            //jos tallennuspaikan arvo oli suurempi kuin taulukon viimeisen ruudun sijanumero, tulostetaan tämä.
-            System.out.println("Olet tallentanut maksimimäärän kankaita, et voi tallentaa niitä enempää!");
-    }    
-    
-    private void LisaaKangasTiedostoon()
-    {
-        
-    }
-
-    private void tulostaKankaat(Kangas[] kangasTaulukko) {
-        //jos taulukon ensimmäisessäkään rivissä ei ole mitään arvoa, tulostetaan tämä
-        if (kangasTaulukko[0] == null) {
-        System.out.println("Et ole vielä antanut kankaita.");
-        }
-        else
-        //jos arvoja on, tulostetaan niitä niin kauan kunnes joko koko taulukko on tulostettu tai vastaan tulee tyhjä solu
-        for (int i = 0; i < kangasTaulukko.length && kangasTaulukko[i]!=null; i++) 
-        {
-            //tulostamiseen käytetään Kappale-luokan toString-metodia
-            System.out.println(kangasTaulukko[i].toString());
-        }
-    }
-
-    private void etsiKangas(Kangas[] kangasTaulukko) {
-        Scanner lukija = new Scanner(System.in);
-        System.out.print("Anna etsittävän kankaan nimi: ");
-        String etsittava = lukija.nextLine();
-
-        //alustetaan ”loytyi” epätodeksi
-        boolean loytyi = false;
-
-        //käydään taulukkoa läpi niin kauan kuin sitä riittää/siinä riittää arvoja
-        for (int i = 0; i < kangasTaulukko.length && kangasTaulukko[i] != null; i++) {
-
-        //katsotaan järjestyksessä jokainen rivi,
-        if (kangasTaulukko[i].getKangasMerkki().toUpperCase()
-                .indexOf(etsittava.trim().toUpperCase()) >= 0) {
-            
-                //jos merkki löytyi riviltä i, printataan rivi toStringillä
-                System.out.println(kangasTaulukko[i].toString());
-
-                //ja käännetään löytyi-vipu todeksi.
-                loytyi = true;
+        // luodaan lista Kangas -tyyppisille olioille
+        ArrayList<Kangas> kangasLista = new ArrayList<Kangas>();
+        while (true){
                 
-                //jatketaan for-loopin alkuun
+            Scanner lukija = new Scanner(System.in);
+
+            int valinta;
+            toimintokoodi = 2;
+
+            while (true) {
+                //annetaan käyttäjälle vaihtoehdot ikuisessa loopissa
+                System.out.println("Valitse toiminto: ");
+                System.out.println("1. Lisää kangas");
+                System.out.println("2. Etsi kangas");
+                System.out.println("3. Poista kangas");
+                System.out.println("4. Tulosta kaikki kankaat");
+                System.out.println("0. Lopeta");
+                valinta = lukija.nextInt();
+
+                //valitaan switchillä, mitä metodia kulloinkin ajetaan (tai lopetetaanko ohjelma tms)
+                switch (valinta) {
+                    case 1:
+                    lisaaKangas(kangasLista);
+                    break;
+                    case 2:
+                    etsiKangas(kangasLista);
+                    break;
+                    case 3:
+                    tulostaKankaat(kangasLista);
+                    break;
+                    case 0:
+                    System.out.println("Kiitos ohjelman käytöstä!");
+
+                    //Tallennetaan tiedosto talteen seuraavaa kertaa varten
+                    Tiedosto tiedosto = new Tiedosto();
+                    String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\kangas.txt";
+                    tiedosto.Tallenna(tiedNimi, kangasLista);
+                    System.exit(0);
+
+                    default:
+                    System.out.println("Virheellinen valinta.");        
+                }
             }
         }
-
-        //jos vipua ei ole käännetty tosi-asentoon, tulostetaan tämä.
-        if (!loytyi)
-            System.out.println("Antamaasi kangasta ei löytynyt.\n");
-        else
-            //muuten printataan tyhjä rivi selkeyden vuoksi.
-            System.out.println();
     }
+
+    private void lisaaKangas(ArrayList <Kangas> kangasLista) {
+        Scanner lukija = new Scanner(System.in);
+        
+        // Pyydetään tiedot
+        System.out.println("Anna kankaan nro: ");
+        kangasnro = lukija.nextInt();
+        System.out.println("Annan kankaan merkki, esim. Aida: ");
+        kangasMerkki = lukija.next();
+        
+        // Tallennetaan kankaan tiedot listaan
+        kangasLista.add(new Kangas(kangasnro, kangasMerkki));
+    }
+
+    private void tulostaKankaat(ArrayList<Kangas> kangasLista) {
+        // tulostetaan, jos listassa on jotain
+        if (kangasLista.size() > 0)
+            // loopataan läpi ja tulostetaan
+            {
+                for (int i = 0; i < kangasLista.size(); i++) {
+                    System.out.println(kangasLista.get(i));
+            }
+        }
+        // jos ei ole mitään, tulostetaan
+        else    
+            System.out.println("Listassa ei ole vielä tuotteita");
+    }
+
+    private void etsiKangas(ArrayList<Kangas> kangasLista) {
+        // jos listassa on jotakin,
+        if (kangasLista.size() > 0) {
+           Scanner lukija = new Scanner(System.in);
+           String etsittava;
+           boolean loytyiko = false;
+
+           System.out.println("Anna etsittävän tuotteen kankaan merkki");
+           etsittava = lukija.nextLine();
+
+            // luodaan ja kysellään juttuja ja etsiskellään lista läpi.
+            for (int i = 0; i < kangasLista.size(); i++) {
+                // jos tuoteListan rivillä i oleva Merkki-muuttuja on juuri sama
+                // kuin etsittävä String,
+                if (kangasLista.get(i).getKangasMerkki().toUpperCase().trim()
+                .equals(etsittava.trim().toUpperCase())) {
+                // tulostetaan,
+                System.out.println(kangasLista.get(i));
+                // ja muutetaan boolean todeksi.
+                loytyiko = true;
+                }
+            }
+        // jos boolean ei ole muuttunut todeksi, ei ole löytynyt.
+        if (loytyiko == false)
+            System.out.println("Tuotetta " + etsittava + " ei löytynyt.");
+            // jos lista oli nollan pituinen, siinä ei varmaan ollut mitään.
+            } else
+            System.out.println("Listassa ei ole vielä tuotteita.");
+    }      
 }

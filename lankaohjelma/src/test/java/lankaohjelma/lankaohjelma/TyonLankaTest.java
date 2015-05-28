@@ -54,7 +54,7 @@ public class TyonLankaTest {
     public void TestaaParametrikonstruktori() {
         
       Lanka lanka = new Lanka();
-      lanka.lankaid = 1;
+      lanka.setLankaid(1);
       lanka.setLankanro(365);
       lanka.setMerkki("DMC"); 
     

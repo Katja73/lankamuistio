@@ -5,6 +5,7 @@
  */
 package lankaohjelma.lankaohjelma;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -69,4 +70,29 @@ public class LankaTest {
         assertEquals(368, lankanro);
         assertEquals("DMC", lankaMerkki);        
     }
+    
+    /**
+     * Testataan tulostus
+     */
+    @Test
+    public void TestaaTulostus(){
+        Lanka lanka = new Lanka(2, 368, "DMC");
+        ArrayList<Lanka> langat = new ArrayList();
+        langat.add(lanka);
+        
+        lanka.tulostaLanka(langat);       
+    }
+    
+     /**
+     * Testataan tulostus tyhjällä rivillä
+     */
+    @Test
+    public void TestaaTulostusTyhja(){
+        Lanka lanka = new Lanka();
+        ArrayList<Lanka> langat = new ArrayList();
+        langat.add(null);
+        
+        lanka.tulostaLanka(langat);       
+    }
+    
 }
