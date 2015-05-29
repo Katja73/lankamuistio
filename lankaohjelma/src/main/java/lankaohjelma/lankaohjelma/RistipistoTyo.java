@@ -13,8 +13,9 @@ import java.util.ArrayList;
  */
 public class RistipistoTyo {
     
-    private ArrayList<TyonLanka> tyonLangat;
-    private Kangas tyonKangas;
+    public int tyoId;    
+    public ArrayList<TyonLanka> tyonLangat;
+    public Kangas tyonKangas;
     public Kayttaja tyonTekija;
     public int leveys;
     public int korkeus;
@@ -24,6 +25,7 @@ public class RistipistoTyo {
      */
     public RistipistoTyo()
     {
+        setTyoId(0);
         setLangat(null);
         setKangas(null);
         setKayttaja(null);
@@ -58,7 +60,7 @@ public class RistipistoTyo {
         return tyonLangat;
     }
     
-    private void setLangat(ArrayList<TyonLanka> tyonLangat) {
+    public void setLangat(ArrayList<TyonLanka> tyonLangat) {
         this.tyonLangat = tyonLangat;
     }
     
@@ -66,7 +68,7 @@ public class RistipistoTyo {
         return tyonKangas;
     }
 
-    private void setKangas(Kangas kangas) {
+    public void setKangas(Kangas kangas) {
         this.tyonKangas = kangas;
     }
     
@@ -74,7 +76,7 @@ public class RistipistoTyo {
         return tyonTekija;
     }
 
-    private void setKayttaja(Kayttaja kayttaja) {
+    public void setKayttaja(Kayttaja kayttaja) {
         this.tyonTekija = kayttaja;
     }
     
@@ -82,7 +84,7 @@ public class RistipistoTyo {
         return leveys;
     }
 
-    private void setLeveys(int leveys) {
+    public void setLeveys(int leveys) {
         this.leveys = leveys;
     }
     
@@ -90,8 +92,16 @@ public class RistipistoTyo {
         return korkeus;
     }
 
-    private void setKorkeus(int korkeus) {
+    public void setKorkeus(int korkeus) {
         this.korkeus = korkeus;
+    }
+    
+    public int getTyoId() {
+        return tyoId;
+    }
+
+    public void setTyoId(int tyoId) {
+        this.tyoId = tyoId;
     }
     
     /**

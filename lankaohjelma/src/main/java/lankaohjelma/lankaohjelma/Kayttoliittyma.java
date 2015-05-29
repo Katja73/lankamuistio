@@ -6,6 +6,7 @@
 package lankaohjelma.lankaohjelma;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -167,21 +168,41 @@ public class Kayttoliittyma extends javax.swing.JFrame {
         
         lankaLista.add(lanka);
         
+        XMLKasittely xmlKasittely = new XMLKasittely();       
+        
+        //Haetaan ensin pohjaksi jo olemassa olevat langat ja näytetään ne
+        try {
+            ArrayList lueLankaXml = xmlKasittely.LueLankaXml(tiedNimi);
+            jTextArea1.setText(lueLankaXml.toString());   
+            
+            // Sen jälkeen tallennetaan perään uudet langat
+            xmlKasittely.KirjoitaLankaXML(lankaLista, tiedNimi);
+            
+            // Testi
+            ArrayList lueLankaXml2 = xmlKasittely.LueLankaXml(tiedNimi);          
+            jTextArea1.append(lueLankaXml2.toString());
+            // testi loppuu
+        } catch (Exception ex) {
+            Logger.getLogger(Kayttoliittyma.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
         //Haetaan vanhat langat, ja lisätään perään
-        Tiedosto tiedosto = new Tiedosto();
-        try {
-            ArrayList LataaLankaTiedosto = tiedosto.LataaLankaTiedosto(tiedNimi);
-        } catch (Exception ex) {
-            Logger.getLogger(Kayttoliittyma.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        Tiedosto tiedosto = new Tiedosto();
+//        try {
+//            ArrayList LataaLankaTiedosto = tiedosto.LataaLankaTiedosto(tiedNimi);
+//        } catch (Exception ex) {
+//            Logger.getLogger(Kayttoliittyma.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         
-        jTextArea1.setText(String.valueOf(lankaLista));
         
-        try {
-            lanka.lisaaLanka(lankaLista);
-        } catch (Exception ex) {
-            Logger.getLogger(Kayttoliittyma.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        
+//        try {
+//            lanka.lisaaLanka(lankaLista);
+//        } catch (Exception ex) {
+//            Logger.getLogger(Kayttoliittyma.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         
         tulos = String.valueOf(lankaid) + String.valueOf(lankanro)+lankaMerkki;      
         

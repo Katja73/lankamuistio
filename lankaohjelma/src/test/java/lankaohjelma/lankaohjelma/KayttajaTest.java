@@ -59,19 +59,6 @@ public class KayttajaTest {
        
     }
     
-     @Test
-    public void Testaaxml() {  
-        
-        Kayttaja kayttaja = new Kayttaja(1, "Katja", new ArrayList<RistipistoTyo>(), new ArrayList<LankaKokoelma>());
-     
-        ArrayList<Kayttaja> kayttajat = new ArrayList();
-        kayttajat.add(kayttaja);
-        
-        WriteFile wr = new WriteFile();
-        wr.writeXmlFile(kayttajat);
-        
-       
-       
-    }
+
     
 }

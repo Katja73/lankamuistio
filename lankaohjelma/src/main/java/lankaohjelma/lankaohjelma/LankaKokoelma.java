@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 class LankaKokoelma {
     
+    private int kokoelmaId;    
     private Lanka lanka;
     private int maara;
     private boolean osta;
@@ -22,6 +23,7 @@ class LankaKokoelma {
      */
     public LankaKokoelma()
     {       
+        setKokoelmaId(0);
         setLanka(null);
         setMaara(0);
         setOsta(false);      
@@ -56,7 +58,15 @@ class LankaKokoelma {
 
     public void setOsta(boolean osta) {
         this.osta = osta;
-    }   
+    }  
+    
+    public int getKokoelmaId() {
+        return kokoelmaId;
+    }
+
+    public void setKokoelmaId(int kokoelmaId ) {
+        this.kokoelmaId = kokoelmaId;
+    }
     
     /**
      * Tulostetaan lankakokoelman tiedot

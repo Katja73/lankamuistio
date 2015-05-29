@@ -39,3 +39,9 @@
 
 **To 28.2.2015**
 - 1 h. Päätin ottaa xml:n käyttöön, toimii paremmin kokoelmissa, kuin pelkkä tiedosto. Jäi pahasti kesken.
+
+**Pe 29.2.2015**
+- 2 h Koodikatselmointia. Otin vapaapäivän töistä, tämä on nyt pakko saada tehtyä rauhassa. Koodikatselmointi on hyvinkin tuttua. Katselmointi oli siinä mielessä helppoa, että tekijä oli ihastuttavan hyvin kommentoinut kaiken.
+  Aihe oli shakkia, joten sekin on tuttua, mutta koodi sinällään sisälsi hyvin paljon matemaattista toimintaa, joten siinä meni aikaa. 
+- 6 h ja oma koodi jatkuu. XML:n ihmettelyä. Heräsin aamulla kuuden jälkeen ja sain ahaa-elämyksen. En kyllä noussut kirjoittamaan sitä ylös, joten toivottavasi muistan sen vielä.
+      Muistin kyllä, mutta voi elämä, mikä työ saada nuo XML:t toimimaan. Ehkä nyt, kun sain ekan.

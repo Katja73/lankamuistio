@@ -2,7 +2,7 @@
 <KayttajaInfo>
     <Kayttaja>
         <Nro>1</Nro>
-        <Nimi>Katja[][]</Nimi>
+        <Nimi>Katja[null, null, null, 0 pistoa ,0 pistoa.][null, 0, false. ]</Nimi>
         <RistipistoTyo/>
         <OmatLangat/>
     </Kayttaja>

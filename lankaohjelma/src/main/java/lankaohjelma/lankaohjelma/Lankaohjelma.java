@@ -30,6 +30,10 @@ public class Lankaohjelma {
        
 //        Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
 //        SwingUtilities.invokeLater(kayttoliittyma);
+        
+        XMLKasittely kasittely = new XMLKasittely();
+        String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\lanka.xml";
+        ArrayList lueLankaXml = kasittely.LueLankaXml(tiedNimi);
     }
     
     /** Metodi avaa valitun toiminnon ikkunan, riippuen parametrista
