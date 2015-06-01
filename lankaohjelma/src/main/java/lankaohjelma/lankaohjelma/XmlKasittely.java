@@ -5,6 +5,7 @@
  */
 package lankaohjelma.lankaohjelma;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ import org.w3c.dom.Document;
 
 import org.w3c.dom.NodeList;
 
-public class XMLKasittely {
+public class XmlKasittely {
 
 public void KirjoitaKayttajaXML(ArrayList<Kayttaja> list) {
 
@@ -120,15 +121,25 @@ public void KirjoitaKayttajaXML(ArrayList<Kayttaja> list) {
         org.w3c.dom.Document doc = build.newDocument();        
         
         org.w3c.dom.Element root = doc.createElement("Langat");
-        doc.appendChild(root);
+        doc.appendChild(root);      
         
         // Ei haluta tuhota jo valmiina olevia lankoja, joten haetaan ne ensin
+        // ToDo: Jos tiedostoa ei löydy
+//         File nimi = new File(tiedNimi);
+//         System.out.println("nimi: "+nimi);
+//        if (!nimi.exists()) {
+//            System.out.println("Tiedostoa "+nimi+" ei loydy!");
+//        //    return null; // keskeytetaan kaikki!
+//        }
         ArrayList lueLankaXml = LueLankaXml(tiedNimi);
+        System.out.println("lueLankaXml.size(): "+lueLankaXml.size());
         if (lueLankaXml.size() > 0) {
-        //    for (int i = 0; i < lueLankaXml.size(); i++) {
+           // for (int i = 0; i < lueLankaXml.size(); i++) {
                 list.addAll(lueLankaXml);
-        //    }            
+          //  }            
         }
+        
+        System.out.println("list: ");
         
         // Käydään langat läpi ja lisätään jokainen XML:n
         for (Lanka dt1 : list) {
@@ -176,7 +187,7 @@ public void KirjoitaKayttajaXML(ArrayList<Kayttaja> list) {
         } catch (ParserConfigurationException ex) {
             System.out.println("Error building document");
         } catch (Exception ex) {
-        Logger.getLogger(XMLKasittely.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(XmlKasittely.class.getName()).log(Level.SEVERE, null, ex);
     }
     }
     
@@ -239,6 +250,89 @@ public void KirjoitaKayttajaXML(ArrayList<Kayttaja> list) {
         }
     }
     
+        /**
+     * Kirjoitetaan Kayttaja -luokan XML-dokumentti
+     * @param list Langat jotka kirjoitetaan XML:n
+     */
+    public void KirjoitaKayttajaXML(ArrayList<Kayttaja> list, String tiedNimi) {
+        
+    try {
+
+        DocumentBuilderFactory dFact = DocumentBuilderFactory.newInstance();
+        DocumentBuilder build = dFact.newDocumentBuilder();
+        org.w3c.dom.Document doc = build.newDocument();        
+        
+        org.w3c.dom.Element root = doc.createElement("Kayttajat");
+        doc.appendChild(root);      
+        
+        // Ei haluta tuhota jo valmiina olevia lankoja, joten haetaan ne ensin
+        // ToDo: Jos tiedostoa ei löydy
+//         File nimi = new File(tiedNimi);
+//         System.out.println("nimi: "+nimi);
+//        if (!nimi.exists()) {
+//            System.out.println("Tiedostoa "+nimi+" ei loydy!");
+//        //    return null; // keskeytetaan kaikki!
+//        }
+        ArrayList lueKayttajaXml = LueKayttajaXml(tiedNimi);
+        System.out.println("lueLankaXml.size(): "+lueLankaXml.size());
+        if (lueLankaXml.size() > 0) {
+           // for (int i = 0; i < lueLankaXml.size(); i++) {
+                list.addAll(lueLankaXml);
+          //  }            
+        }
+        
+        System.out.println("list: ");
+        
+        // Käydään langat läpi ja lisätään jokainen XML:n
+        for (Lanka dt1 : list) {
+            org.w3c.dom.Element lanka = doc.createElement("Lanka");
+            root.appendChild(lanka);
+
+            org.w3c.dom.Element lankaId = doc.createElement("LankaId");
+            lankaId.appendChild(doc.createTextNode(String.valueOf(dt1.getLankaid())));
+            lanka.appendChild(lankaId);
+
+            org.w3c.dom.Element lankanro = doc.createElement("MerkkiNro");
+            lankanro.appendChild(doc.createTextNode(String.valueOf(dt1.getLankanro())));
+            lanka.appendChild(lankanro);  
+            
+            org.w3c.dom.Element merkki = doc.createElement("Merkki");
+            merkki.appendChild(doc.createTextNode(String.valueOf(dt1.getMerkki())));
+            lanka.appendChild(merkki);        
+        }
+
+        // Tallennetaan xml -dokumentti levylle
+        TransformerFactory tranFactory = TransformerFactory.newInstance();
+        Transformer aTransformer = tranFactory.newTransformer();
+
+        // Formatoidaan XML
+        aTransformer.setOutputProperty(OutputKeys.ENCODING, "ISO-8859-1");
+
+        aTransformer.setOutputProperty(
+                "{http://xml.apache.org/xslt}indent-amount", "4");
+        aTransformer.setOutputProperty(OutputKeys.INDENT, "yes");
+
+        DOMSource source = new DOMSource(doc);
+        try {
+            FileWriter fos = new FileWriter(tiedNimi);
+            StreamResult result = new StreamResult(fos);
+            aTransformer.transform(source, result);
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+        
+        } catch (TransformerException ex) {
+            System.out.println("Error outputting document");
+
+        } catch (ParserConfigurationException ex) {
+            System.out.println("Error building document");
+        } catch (Exception ex) {
+        Logger.getLogger(XmlKasittely.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }
+    
     /**
      * Luetaan levyllä oleva Kangas.xml
      * @return listan kangaista
@@ -277,6 +371,7 @@ public void KirjoitaKayttajaXML(ArrayList<Kayttaja> list) {
     
     /**
     * Luetaan levyllä oleva Lanka.xml
+     * @param tiedNimi xml -tiedoston nimi
     * @return listan langoista
     * @throws Exception
     */
@@ -287,12 +382,10 @@ public void KirjoitaKayttajaXML(ArrayList<Kayttaja> list) {
         Document doc = null;        
         
         try {
-            builder = factory.newDocumentBuilder();
-           // doc = builder.parse("C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\lanka.xml");
+            builder = factory.newDocumentBuilder();          
            doc = builder.parse(tiedNimi);
             
-            doc.getDocumentElement().normalize();
-          //  System.out.println("Root element" + doc.getDocumentElement().getNodeName());
+            doc.getDocumentElement().normalize();        
             
             NodeList listaLangoista = doc.getElementsByTagName("Lanka");
             int kaikkiLangat = listaLangoista.getLength();

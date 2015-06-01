@@ -168,25 +168,14 @@ public class Kayttoliittyma extends javax.swing.JFrame {
         
         lankaLista.add(lanka);
         
-        XMLKasittely xmlKasittely = new XMLKasittely();       
-        
-        //Haetaan ensin pohjaksi jo olemassa olevat langat ja näytetään ne
         try {
-            ArrayList lueLankaXml = xmlKasittely.LueLankaXml(tiedNimi);
-            jTextArea1.setText(lueLankaXml.toString());   
-            
-            // Sen jälkeen tallennetaan perään uudet langat
-            xmlKasittely.KirjoitaLankaXML(lankaLista, tiedNimi);
-            
-            // Testi
-            ArrayList lueLankaXml2 = xmlKasittely.LueLankaXml(tiedNimi);          
-            jTextArea1.append(lueLankaXml2.toString());
-            // testi loppuu
+            lanka.lisaaLanka(lankaLista);            
+    
         } catch (Exception ex) {
             Logger.getLogger(Kayttoliittyma.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        
+
         
         //Haetaan vanhat langat, ja lisätään perään
 //        Tiedosto tiedosto = new Tiedosto();

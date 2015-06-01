@@ -31,7 +31,7 @@ public class Lankaohjelma {
 //        Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
 //        SwingUtilities.invokeLater(kayttoliittyma);
         
-        XMLKasittely kasittely = new XMLKasittely();
+        XmlKasittely kasittely = new XmlKasittely();
         String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\lanka.xml";
         ArrayList lueLankaXml = kasittely.LueLankaXml(tiedNimi);
     }

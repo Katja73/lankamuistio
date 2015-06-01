@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  *
  * @author Katja
  */
-public class XMLKasittelyTest {  
+public class XmlKasittelyTest {  
    
     @Test
     public void TestaaKayttajaxml() {  
@@ -32,7 +32,7 @@ public class XMLKasittelyTest {
         ArrayList<Kayttaja> kayttajat = new ArrayList();
         kayttajat.add(kayttaja);
         
-        XMLKasittely wr = new XMLKasittely();
+        XmlKasittely wr = new XmlKasittely();
         wr.KirjoitaKayttajaXML(kayttajat);      
     }
     
@@ -51,7 +51,7 @@ public class XMLKasittelyTest {
         langat.add(lanka2);
         langat.add(lanka3);
         
-        XMLKasittely wr = new XMLKasittely();
+        XmlKasittely wr = new XmlKasittely();
         String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\testilanka.xml";
         wr.KirjoitaLankaXML(langat, tiedNimi);      
     }
@@ -69,7 +69,7 @@ public class XMLKasittelyTest {
         kankaat.add(kangas1);
         kankaat.add(kangas2);        
         
-        XMLKasittely wr = new XMLKasittely();
+        XmlKasittely wr = new XmlKasittely();
         String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\testikangas.xml";
         wr.KirjoitaKangasXML(kankaat, tiedNimi);      
     }
@@ -80,7 +80,7 @@ public class XMLKasittelyTest {
     @Test
     public void TestaaKangasxmlLue() throws Exception {  
     
-        XMLKasittely kasittely = new XMLKasittely();
+        XmlKasittely kasittely = new XmlKasittely();
         ArrayList lueKangasXml = kasittely.LueKangasXml();        
         
         assertEquals(2, lueKangasXml.size());
@@ -92,7 +92,7 @@ public class XMLKasittelyTest {
     @Test
     public void TestaaLankaxmlLue() throws Exception {  
     
-        XMLKasittely kasittely = new XMLKasittely();
+        XmlKasittely kasittely = new XmlKasittely();
         String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\testilanka.xml";
         ArrayList lueLankaXml = kasittely.LueLankaXml(tiedNimi);        
         

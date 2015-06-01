@@ -7,6 +7,8 @@ package lankaohjelma.lankaohjelma;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Kayttajaluokka, joka sisältää käyttäjän tiedot
@@ -16,8 +18,8 @@ public class Kayttaja {
     
     private int nro;
     private String etunimi;
-    private ArrayList<RistipistoTyo> ristipistotyot;
-    private ArrayList<LankaKokoelma> omatLangat;  
+    private ArrayList<Integer> ristipistotyot;
+    private ArrayList<Integer> omatLangat;  
     
     /**
      * Oletuskonstruktori
@@ -26,8 +28,8 @@ public class Kayttaja {
     {
         setNro(0);
         setEtunimi(null);
-        setRistipistotyot(null);
-        setOmatLangat(null);      
+        setRistipistotyot(0);
+        setOmatLangat(0);      
     }
     
     /**
@@ -37,7 +39,7 @@ public class Kayttaja {
      * @param ristipistotyot
      * @param omatLangat
      */    
-    public Kayttaja(int nro, String etunimi, ArrayList<RistipistoTyo> ristipistotyot, ArrayList<LankaKokoelma> omatLangat)
+    public Kayttaja(int nro, String etunimi, ArrayList<Integer> ristipistotyot, ArrayList<Integer> omatLangat)
     {
         setNro(nro);
         setEtunimi(etunimi);
@@ -65,7 +67,7 @@ public class Kayttaja {
         return ristipistotyot;
     }
     
-    private void setRistipistotyot(ArrayList<RistipistoTyo> ristipistotyot) {
+    private void setRistipistotyot(ArrayList<Integer> ristipistotyot) {
         this.ristipistotyot = ristipistotyot;
     }
     
@@ -73,7 +75,7 @@ public class Kayttaja {
         return omatLangat;
     }
 
-    private void setOmatLangat(ArrayList<LankaKokoelma> omatLangat) {
+    private void setOmatLangat(ArrayList<Integer> omatLangat) {
         this.omatLangat = omatLangat;
     }
     
@@ -134,7 +136,20 @@ public class Kayttaja {
 //            System.out.println("Virheellinen valinta.");
 //        }
     }
-}    
+}  
+   
+    public void lisaaKayttaja(ArrayList<Kayttaja> kayttajaLista) throws Exception {
+    
+        XmlKasittely xmlKasittely = new XmlKasittely();
+        String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\lanka.xml";
+//      String tiedNimi = "C:\\Omat\\testi.txt";       
+        
+        try {        
+            xmlKasittely.KirjoitaKayttajaXML(kayttajaLista, tiedNimi);           
+        } catch (Exception ex) {
+            Logger.getLogger(Kayttoliittyma.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }
 
 //private void lisaaKayttaja(ArrayList<Kayttaja> kayttajaLista) {
 //    // Pyydetään tiedot

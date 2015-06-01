@@ -1,103 +1,23 @@
 <?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
 <Langat>
     <Lanka>
-        <LankaId>1</LankaId>
-        <MerkkiNro>543</MerkkiNro>
-        <Merkki>DMC</Merkki>
-    </Lanka>
-    <Lanka>
-        <LankaId>2</LankaId>
-        <MerkkiNro>444</MerkkiNro>
-        <Merkki>DMC</Merkki>
+        <LankaId>4</LankaId>
+        <MerkkiNro>456</MerkkiNro>
+        <Merkki>ttt</Merkki>
     </Lanka>
     <Lanka>
         <LankaId>3</LankaId>
-        <MerkkiNro>333</MerkkiNro>
-        <Merkki>Anchor</Merkki>
-    </Lanka>
-    <Lanka>
-        <LankaId>1</LankaId>
-        <MerkkiNro>543</MerkkiNro>
-        <Merkki>DMC</Merkki>
+        <MerkkiNro>786</MerkkiNro>
+        <Merkki>rrr</Merkki>
     </Lanka>
     <Lanka>
         <LankaId>2</LankaId>
-        <MerkkiNro>444</MerkkiNro>
-        <Merkki>DMC</Merkki>
-    </Lanka>
-    <Lanka>
-        <LankaId>3</LankaId>
-        <MerkkiNro>333</MerkkiNro>
-        <Merkki>Anchor</Merkki>
+        <MerkkiNro>9</MerkkiNro>
+        <Merkki>uuu</Merkki>
     </Lanka>
     <Lanka>
         <LankaId>1</LankaId>
-        <MerkkiNro>543</MerkkiNro>
-        <Merkki>DMC</Merkki>
-    </Lanka>
-    <Lanka>
-        <LankaId>2</LankaId>
-        <MerkkiNro>444</MerkkiNro>
-        <Merkki>DMC</Merkki>
-    </Lanka>
-    <Lanka>
-        <LankaId>3</LankaId>
-        <MerkkiNro>333</MerkkiNro>
-        <Merkki>Anchor</Merkki>
-    </Lanka>
-    <Lanka>
-        <LankaId>1</LankaId>
-        <MerkkiNro>543</MerkkiNro>
-        <Merkki>DMC</Merkki>
-    </Lanka>
-    <Lanka>
-        <LankaId>2</LankaId>
-        <MerkkiNro>444</MerkkiNro>
-        <Merkki>DMC</Merkki>
-    </Lanka>
-    <Lanka>
-        <LankaId>3</LankaId>
-        <MerkkiNro>333</MerkkiNro>
-        <Merkki>Anchor</Merkki>
-    </Lanka>
-    <Lanka>
-        <LankaId>1</LankaId>
-        <MerkkiNro>543</MerkkiNro>
-        <Merkki>DMC</Merkki>
-    </Lanka>
-    <Lanka>
-        <LankaId>2</LankaId>
-        <MerkkiNro>444</MerkkiNro>
-        <Merkki>DMC</Merkki>
-    </Lanka>
-    <Lanka>
-        <LankaId>3</LankaId>
-        <MerkkiNro>333</MerkkiNro>
-        <Merkki>Anchor</Merkki>
-    </Lanka>
-    <Lanka>
-        <LankaId>1</LankaId>
-        <MerkkiNro>5</MerkkiNro>
-        <Merkki>ppp</Merkki>
-    </Lanka>
-    <Lanka>
-        <LankaId>1</LankaId>
-        <MerkkiNro>5</MerkkiNro>
-        <Merkki>ert</Merkki>
-    </Lanka>
-    <Lanka>
-        <LankaId>1</LankaId>
-        <MerkkiNro>543</MerkkiNro>
-        <Merkki>DMC</Merkki>
-    </Lanka>
-    <Lanka>
-        <LankaId>2</LankaId>
-        <MerkkiNro>444</MerkkiNro>
-        <Merkki>DMC</Merkki>
-    </Lanka>
-    <Lanka>
-        <LankaId>3</LankaId>
-        <MerkkiNro>333</MerkkiNro>
-        <Merkki>Anchor</Merkki>
+        <MerkkiNro>2</MerkkiNro>
+        <Merkki>rrr</Merkki>
     </Lanka>
 </Langat>

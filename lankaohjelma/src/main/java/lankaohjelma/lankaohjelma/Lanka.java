@@ -13,6 +13,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Luokka käsittelee langan tietoja. Langat koostuvat aina nimestä ja
@@ -133,24 +135,22 @@ public class Lanka implements Serializable {
         }
     }    
 
+    /**
+     * Lisätään lanka 
+     * @param lankaLista
+     * @throws Exception
+     */
     public void lisaaLanka(ArrayList<Lanka> lankaLista) throws Exception {
-        // Pyydetään tiedot
-//        Scanner lukija = new Scanner(System.in);
-//        System.out.println("Anna tuotteen id (yksilöivä nro): ");
-//        lankaid = lukija.nextInt();        
-//         System.out.println("Anna langan nro: ");
-//        merkkinro = lukija.nextInt();
-//         System.out.println("Anna langan merkki, esim. DMC");
-//        merkki = lukija.next();
-//        
-//        // tallennetaan ne listaan
-//        lankaLista.add(new Lanka(lankaid, merkkinro, merkki));  
+    
+        XmlKasittely xmlKasittely = new XmlKasittely();
+        String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\lanka.xml";
+//      String tiedNimi = "C:\\Omat\\testi.txt";       
         
-        Tiedosto tiedosto = new Tiedosto();
-        String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\lanka.txt";
-//      String tiedNimi = "C:\\Omat\\testi.txt";
-        
-        tiedosto.Tallenna(tiedNimi, lankaLista);
+        try {        
+            xmlKasittely.KirjoitaLankaXML(lankaLista, tiedNimi);           
+        } catch (Exception ex) {
+            Logger.getLogger(Kayttoliittyma.class.getName()).log(Level.SEVERE, null, ex);
+        }        
     }
     
     /**
