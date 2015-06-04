@@ -1,4 +1,4 @@
-package lankaohjelma.lankaohjelma;
+package lankaohjelma.perusluokat;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -6,6 +6,7 @@ package lankaohjelma.lankaohjelma;
  * and open the template in the editor.
  */
 
+import lankaohjelma.perusluokat.Kangas;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -54,7 +55,6 @@ public class KangasTest {
     @Test
     public void TestaaParametrikonstruktori() {    
         
-       Kangas kangas = new Kangas(10, "Aida");
-       System.out.println(kangas);          
+       new Kangas(10, "Aida");            
     }
 }

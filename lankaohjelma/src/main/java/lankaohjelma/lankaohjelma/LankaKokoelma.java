@@ -5,6 +5,7 @@
  */
 package lankaohjelma.lankaohjelma;
 
+import lankaohjelma.perusluokat.Lanka;
 import java.util.ArrayList;
 
 /**

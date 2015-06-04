@@ -3,9 +3,9 @@ package lankaohjelma.lankaohjelma;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import lankaohjelma.lankaohjelma.Kangas;
-import lankaohjelma.lankaohjelma.Kayttaja;
-import lankaohjelma.lankaohjelma.RistipistoTyo;
+import lankaohjelma.perusluokat.Kangas;
+import lankaohjelma.perusluokat.Kayttaja;
+import lankaohjelma.perusluokat.RistipistoTyo;
 import java.io.*;
 
 /*

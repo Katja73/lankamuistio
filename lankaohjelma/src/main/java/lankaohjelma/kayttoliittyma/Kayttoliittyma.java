@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lankaohjelma.lankaohjelma;
+package lankaohjelma.kayttoliittyma;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import lankaohjelma.perusluokat.Lanka;
 
 /**
  *
@@ -155,7 +156,7 @@ public class Kayttoliittyma extends javax.swing.JFrame {
         String lankaMerkki;
         String tulos;
         ArrayList<Lanka> lankaLista = new ArrayList<Lanka>();
-        String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\lanka.txt";
+        String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\lanka.xml";
         
         lankaid = Integer.parseInt(jTextField1.getText());
         lankanro = Integer.parseInt(jTextField2.getText());

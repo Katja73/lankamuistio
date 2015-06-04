@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lankaohjelma.lankaohjelma;
+package lankaohjelma.perusluokat;
 
+import lankaohjelma.perusluokat.Kayttaja;
+import lankaohjelma.perusluokat.Kangas;
 import java.util.ArrayList;
+import lankaohjelma.lankaohjelma.TyonLanka;
 
 /**
  *

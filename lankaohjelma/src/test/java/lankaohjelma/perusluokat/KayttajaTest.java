@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lankaohjelma.lankaohjelma;
+package lankaohjelma.perusluokat;
 
+import lankaohjelma.perusluokat.Kayttaja;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -54,11 +55,6 @@ public class KayttajaTest {
     @Test
     public void TestaaParametrikonstruktori() {    
         
-       Kayttaja kayttaja = new Kayttaja(1, "Katja", null, null );
-       System.out.println(kayttaja);       
-       
-    }
-    
-
-    
+       new Kayttaja(1, "Katja", null, null );       
+    }      
 }

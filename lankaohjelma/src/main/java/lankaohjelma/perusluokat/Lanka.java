@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lankaohjelma.lankaohjelma;
+package lankaohjelma.perusluokat;
 
+import lankaohjelma.kayttoliittyma.Kayttoliittyma;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -15,12 +16,20 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import lankaohjelma.lankaohjelma.Tiedosto;
+import lankaohjelma.lankaohjelma.XmlKasittely;
 
 /**
  * Luokka käsittelee langan tietoja. Langat koostuvat aina nimestä ja
  * numerosta. Esim. DMC 365. Molemmat ovat pakollisia tietoja.
  * @author Katja
  */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement
 public class Lanka implements Serializable {
     
     private int lankaid;
@@ -32,6 +41,7 @@ public class Lanka implements Serializable {
     /**
      * Oletuskonstruktori
      */
+    
     public Lanka()
     {
         setLankaid(0);
@@ -56,6 +66,7 @@ public class Lanka implements Serializable {
     public int getLankaid()
     {return lankaid;}
     
+//    @XmlElement
     public void setLankaid(int lankaid) {
         this.lankaid = lankaid;
     }
@@ -63,6 +74,7 @@ public class Lanka implements Serializable {
     public int getLankanro()
     {return merkkinro;}
     
+//    @XmlElement
     public void setLankanro(int lankanro) {
         this.merkkinro = lankanro;
     }
@@ -72,6 +84,7 @@ public class Lanka implements Serializable {
         return merkki;
     }
 
+//    @XmlElement
     public void setMerkki(String merkki) {
         this.merkki = merkki;
     }
@@ -143,9 +156,8 @@ public class Lanka implements Serializable {
     public void lisaaLanka(ArrayList<Lanka> lankaLista) throws Exception {
     
         XmlKasittely xmlKasittely = new XmlKasittely();
-        String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\lanka.xml";
-//      String tiedNimi = "C:\\Omat\\testi.txt";       
-        
+        String tiedNimi = "src\\testitiedostot\\lanka.xml";
+
         try {        
             xmlKasittely.KirjoitaLankaXML(lankaLista, tiedNimi);           
         } catch (Exception ex) {

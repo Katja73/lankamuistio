@@ -15,4 +15,19 @@
         <MerkkiNro>333</MerkkiNro>
         <Merkki>Anchor</Merkki>
     </Lanka>
+    <Lanka>
+        <LankaId>1</LankaId>
+        <MerkkiNro>543</MerkkiNro>
+        <Merkki>DMC</Merkki>
+    </Lanka>
+    <Lanka>
+        <LankaId>2</LankaId>
+        <MerkkiNro>444</MerkkiNro>
+        <Merkki>DMC</Merkki>
+    </Lanka>
+    <Lanka>
+        <LankaId>3</LankaId>
+        <MerkkiNro>333</MerkkiNro>
+        <Merkki>Anchor</Merkki>
+    </Lanka>
 </Langat>

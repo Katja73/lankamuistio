@@ -5,6 +5,8 @@
  */
 package lankaohjelma.lankaohjelma;
 
+import lankaohjelma.perusluokat.Lanka;
+import lankaohjelma.perusluokat.Kangas;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;

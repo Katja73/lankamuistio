@@ -3,11 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lankaohjelma.lankaohjelma;
+package lankaohjelma.perusluokat;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import lankaohjelma.kayttoliittyma.Kayttoliittyma;
+import lankaohjelma.lankaohjelma.Tiedosto;
+import lankaohjelma.lankaohjelma.XmlKasittely;
 
 /**
  *
@@ -101,7 +106,7 @@ public class Kangas implements Serializable {
 
                     //Tallennetaan tiedosto talteen seuraavaa kertaa varten
                     Tiedosto tiedosto = new Tiedosto();
-                    String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\kangas.txt";
+                    String tiedNimi = "src\\testitiedostot\\kangas.txt";
                     tiedosto.Tallenna(tiedNimi, kangasLista);
                     System.exit(0);
 
@@ -112,17 +117,20 @@ public class Kangas implements Serializable {
         }
     }
 
-    private void lisaaKangas(ArrayList <Kangas> kangasLista) {
-        Scanner lukija = new Scanner(System.in);
-        
-        // Pyydetään tiedot
-        System.out.println("Anna kankaan nro: ");
-        kangasnro = lukija.nextInt();
-        System.out.println("Annan kankaan merkki, esim. Aida: ");
-        kangasMerkki = lukija.next();
-        
-        // Tallennetaan kankaan tiedot listaan
-        kangasLista.add(new Kangas(kangasnro, kangasMerkki));
+    /**
+     * Lisätään kankaat 
+     * @param kangasLista Lista lisättävistä kankaista
+     */
+    public void lisaaKangas(ArrayList <Kangas> kangasLista) {
+                
+        XmlKasittely xmlKasittely = new XmlKasittely();
+        String tiedNimi = "src\\testitiedostot\\kangas.xml";
+
+        try {        
+            xmlKasittely.KirjoitaKangasXML(kangasLista, tiedNimi);           
+        } catch (Exception ex) {
+            Logger.getLogger(Kayttoliittyma.class.getName()).log(Level.SEVERE, null, ex);
+        }        
     }
 
     private void tulostaKankaat(ArrayList<Kangas> kangasLista) {

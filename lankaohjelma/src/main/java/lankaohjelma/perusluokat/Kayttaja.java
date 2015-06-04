@@ -3,23 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lankaohjelma.lankaohjelma;
+package lankaohjelma.perusluokat;
 
+import lankaohjelma.kayttoliittyma.Kayttoliittyma;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import lankaohjelma.lankaohjelma.XmlKasittely;
 
 /**
  * Kayttajaluokka, joka sisältää käyttäjän tiedot
  * @author Katja
  */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Kayttaja {
     
+    
     private int nro;
+    
     private String etunimi;
+//    @XmlElement
     private ArrayList<Integer> ristipistotyot;
-    private ArrayList<Integer> omatLangat;  
+//    @XmlElement
+    private ArrayList<Lanka> omatLangat;  
     
     /**
      * Oletuskonstruktori
@@ -28,8 +40,8 @@ public class Kayttaja {
     {
         setNro(0);
         setEtunimi(null);
-        setRistipistotyot(0);
-        setOmatLangat(0);      
+        setRistipistotyot(null);
+        setOmatLangat(null);      
     }
     
     /**
@@ -39,7 +51,7 @@ public class Kayttaja {
      * @param ristipistotyot
      * @param omatLangat
      */    
-    public Kayttaja(int nro, String etunimi, ArrayList<Integer> ristipistotyot, ArrayList<Integer> omatLangat)
+    public Kayttaja(int nro, String etunimi, ArrayList<Integer> ristipistotyot, ArrayList<Lanka> omatLangat)
     {
         setNro(nro);
         setEtunimi(etunimi);
@@ -51,15 +63,17 @@ public class Kayttaja {
         return nro;
     }
     
-    private void setNro(int nro) {
+//    @XmlElement
+    public void setNro(int nro) {
         this.nro = nro;
     }
 
      public String getEtunimi()  {
         return etunimi;
     }
-     
-    private void setEtunimi(String etunimi) {
+    
+//    @XmlElement 
+    public void setEtunimi(String etunimi) {
         this.etunimi = etunimi;
     }
 
@@ -67,15 +81,18 @@ public class Kayttaja {
         return ristipistotyot;
     }
     
-    private void setRistipistotyot(ArrayList<Integer> ristipistotyot) {
+//    @XmlElement
+    public void setRistipistotyot(ArrayList<Integer> ristipistotyot) {
         this.ristipistotyot = ristipistotyot;
     }
     
     public ArrayList getOmatLangat()  {
         return omatLangat;
     }
-
-    private void setOmatLangat(ArrayList<Integer> omatLangat) {
+    
+//    @XmlElement
+    @XmlElement(type = Lanka.class)
+    public void setOmatLangat(ArrayList<Lanka> omatLangat) {
         this.omatLangat = omatLangat;
     }
     
@@ -141,8 +158,7 @@ public class Kayttaja {
     public void lisaaKayttaja(ArrayList<Kayttaja> kayttajaLista) throws Exception {
     
         XmlKasittely xmlKasittely = new XmlKasittely();
-        String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\lanka.xml";
-//      String tiedNimi = "C:\\Omat\\testi.txt";       
+        String tiedNimi = "src\\testitiedostot\\kayttaja.xml";   
         
         try {        
             xmlKasittely.KirjoitaKayttajaXML(kayttajaLista, tiedNimi);           

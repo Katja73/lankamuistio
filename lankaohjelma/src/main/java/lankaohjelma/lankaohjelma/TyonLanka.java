@@ -5,6 +5,8 @@
  */
 package lankaohjelma.lankaohjelma;
 
+import lankaohjelma.perusluokat.Lanka;
+
 /**
  *
  * @author Katja

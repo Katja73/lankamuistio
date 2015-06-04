@@ -3,9 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lankaohjelma.lankaohjelma;
+package lankaohjelma.perusluokat;
 
+import lankaohjelma.perusluokat.RistipistoTyo;
+import lankaohjelma.perusluokat.Kayttaja;
+import lankaohjelma.perusluokat.Kangas;
 import java.util.ArrayList;
+import lankaohjelma.lankaohjelma.TyonLanka;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -45,9 +49,8 @@ public class RistipistoTyoTest {
     public void TestaaOletuskonstruktori() {
         
         // luodaan ristipistotyo oletuskonstruktorilla
-        RistipistoTyo oletusTyo = new RistipistoTyo();
-        // ja tulostetaan se 
-        System.out.println(oletusTyo);
+        new RistipistoTyo();
+
       
     }
     
@@ -62,12 +65,10 @@ public class RistipistoTyoTest {
         Kangas kangas = new Kangas();
         Kayttaja kayttaja = new Kayttaja();
         int leveys = 10;
-        int korkeus = 5;       
+        int korkeus = 5;      
         
-        RistipistoTyo oletusTyo = new RistipistoTyo(langat, kangas, kayttaja, leveys, korkeus);
-        
-        // ja tulostetaan se 
-        System.out.println(oletusTyo);      
+       new RistipistoTyo(langat, kangas, kayttaja, leveys, korkeus);    
+      
     }
     
     /**

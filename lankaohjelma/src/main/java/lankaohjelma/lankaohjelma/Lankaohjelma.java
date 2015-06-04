@@ -5,9 +5,13 @@
  */
 package lankaohjelma.lankaohjelma;
 
+import lankaohjelma.perusluokat.RistipistoTyo;
+import lankaohjelma.perusluokat.Lanka;
+import lankaohjelma.perusluokat.Kangas;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.SwingUtilities;
+import lankaohjelma.perusluokat.Kayttaja;
 
 /**
  *
@@ -31,9 +35,18 @@ public class Lankaohjelma {
 //        Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
 //        SwingUtilities.invokeLater(kayttoliittyma);
         
-        XmlKasittely kasittely = new XmlKasittely();
-        String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\lanka.xml";
-        ArrayList lueLankaXml = kasittely.LueLankaXml(tiedNimi);
+//        XmlKasittely kasittely = new XmlKasittely();
+//        String tiedNimi = "src\\testitiedostot\\kayttaja.xml";
+//        ArrayList lueKayttajaXml = kasittely.LueKayttajaXml(tiedNimi);
+        
+          XmlKasittely kasittely = new XmlKasittely();
+        String tiedNimi = "src\\testitiedostot\\testikayttaja.xml";
+        
+     
+//            ArrayList lueKayttajaXml = kasittely.haeKaikkiKayttajat2(tiedNimi);
+        kasittely.kirjoitaKayttajaXml3(null, tiedNimi);
+                  
+      
     }
     
     /** Metodi avaa valitun toiminnon ikkunan, riippuen parametrista

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lankaohjelma.lankaohjelma;
+package lankaohjelma.perusluokat;
 
+import lankaohjelma.perusluokat.Lanka;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -54,8 +55,7 @@ public class LankaTest {
     @Test
     public void TestaaParametrikonstruktori() {
     
-       Lanka lanka = new Lanka(1, 365, "DMC");      
-       System.out.println(lanka);    
+       new Lanka(1, 365, "DMC");          
     }
     
     @Test
