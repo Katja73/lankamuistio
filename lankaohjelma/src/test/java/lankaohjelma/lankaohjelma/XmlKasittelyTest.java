@@ -12,6 +12,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import lankaohjelma.perusluokat.KayttajaKokoelma;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -209,7 +210,10 @@ public class XmlKasittelyTest {
         kayttajat.add(kayttaja1);
         kayttajat.add(kayttaja2);
         
-        kasittely.kirjoitaKayttajaXml3(kayttajat, tiedNimi);     
+        KayttajaKokoelma kayttajaKokoelma = new KayttajaKokoelma();
+        kayttajaKokoelma.setKayttajat(kayttajat);
+        
+        kasittely.kirjoitaKayttajaXml3(kayttajaKokoelma, tiedNimi);     
        
     }
     

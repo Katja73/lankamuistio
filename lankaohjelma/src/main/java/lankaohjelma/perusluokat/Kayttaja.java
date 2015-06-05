@@ -20,7 +20,7 @@ import lankaohjelma.lankaohjelma.XmlKasittely;
  * Kayttajaluokka, joka sisältää käyttäjän tiedot
  * @author Katja
  */
-@XmlRootElement
+//@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Kayttaja {
     

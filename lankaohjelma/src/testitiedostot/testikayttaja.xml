@@ -1,8 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<kayttaja>
-    <nro>2</nro>
-    <etunimi>Liisa</etunimi>
-    <ristipistotyot>5</ristipistotyot>
-    <ristipistotyot>6</ristipistotyot>
-    <ristipistotyot>7</ristipistotyot>
-</kayttaja>
+<kayttajaKokoelma>
+    <kayttajat>
+        <nro>1</nro>
+        <etunimi>Katja</etunimi>
+        <ristipistotyot>1</ristipistotyot>
+        <ristipistotyot>2</ristipistotyot>
+        <ristipistotyot>3</ristipistotyot>
+        <omatLangat>
+            <lankaid>1</lankaid>
+            <merkkinro>456</merkkinro>
+            <merkki>DMC</merkki>
+            <toimintokoodi>0</toimintokoodi>
+        </omatLangat>
+        <omatLangat>
+            <lankaid>2</lankaid>
+            <merkkinro>678</merkkinro>
+            <merkki>Anchor</merkki>
+            <toimintokoodi>0</toimintokoodi>
+        </omatLangat>
+    </kayttajat>
+    <kayttajat>
+        <nro>2</nro>
+        <etunimi>Liisa</etunimi>
+        <ristipistotyot>5</ristipistotyot>
+        <ristipistotyot>6</ristipistotyot>
+        <ristipistotyot>7</ristipistotyot>
+        <omatLangat>
+            <lankaid>1</lankaid>
+            <merkkinro>456</merkkinro>
+            <merkki>DMC</merkki>
+            <toimintokoodi>0</toimintokoodi>
+        </omatLangat>
+        <omatLangat>
+            <lankaid>4</lankaid>
+            <merkkinro>847</merkkinro>
+            <merkki>DMC</merkki>
+            <toimintokoodi>0</toimintokoodi>
+        </omatLangat>
+    </kayttajat>
+</kayttajaKokoelma>

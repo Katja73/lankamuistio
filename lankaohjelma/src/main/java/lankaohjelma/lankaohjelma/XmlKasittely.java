@@ -56,6 +56,7 @@ import org.w3c.dom.*;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
+import lankaohjelma.perusluokat.KayttajaKokoelma;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException; 
 
@@ -565,20 +566,20 @@ public class XmlKasittely {
      * @param tiedNimi
      * @throws Exception
      */
-    public void kirjoitaKayttajaXml3(ArrayList<Kayttaja> kayttajat, String tiedNimi) throws Exception{
+    public void kirjoitaKayttajaXml3(KayttajaKokoelma kayttajat, String tiedNimi) throws Exception{
         
         try { 
             File file = new File(tiedNimi);
-            JAXBContext jaxbContext = JAXBContext.newInstance(Kayttaja.class);
+            JAXBContext jaxbContext = JAXBContext.newInstance(KayttajaKokoelma.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
                 
 //          jaxbMarshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
                 
-            for (int i = 0; i < kayttajat.size(); i++) {
-                jaxbMarshaller.marshal(kayttajat.get(i), file);
-                jaxbMarshaller.marshal(kayttajat.get(i), System.out);
-            }
+         //   for (int i = 0; i < kayttajat.size(); i++) {
+                jaxbMarshaller.marshal(kayttajat, file);
+                jaxbMarshaller.marshal(kayttajat, System.out);
+         //   }
 	    
         } catch (JAXBException e) {
             e.printStackTrace();

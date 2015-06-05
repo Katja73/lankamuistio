@@ -8,12 +8,15 @@ package lankaohjelma.perusluokat;
 import lankaohjelma.perusluokat.Kayttaja;
 import lankaohjelma.perusluokat.Kangas;
 import java.util.ArrayList;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import lankaohjelma.lankaohjelma.TyonLanka;
 
 /**
  *
  * @author Katja
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class RistipistoTyo {
     
     public int tyoId;    
