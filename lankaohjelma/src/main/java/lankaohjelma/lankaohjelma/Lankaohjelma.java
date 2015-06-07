@@ -43,8 +43,8 @@ public class Lankaohjelma {
         String tiedNimi = "src\\testitiedostot\\testikayttaja.xml";
         
      
-//            ArrayList lueKayttajaXml = kasittely.haeKaikkiKayttajat2(tiedNimi);
-        kasittely.kirjoitaKayttajaXml3(null, tiedNimi);
+//            ArrayList lueKayttajaXml = kasittely.HaeKaikkiKayttajat(tiedNimi);
+        kasittely.KirjoitaKayttajaXml(null, tiedNimi);
                   
       
     }
@@ -59,16 +59,16 @@ public class Lankaohjelma {
         {
              System.out.println("Avataan tyoikkuna");   
         }
-        if (toiminto == 2)
-        {   
-            Lanka lanka = new Lanka();
-            lanka.aja();
-        }
-        if (toiminto == 3)
-        {
-            Kangas kangas = new Kangas();
-            kangas.kayta();
-        }
+//        if (toiminto == 2)
+//        {   
+//            Lanka lanka = new Lanka();
+//            lanka.aja();
+//        }
+//        if (toiminto == 3)
+//        {
+//            Kangas kangas = new Kangas();
+//            kangas.kayta();
+//        }
      }
     
     public void LisaaRistipistoTyo(RistipistoTyo uusiTyo)

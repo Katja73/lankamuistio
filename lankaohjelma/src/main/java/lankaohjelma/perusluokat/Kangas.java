@@ -10,8 +10,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import lankaohjelma.kayttoliittyma.Kayttoliittyma;
-import lankaohjelma.lankaohjelma.Tiedosto;
+import lankaohjelma.kayttoliittyma.LankaKl;
 import lankaohjelma.lankaohjelma.XmlKasittely;
 
 /**
@@ -53,8 +52,6 @@ public class Kangas implements Serializable {
         this.kangasMerkki = kangasMerkki;
     }
     
-    private int toimintokoodi;
-    
     /**
      * Tulostetaan merkin tiedot
      * @return merkkinro ja merkki
@@ -64,72 +61,21 @@ public class Kangas implements Serializable {
     {
         return kangasnro + ", " 
                 + kangasMerkki;    
-    } 
-    
-    /**
-     * Metodi, josta luokkaa voidaan ajaa
-     */
-    public void kayta() throws Exception{
-        
-        // luodaan lista Kangas -tyyppisille olioille
-        ArrayList<Kangas> kangasLista = new ArrayList<Kangas>();
-        while (true){
-                
-            Scanner lukija = new Scanner(System.in);
-
-            int valinta;
-            toimintokoodi = 2;
-
-            while (true) {
-                //annetaan käyttäjälle vaihtoehdot ikuisessa loopissa
-                System.out.println("Valitse toiminto: ");
-                System.out.println("1. Lisää kangas");
-                System.out.println("2. Etsi kangas");
-                System.out.println("3. Poista kangas");
-                System.out.println("4. Tulosta kaikki kankaat");
-                System.out.println("0. Lopeta");
-                valinta = lukija.nextInt();
-
-                //valitaan switchillä, mitä metodia kulloinkin ajetaan (tai lopetetaanko ohjelma tms)
-                switch (valinta) {
-                    case 1:
-                    lisaaKangas(kangasLista);
-                    break;
-                    case 2:
-                    etsiKangas(kangasLista);
-                    break;
-                    case 3:
-                    tulostaKankaat(kangasLista);
-                    break;
-                    case 0:
-                    System.out.println("Kiitos ohjelman käytöstä!");
-
-                    //Tallennetaan tiedosto talteen seuraavaa kertaa varten
-                    Tiedosto tiedosto = new Tiedosto();
-                    String tiedNimi = "src\\testitiedostot\\kangas.txt";
-                    tiedosto.Tallenna(tiedNimi, kangasLista);
-                    System.exit(0);
-
-                    default:
-                    System.out.println("Virheellinen valinta.");        
-                }
-            }
-        }
-    }
+    }    
 
     /**
      * Lisätään kankaat 
      * @param kangasLista Lista lisättävistä kankaista
      */
-    public void lisaaKangas(ArrayList <Kangas> kangasLista) {
+    public void lisaaKangas(Kangas lisattavaKangas) {
                 
         XmlKasittely xmlKasittely = new XmlKasittely();
         String tiedNimi = "src\\testitiedostot\\kangas.xml";
 
         try {        
-            xmlKasittely.KirjoitaKangasXML(kangasLista, tiedNimi);           
+            xmlKasittely.KirjoitaKangasXML(lisattavaKangas, tiedNimi);           
         } catch (Exception ex) {
-            Logger.getLogger(Kayttoliittyma.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LankaKl.class.getName()).log(Level.SEVERE, null, ex);
         }        
     }
 

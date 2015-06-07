@@ -5,7 +5,9 @@
  */
 package lankaohjelma.perusluokat;
 
-import lankaohjelma.kayttoliittyma.Kayttoliittyma;
+import lankaohjelma.kokoelmat.KayttajaKokoelma;
+import lankaohjelma.kokoelmat.LankaKokoelma;
+import lankaohjelma.kayttoliittyma.LankaKl;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -20,18 +22,13 @@ import lankaohjelma.lankaohjelma.XmlKasittely;
  * Kayttajaluokka, joka sisältää käyttäjän tiedot
  * @author Katja
  */
-//@XmlRootElement
+
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Kayttaja {
-    
-    
-    private int nro;
-    
+    private int nro;    
     private String etunimi;
-//    @XmlElement
-    private ArrayList<Integer> ristipistotyot;
-//    @XmlElement
-    private ArrayList<Lanka> omatLangat;  
+    private ArrayList<RistipistoTyo> ristipistotyot;
+    private LankaKokoelma lankaKokoelma;  
     
     /**
      * Oletuskonstruktori
@@ -41,7 +38,7 @@ public class Kayttaja {
         setNro(0);
         setEtunimi(null);
         setRistipistotyot(null);
-        setOmatLangat(null);      
+        setLankaKokoelma(null);      
     }
     
     /**
@@ -49,21 +46,20 @@ public class Kayttaja {
      * @param nro
      * @param etunimi
      * @param ristipistotyot
-     * @param omatLangat
+     * @param lankaKokoelma    
      */    
-    public Kayttaja(int nro, String etunimi, ArrayList<Integer> ristipistotyot, ArrayList<Lanka> omatLangat)
+    public Kayttaja(int nro, String etunimi, ArrayList<RistipistoTyo> ristipistotyot, LankaKokoelma lankaKokoelma)
     {
         setNro(nro);
         setEtunimi(etunimi);
         setRistipistotyot(ristipistotyot);
-        setOmatLangat(omatLangat);      
+        setLankaKokoelma(lankaKokoelma);      
     }      
    
     public int getNro()  {
         return nro;
     }
-    
-//    @XmlElement
+
     public void setNro(int nro) {
         this.nro = nro;
     }
@@ -71,8 +67,7 @@ public class Kayttaja {
      public String getEtunimi()  {
         return etunimi;
     }
-    
-//    @XmlElement 
+ 
     public void setEtunimi(String etunimi) {
         this.etunimi = etunimi;
     }
@@ -80,20 +75,17 @@ public class Kayttaja {
     public ArrayList getRistipistotyot()  {
         return ristipistotyot;
     }
-    
-//    @XmlElement
-    public void setRistipistotyot(ArrayList<Integer> ristipistotyot) {
+
+    public void setRistipistotyot(ArrayList<RistipistoTyo> ristipistotyot) {
         this.ristipistotyot = ristipistotyot;
     }
     
-    public ArrayList getOmatLangat()  {
-        return omatLangat;
+    public LankaKokoelma getLankaKokoelma()  {
+        return lankaKokoelma;
     }
     
-//    @XmlElement
-    @XmlElement(type = Lanka.class)
-    public void setOmatLangat(ArrayList<Lanka> omatLangat) {
-        this.omatLangat = omatLangat;
+    public void setLankaKokoelma(LankaKokoelma lankaKokoelma) {
+        this.lankaKokoelma = lankaKokoelma;
     }
     
      /**
@@ -104,7 +96,7 @@ public class Kayttaja {
     {
         return nro + ", " 
                 + etunimi + ", "
-                + omatLangat + ", "
+                + lankaKokoelma + ", "
                 + ristipistotyot + ".";               
     } 
     
@@ -155,15 +147,20 @@ public class Kayttaja {
     }
 }  
    
-    public void lisaaKayttaja(ArrayList<Kayttaja> kayttajaLista) throws Exception {
+    /**
+     *
+     * @param kayttajaKokoelma
+     * @throws Exception
+     */
+    public void lisaaKayttaja(KayttajaKokoelma kayttajaKokoelma) throws Exception {
     
         XmlKasittely xmlKasittely = new XmlKasittely();
         String tiedNimi = "src\\testitiedostot\\kayttaja.xml";   
         
         try {        
-            xmlKasittely.KirjoitaKayttajaXML(kayttajaLista, tiedNimi);           
+            xmlKasittely.KirjoitaKayttajaXml(kayttajaKokoelma, tiedNimi);           
         } catch (Exception ex) {
-            Logger.getLogger(Kayttoliittyma.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LankaKl.class.getName()).log(Level.SEVERE, null, ex);
         }        
     }
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ristipistoTyoKokoelma>
+    <ristipistotyot>
+        <tyoId>1</tyoId>
+        <tyonLangat>
+            <maara>1.0</maara>
+        </tyonLangat>
+        <leveys>15</leveys>
+        <korkeus>30</korkeus>
+    </ristipistotyot>
+</ristipistoTyoKokoelma>

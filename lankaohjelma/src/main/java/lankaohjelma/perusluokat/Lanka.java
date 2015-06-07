@@ -5,7 +5,7 @@
  */
 package lankaohjelma.perusluokat;
 
-import lankaohjelma.kayttoliittyma.Kayttoliittyma;
+import lankaohjelma.kayttoliittyma.LankaKl;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -20,7 +20,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import lankaohjelma.lankaohjelma.Tiedosto;
 import lankaohjelma.lankaohjelma.XmlKasittely;
 
 /**
@@ -100,68 +99,21 @@ public class Lanka implements Serializable {
                 + merkkinro + ","
                 + merkki;    
     }  
-    
-    public void aja() throws Exception{
-        //luodaan lista Lanka-tyyppisille olioille
-        ArrayList<Lanka> lankaLista = new ArrayList<Lanka>();
-        while (true)
-        {
-            Scanner lukija = new Scanner(System.in);
-            int valinta;
-                        
-            System.out.println("Valitse toiminto: ");
-            System.out.println("1. Langan lisäys");
-            System.out.println("2. Langan haku");
-            System.out.println("3. Langan poisto");
-            System.out.println("4. Lankalista");
-            System.out.println("0. Lopeta");         
-            valinta = lukija.nextInt();
-            
-            switch (valinta) {
-                case 1:
-                lisaaLanka(lankaLista);
-                break;
-                case 2:
-                etsiLanka(lankaLista);
-                break;
-//                case 3:
-//                poistaLanka(lankaLista);
-//                break;
-                case 4:
-                tulostaLanka(lankaLista);
-                break;
-                case 0:
-                System.out.println("Kiitos ohjelman käytöstä!");
-                
-                //Tallennetaan tiedosto talteen seuraavaa kertaa varten
-                Tiedosto tiedosto = new Tiedosto();
-                String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\lanka.ser";
-//                String tiedNimi = "C:\\Omat\\testi.txt";
-
-                tiedosto.Tallenna(tiedNimi, lankaLista);
-//                tiedosto.LataaTiedosto(tiedNimi);
-
-                System.exit(0);
-                default:
-                System.out.println("Virheellinen valinta.");
-            }
-        }
-    }    
 
     /**
      * Lisätään lanka 
      * @param lankaLista
      * @throws Exception
      */
-    public void lisaaLanka(ArrayList<Lanka> lankaLista) throws Exception {
+    public void lisaaLanka(Lanka lisattavaLanka) throws Exception {
     
         XmlKasittely xmlKasittely = new XmlKasittely();
         String tiedNimi = "src\\testitiedostot\\lanka.xml";
 
         try {        
-            xmlKasittely.KirjoitaLankaXML(lankaLista, tiedNimi);           
+            xmlKasittely.KirjoitaLankaXML(lisattavaLanka, tiedNimi);           
         } catch (Exception ex) {
-            Logger.getLogger(Kayttoliittyma.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LankaKl.class.getName()).log(Level.SEVERE, null, ex);
         }        
     }
     

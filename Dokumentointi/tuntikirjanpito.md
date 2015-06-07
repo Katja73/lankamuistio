@@ -49,13 +49,19 @@
 **Su 31.5.2015**
 - 5 h Lisää XML:n kanssa tappelua
 
-**Su 3.6.2015**
+**Ke 3.6.2015**
 - 3 h Lisää XML:n kanssa tappelua
 
-**Su 4.6.2015**
+**To 4.6.2015**
 - 3 h Lisää XML:n kanssa tappelua. Tämä alkaa mennä jo naurettavuuksiin. Pakko keksiä kohta jotain muuta, ei yhden looppaavan 
    xml:n tekeminen voi olla näin hankalaa. Tein myös sekvenssikaaviota alkuun. Tarkoitus oli edistää käyttöliittymää, mutta
    haluaisin ensin nuo luokat kuntoon. Palautus on tosi huono tälle viikolle.
+
+**Pe 5.6.2015**
+- 3 h Nyt sujuu paremmin. Sain lopulta XML:t toimimaan, kun otin käyttöön Jaxb:n. Nyt on käytössä kahta eri menetelmää, mutta en vaihda enää toimivia.
+
+**Su 7.6.2015**
+- 5 h Tein testejä XML:lle ja piirsin käyttöliittymää. Sen lisäksi kirjoitin käyttötapauksia.
 
 
 

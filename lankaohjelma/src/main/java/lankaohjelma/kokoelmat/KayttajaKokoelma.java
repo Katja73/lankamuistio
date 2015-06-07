@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lankaohjelma.perusluokat;
+package lankaohjelma.kokoelmat;
 
 import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import lankaohjelma.perusluokat.Kayttaja;
 
 /**
  *
@@ -16,8 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class KayttajaKokoelma {
-    
+public class KayttajaKokoelma {    
     
     ArrayList<Kayttaja> kayttajat;
     
@@ -29,8 +29,7 @@ public class KayttajaKokoelma {
         setKayttajat(null);
        
     }
-    
-    //    @XmlElement
+
     public void setKayttajat(ArrayList<Kayttaja> kayttajat) {
         this.kayttajat = kayttajat;
     }

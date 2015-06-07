@@ -62,12 +62,11 @@ public class RistipistoTyoTest {
         
         // Syötetään testitiedot
         ArrayList<TyonLanka> langat = null;        
-        Kangas kangas = new Kangas();
-        Kayttaja kayttaja = new Kayttaja();
+        Kangas kangas = new Kangas();       
         int leveys = 10;
         int korkeus = 5;      
         
-       new RistipistoTyo(langat, kangas, kayttaja, leveys, korkeus);    
+       new RistipistoTyo(1, langat, kangas, leveys, korkeus);    
       
     }
     
@@ -80,11 +79,11 @@ public class RistipistoTyoTest {
         // Syötetään testitiedot
         ArrayList<TyonLanka> langat = null;          
         Kangas kangas = new Kangas();
-        Kayttaja kayttaja = new Kayttaja();
+        
         int leveys = 30;
         int korkeus = 45;       
         
-        RistipistoTyo oletusTyo = new RistipistoTyo(langat, kangas, kayttaja, leveys, korkeus);
+        RistipistoTyo oletusTyo = new RistipistoTyo(1, langat, kangas, leveys, korkeus);
         int korkeus1 = oletusTyo.getKorkeus();
         int leveys1 = oletusTyo.getLeveys();
         

@@ -5,36 +5,39 @@
  */
 package lankaohjelma.lankaohjelma;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import lankaohjelma.perusluokat.Kayttaja;
 import lankaohjelma.perusluokat.Lanka;
-import java.util.ArrayList;
 
 /**
- * Kayttajan omat langat
+ *
  * @author Katja
  */
-class LankaKokoelma {
+@XmlAccessorType(XmlAccessType.FIELD)
+public class OmaLanka {
     
-    private int kokoelmaId;    
     private Lanka lanka;
     private int maara;
     private boolean osta;
-    
+   
     /**
      * Oletuskonstruktori
      */
-    public LankaKokoelma()
+    public OmaLanka()
     {       
-        setKokoelmaId(0);
         setLanka(null);
         setMaara(0);
-        setOsta(false);      
+        setOsta(false); 
+        
     }
 
-    public LankaKokoelma(Lanka lanka, int maara, boolean osta)
+    public OmaLanka(Lanka lanka, int maara, boolean osta)
     {
         setLanka(lanka);
         setMaara(maara);
-        setOsta(osta);       
+        setOsta(osta);  
+        
     }    
    
     public Lanka getLanka()  {
@@ -59,15 +62,7 @@ class LankaKokoelma {
 
     public void setOsta(boolean osta) {
         this.osta = osta;
-    }  
-    
-    public int getKokoelmaId() {
-        return kokoelmaId;
-    }
-
-    public void setKokoelmaId(int kokoelmaId ) {
-        this.kokoelmaId = kokoelmaId;
-    }
+    }   
     
     /**
      * Tulostetaan lankakokoelman tiedot
@@ -79,4 +74,5 @@ class LankaKokoelma {
                 + maara + ", "
                 + osta + ". ";    
     }    
+    
 }

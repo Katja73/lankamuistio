@@ -8,9 +8,13 @@ package lankaohjelma.perusluokat;
 import lankaohjelma.perusluokat.Kayttaja;
 import lankaohjelma.perusluokat.Kangas;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import lankaohjelma.kayttoliittyma.LankaKl;
 import lankaohjelma.lankaohjelma.TyonLanka;
+import lankaohjelma.lankaohjelma.XmlKasittely;
 
 /**
  *
@@ -21,8 +25,7 @@ public class RistipistoTyo {
     
     public int tyoId;    
     public ArrayList<TyonLanka> tyonLangat;
-    public Kangas tyonKangas;
-    public Kayttaja tyonTekija;
+    public Kangas tyonKangas;  
     public int leveys;
     public int korkeus;
     
@@ -33,8 +36,7 @@ public class RistipistoTyo {
     {
         setTyoId(0);
         setLangat(null);
-        setKangas(null);
-        setKayttaja(null);
+        setKangas(null);       
         setLeveys(0);
         setKorkeus(0);
     }
@@ -42,24 +44,20 @@ public class RistipistoTyo {
     /**
      * Kaikki parametrit vastaanottava konstruktori
      * @param tyonLangat
-     * @param kangas
-     * @param kayttaja
+     * @param kangas    
      * @param leveys
      * @param korkeus
      */
-    public RistipistoTyo(ArrayList<TyonLanka> tyonLangat, Kangas kangas, Kayttaja kayttaja, int leveys, int korkeus)
+    public RistipistoTyo(int tyoId, ArrayList<TyonLanka> tyonLangat, Kangas kangas, int leveys, int korkeus)
     {
+        setTyoId(tyoId);
         setLangat(tyonLangat);
-        setKangas(kangas);
-        setKayttaja(kayttaja);
+        setKangas(kangas);      
         setLeveys(leveys);
         setKorkeus(korkeus);
     }
     
-    public void LisaaLanka(TyonLanka uusiLanka){}
-    
-    public void LisaaKayttaja (Kayttaja uusiKayttaja) {}
-    
+    public void LisaaLanka(TyonLanka uusiLanka){}    
     public void LisaaKangas (Kangas uusiKangas){}
     
     public ArrayList getLangat()  {
@@ -76,15 +74,7 @@ public class RistipistoTyo {
 
     public void setKangas(Kangas kangas) {
         this.tyonKangas = kangas;
-    }
-    
-    public Kayttaja getKayttaja() {
-        return tyonTekija;
-    }
-
-    public void setKayttaja(Kayttaja kayttaja) {
-        this.tyonTekija = kayttaja;
-    }
+    }   
     
     public int getLeveys() {
         return leveys;
@@ -116,10 +106,27 @@ public class RistipistoTyo {
     @Override
     public String toString()
     {
-        return tyonLangat + ", " 
-                + tyonKangas + ", "
-                + tyonTekija + ", "
+        return tyoId + ","
+                + tyonLangat + ", " 
+                + tyonKangas + ", "               
                 + leveys + " pistoa ,"
                 + korkeus + " pistoa.";    
-    }    
+    } 
+    
+//        /**
+//     * Lisätään ristipistotyö 
+//     * @param lisattavaTyo
+//     * @throws Exception
+//     */
+//    public void lisaaRistipistotyo(RistipistoTyo lisattavaTyo) throws Exception {
+//    
+//        XmlKasittely xmlKasittely = new XmlKasittely();
+//        String tiedNimi = "src\\testitiedostot\\ristipistotyo.xml";
+//
+//        try {        
+//            xmlKasittely.KirjoitaRistipistoTyoXML(lisattavaTyo, tiedNimi);           
+//        } catch (Exception ex) {
+//            Logger.getLogger(LankaKl.class.getName()).log(Level.SEVERE, null, ex);
+//        }        
+//    }
 }

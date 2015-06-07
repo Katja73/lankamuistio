@@ -8,11 +8,12 @@ package lankaohjelma.lankaohjelma;
 import lankaohjelma.perusluokat.Lanka;
 import lankaohjelma.perusluokat.Kayttaja;
 import lankaohjelma.perusluokat.Kangas;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import lankaohjelma.perusluokat.KayttajaKokoelma;
+import lankaohjelma.kokoelmat.KayttajaKokoelma;
+import lankaohjelma.kokoelmat.RistipistoTyoKokoelma;
+import lankaohjelma.perusluokat.RistipistoTyo;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,27 +22,6 @@ import static org.junit.Assert.*;
  * @author Katja
  */
 public class XmlKasittelyTest {  
-   
-//    @Test
-//    public void TestaaKayttajaxml() {  
-//        RistipistoTyo tyo = new RistipistoTyo();
-//        ArrayList<RistipistoTyo> tyot= new ArrayList();
-//        tyo.setTyoId(1);        
-//        tyot.add(tyo);
-//        
-//        LankaKokoelma kokoelma = new LankaKokoelma();
-//        ArrayList<LankaKokoelma> kokoelmat = new ArrayList();
-//        kokoelma.setKokoelmaId(1);
-//        kokoelmat.add(kokoelma);
-//        
-//        Kayttaja kayttaja = new Kayttaja(1, "Katja", tyot, kokoelmat);
-//     
-//        ArrayList<Kayttaja> kayttajat = new ArrayList();
-//        kayttajat.add(kayttaja);
-//        
-//        XmlKasittely wr = new XmlKasittely();
-//        wr.KirjoitaKayttajaXML(kayttajat);      
-//    }
     
     /**
      * Tetataan lankaluokan tallennus XML:n
@@ -49,19 +29,11 @@ public class XmlKasittelyTest {
     @Test
     public void TestaaLankaxmlTallennus() {  
   
-        Lanka lanka1 = new Lanka(1, 543, "DMC");
-        Lanka lanka2 = new Lanka(2, 444, "DMC");
-        Lanka lanka3 = new Lanka(3, 333, "Anchor");
-     
-        ArrayList<Lanka> langat = new ArrayList();
-        langat.add(lanka1);
-        langat.add(lanka2);
-        langat.add(lanka3);
-        
-        XmlKasittely wr = new XmlKasittely();
-        //String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\testilanka.xml";
+        Lanka lanka1 = new Lanka(1, 543, "DMC");      
+      
+        XmlKasittely wr = new XmlKasittely();       
         String tiedNimi = "src\\testitiedostot\\testilanka.xml";
-        wr.KirjoitaLankaXML(langat, tiedNimi);      
+        wr.KirjoitaLankaXML(lanka1, tiedNimi);      
     }
     
     /**
@@ -71,17 +43,12 @@ public class XmlKasittelyTest {
     public void TestaaKangasxmlTallennus() {  
     
         try {
-            Kangas kangas1 = new Kangas(1, "Aida");
-            Kangas kangas2 = new Kangas(2, "Pellava");
-            
-            ArrayList<Kangas> kankaat = new ArrayList();
-            kankaat.add(kangas1);
-            kankaat.add(kangas2);
+            Kangas kangas1 = new Kangas(1, "Aida");          
             
             XmlKasittely wr = new XmlKasittely();
             String tiedNimi = "src\\testitiedostot\\testikangas.xml";      
             
-            wr.KirjoitaKangasXML(kankaat, tiedNimi);
+            wr.KirjoitaKangasXML(kangas1, tiedNimi);
             } catch (Exception ex) {
             Logger.getLogger(XmlKasittelyTest.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -147,13 +114,18 @@ public class XmlKasittelyTest {
     */
     @Test
     public void TestaaLankaxmlLue() throws Exception {  
-    
+        
         XmlKasittely kasittely = new XmlKasittely();
+        
+        // Lisätään ensin lanka
+        Lanka lanka1 = new Lanka(1, 543, "DMC");      
+      
         String tiedNimi = "src\\testitiedostot\\testilanka.xml";
+        kasittely.KirjoitaLankaXML(lanka1, tiedNimi);             
         
         if (kasittely.OnkoTiedostoOlemassa(tiedNimi)){     
             ArrayList lueLankaXml = kasittely.LueLankaXml(tiedNimi);        
-            assertNotEquals(1, lueLankaXml.size());
+            assertEquals(1, lueLankaXml.size());
         } else {
             assertEquals(false, kasittely.OnkoTiedostoOlemassa(tiedNimi));  
         }
@@ -169,8 +141,8 @@ public class XmlKasittelyTest {
         String tiedNimi = "src\\testitiedostot\\testikayttaja.xml";
         
         if (kasittely.OnkoTiedostoOlemassa(tiedNimi)){     
-            ArrayList lueKayttajaXml = kasittely.LueKayttajaXml(tiedNimi);        
-            assertEquals(0, lueKayttajaXml.size());          
+            KayttajaKokoelma lueKayttajaXml = kasittely.HaeKaikkiKayttajat(tiedNimi);        
+            assertNotEquals(null, lueKayttajaXml);          
         } else {
             assertEquals(false, kasittely.OnkoTiedostoOlemassa(tiedNimi));  
         }
@@ -185,26 +157,29 @@ public class XmlKasittelyTest {
         XmlKasittely kasittely = new XmlKasittely();
         String tiedNimi = "src\\testitiedostot\\testikayttaja.xml";
         
-         ArrayList<Integer> tyot = new ArrayList<Integer>();
-        tyot.add(1);
-        tyot.add(2);
-        tyot.add(3);
-        
+         ArrayList<RistipistoTyo> tyot = new ArrayList<RistipistoTyo>();
+         Kangas kangas = new Kangas(1, "Aida");
+         Kangas kangas2 = new Kangas(2, "Aidas");
+        tyot.add(new RistipistoTyo(1, null, kangas, 10, 20));
+        tyot.add(new RistipistoTyo(2, null, kangas2, 15, 45));
+    
         ArrayList<Lanka> langat = new ArrayList<Lanka>();
         langat.add(new Lanka(1, 456, "DMC"));
         langat.add(new Lanka(2, 678, "Anchor"));
         
-        ArrayList<Integer> tyot2 = new ArrayList<Integer>();
-        tyot2.add(5);
-        tyot2.add(6);
-        tyot2.add(7);
+        ArrayList<RistipistoTyo> tyot2 = new ArrayList<RistipistoTyo>();
+         Kangas kangas3 = new Kangas(1, "Pellava");
+         Kangas kangas4 = new Kangas(2, "Aidas");
+        tyot2.add(new RistipistoTyo(3, null, kangas3, 20, 30));
+        tyot2.add(new RistipistoTyo(4, null, kangas4, 30, 50));
         
+        // ToDO:Muuta kokoelmaksi
        ArrayList<Lanka> langat2 = new ArrayList<Lanka>();
         langat2.add(new Lanka(1, 456, "DMC"));
         langat2.add(new Lanka(4, 847, "DMC"));
         
-        Kayttaja kayttaja1 = new Kayttaja(1, "Katja", tyot, langat);
-        Kayttaja kayttaja2 = new Kayttaja(2, "Liisa", tyot2, langat2);    
+        Kayttaja kayttaja1 = new Kayttaja(1, "Katja", tyot, null);
+        Kayttaja kayttaja2 = new Kayttaja(2, "Liisa", tyot2, null);    
      
         ArrayList<Kayttaja>kayttajat  = new ArrayList();
         kayttajat.add(kayttaja1);
@@ -213,10 +188,8 @@ public class XmlKasittelyTest {
         KayttajaKokoelma kayttajaKokoelma = new KayttajaKokoelma();
         kayttajaKokoelma.setKayttajat(kayttajat);
         
-        kasittely.kirjoitaKayttajaXml3(kayttajaKokoelma, tiedNimi);     
-       
-    }
-    
+        kasittely.KirjoitaKayttajaXml(kayttajaKokoelma, tiedNimi);       
+    }    
     
     /**
     * Testataan XML:n lukeminen (Kayttaja)
@@ -225,15 +198,61 @@ public class XmlKasittelyTest {
     public void TestaaKayttajaxmlLue2() throws Exception {  
     
         XmlKasittely kasittely = new XmlKasittely();
-        String tiedNimi = "src\\testitiedostot\\testikayttaja.xml";
-        
+        String tiedNimi = "src\\testitiedostot\\testikayttaja.xml";       
            
         if (kasittely.OnkoTiedostoOlemassa(tiedNimi)){     
-            ArrayList lueKayttajaXml = kasittely.haeKaikkiKayttajat2(tiedNimi);        
-            assertEquals(1, lueKayttajaXml.size());   
-            System.out.println("lkm343434343: "+lueKayttajaXml);
+            KayttajaKokoelma lueKayttajaXml = kasittely.HaeKaikkiKayttajat(tiedNimi);        
+            assertNotEquals(null, lueKayttajaXml);              
         } else {
             assertEquals(false, kasittely.OnkoTiedostoOlemassa(tiedNimi));  
         }
+    }
+    
+     /**
+    * Testataan XML:n kirjoittaminen (Kayttaja)
+    */
+    @Test
+    public void TestaaRistipistoKokoelmanKirjoitus() throws Exception {  
+    
+        XmlKasittely kasittely = new XmlKasittely();
+        String tiedNimi = "src\\testitiedostot\\testiristipistotyokokoelma.xml";
+        
+        ArrayList<RistipistoTyo> tyot = new ArrayList<RistipistoTyo>();
+        Kangas kangas = new Kangas(1, "Aida");
+        Kangas kangas2 = new Kangas(2, "Aidas");
+        
+        TyonLanka tyonLanka = new TyonLanka(45, new Lanka(1,678,"DMC"));
+        TyonLanka tyonLanka2 = new TyonLanka(20, new Lanka(2,987,"Anchor"));
+         TyonLanka tyonLanka3 = new TyonLanka(15, new Lanka(3,444,"DMC"));
+        TyonLanka tyonLanka4 = new TyonLanka(5, new Lanka(4,555,"DMC"));
+        ArrayList<TyonLanka> tyonLangat = new ArrayList<TyonLanka>();
+        tyonLangat.add(tyonLanka);
+        tyonLangat.add(tyonLanka3);
+        
+        ArrayList<TyonLanka> tyonLangat2 = new ArrayList<TyonLanka>();
+        tyonLangat2.add(tyonLanka2);
+        tyonLangat2.add(tyonLanka4);
+        
+        tyot.add(new RistipistoTyo(1, tyonLangat, kangas, 10, 20));
+        tyot.add(new RistipistoTyo(2, tyonLangat2, kangas2, 15, 75));
+        
+        RistipistoTyoKokoelma ristipistoKokoelma = new RistipistoTyoKokoelma();
+        ristipistoKokoelma.setRistipistoTyot(tyot);
+        
+        kasittely.KirjoitaRistipistoTyoKokoelmaXml(ristipistoKokoelma, tiedNimi);     
+    }  
+    
+    /**
+     * Testataan ristipistokokoelman haku
+     * @throws Exception
+     */
+    @Test
+    public void TestaaRistipistoKokoelmaHae() throws Exception{
+        XmlKasittely kasittely = new XmlKasittely();
+        String tiedNimi = "src\\testitiedostot\\testiristipistotyokokoelma.xml";
+        
+        RistipistoTyoKokoelma haeKaikkiRistipistoTyoKokoelma = kasittely.HaeKaikkiRistipistoTyoKokoelma(tiedNimi);
+        
+       assertNotEquals(null, haeKaikkiRistipistoTyoKokoelma);        
     }
 }

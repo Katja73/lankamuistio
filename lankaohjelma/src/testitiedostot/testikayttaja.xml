@@ -3,39 +3,45 @@
     <kayttajat>
         <nro>1</nro>
         <etunimi>Katja</etunimi>
-        <ristipistotyot>1</ristipistotyot>
-        <ristipistotyot>2</ristipistotyot>
-        <ristipistotyot>3</ristipistotyot>
-        <omatLangat>
-            <lankaid>1</lankaid>
-            <merkkinro>456</merkkinro>
-            <merkki>DMC</merkki>
-            <toimintokoodi>0</toimintokoodi>
-        </omatLangat>
-        <omatLangat>
-            <lankaid>2</lankaid>
-            <merkkinro>678</merkkinro>
-            <merkki>Anchor</merkki>
-            <toimintokoodi>0</toimintokoodi>
-        </omatLangat>
+        <ristipistotyot>
+            <tyoId>1</tyoId>
+            <tyonKangas>
+                <kangasMerkki>Aida</kangasMerkki>
+                <kangasnro>1</kangasnro>
+            </tyonKangas>
+            <leveys>10</leveys>
+            <korkeus>20</korkeus>
+        </ristipistotyot>
+        <ristipistotyot>
+            <tyoId>2</tyoId>
+            <tyonKangas>
+                <kangasMerkki>Aidas</kangasMerkki>
+                <kangasnro>2</kangasnro>
+            </tyonKangas>
+            <leveys>15</leveys>
+            <korkeus>45</korkeus>
+        </ristipistotyot>
     </kayttajat>
     <kayttajat>
         <nro>2</nro>
         <etunimi>Liisa</etunimi>
-        <ristipistotyot>5</ristipistotyot>
-        <ristipistotyot>6</ristipistotyot>
-        <ristipistotyot>7</ristipistotyot>
-        <omatLangat>
-            <lankaid>1</lankaid>
-            <merkkinro>456</merkkinro>
-            <merkki>DMC</merkki>
-            <toimintokoodi>0</toimintokoodi>
-        </omatLangat>
-        <omatLangat>
-            <lankaid>4</lankaid>
-            <merkkinro>847</merkkinro>
-            <merkki>DMC</merkki>
-            <toimintokoodi>0</toimintokoodi>
-        </omatLangat>
+        <ristipistotyot>
+            <tyoId>3</tyoId>
+            <tyonKangas>
+                <kangasMerkki>Pellava</kangasMerkki>
+                <kangasnro>1</kangasnro>
+            </tyonKangas>
+            <leveys>20</leveys>
+            <korkeus>30</korkeus>
+        </ristipistotyot>
+        <ristipistotyot>
+            <tyoId>4</tyoId>
+            <tyonKangas>
+                <kangasMerkki>Aidas</kangasMerkki>
+                <kangasnro>2</kangasnro>
+            </tyonKangas>
+            <leveys>30</leveys>
+            <korkeus>50</korkeus>
+        </ristipistotyot>
     </kayttajat>
 </kayttajaKokoelma>

@@ -5,12 +5,15 @@
  */
 package lankaohjelma.lankaohjelma;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import lankaohjelma.perusluokat.Lanka;
 
 /**
  *
  * @author Katja
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class TyonLanka {
     
     private double maara;

@@ -3,16 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lankaohjelma.perusluokat;
+package lankaohjelma.kokoelmat;
 
 import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import lankaohjelma.perusluokat.RistipistoTyo;
 
 /**
  *
  * @author ylikrkat
  */
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class RistipistoTyoKokoelma {
     
@@ -26,8 +29,7 @@ public class RistipistoTyoKokoelma {
         setRistipistoTyot(null);
        
     }
-    
-    //    @XmlElement
+
     public void setRistipistoTyot(ArrayList<RistipistoTyo> tyot) {
         this.ristipistotyot = tyot;
     }

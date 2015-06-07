@@ -18,7 +18,12 @@
         <version>4.11</version>
         <scope>test</scope>
     </dependency>
-</dependencies>
+        <dependency>
+            <groupId>org.jdesktop</groupId>
+            <artifactId>beansbinding</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+    </dependencies>
 
 <build>
     <plugins>
@@ -38,10 +43,12 @@
                 <targetClasses>
                     <param>lankaohjelma.perusluokat.*</param>
                     <param>lankaohjelma.lankaohjelma.*</param>
+                    <param>lankaohjelma.kokoelmat.*</param>
                 </targetClasses>
                 <targetTests>
                    <param>lankaohjelma.perusluokat.*</param>
                    <param>lankaohjelma.lankaohjelma.*</param>
+                   <param>lankaohjelma.kokoelmat.*</param>
                 </targetTests>
             </configuration>
         </plugin>
