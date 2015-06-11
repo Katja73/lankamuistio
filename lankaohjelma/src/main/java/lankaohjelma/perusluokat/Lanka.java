@@ -105,13 +105,14 @@ public class Lanka implements Serializable {
      * @param lankaLista
      * @throws Exception
      */
-    public void lisaaLanka(Lanka lisattavaLanka) throws Exception {
+    public void lisaaLanka(Lanka lisattavaLanka, int paluukoodi) throws Exception {
     
         XmlKasittely xmlKasittely = new XmlKasittely();
-        String tiedNimi = "src\\testitiedostot\\lanka.xml";
+        String tiedNimi = "src\\testitiedostot\\lanka.xml";        
 
         try {        
-            xmlKasittely.KirjoitaLankaXML(lisattavaLanka, tiedNimi);           
+            xmlKasittely.KirjoitaLankaXML(lisattavaLanka, tiedNimi, paluukoodi); 
+            paluukoodi = paluukoodi;
         } catch (Exception ex) {
             Logger.getLogger(LankaKl.class.getName()).log(Level.SEVERE, null, ex);
         }        

@@ -3,9 +3,15 @@
     <ristipistotyot>
         <tyoId>1</tyoId>
         <tyonLangat>
-            <maara>1.0</maara>
+            <maara>15.0</maara>
+            <lankamerkki>
+                <lankaid>2</lankaid>
+                <merkkinro>888</merkkinro>
+                <merkki>ttt</merkki>
+                <toimintokoodi>0</toimintokoodi>
+            </lankamerkki>
         </tyonLangat>
-        <leveys>15</leveys>
-        <korkeus>30</korkeus>
+        <leveys>10</leveys>
+        <korkeus>15</korkeus>
     </ristipistotyot>
 </ristipistoTyoKokoelma>

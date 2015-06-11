@@ -46,7 +46,7 @@ public class TyonLanka {
      */
     public double getMaara(){return maara;}
 
-    private void setMaara(double maara) {
+    public void setMaara(double maara) {
        this.maara = maara;
     }
     
@@ -56,7 +56,7 @@ public class TyonLanka {
      */
     public Lanka getLankamerkki(){return lankamerkki;}
 
-    private void setLankamerkki(Lanka lankamerkki) {
+    public void setLankamerkki(Lanka lankamerkki) {
         this.lankamerkki = lankamerkki;
     }
     

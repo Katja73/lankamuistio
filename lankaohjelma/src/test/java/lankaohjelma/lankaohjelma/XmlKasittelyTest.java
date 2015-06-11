@@ -30,10 +30,11 @@ public class XmlKasittelyTest {
     public void TestaaLankaxmlTallennus() {  
   
         Lanka lanka1 = new Lanka(1, 543, "DMC");      
+        int paluukoodi = 0;
       
         XmlKasittely wr = new XmlKasittely();       
         String tiedNimi = "src\\testitiedostot\\testilanka.xml";
-        wr.KirjoitaLankaXML(lanka1, tiedNimi);      
+        wr.KirjoitaLankaXML(lanka1, tiedNimi, paluukoodi);      
     }
     
     /**
@@ -103,7 +104,7 @@ public class XmlKasittelyTest {
         
         if (kasittely.OnkoTiedostoOlemassa(tiedNimi)){   
             ArrayList lueKangasXml = kasittely.LueKangasXml(tiedNimi);                
-            assertEquals(2, lueKangasXml.size());
+            assertEquals(1, lueKangasXml.size());
         } else {
              assertEquals(false, kasittely.OnkoTiedostoOlemassa(tiedNimi));             
         }
@@ -116,12 +117,14 @@ public class XmlKasittelyTest {
     public void TestaaLankaxmlLue() throws Exception {  
         
         XmlKasittely kasittely = new XmlKasittely();
+        int paluukoodi = 0;
         
         // Lisätään ensin lanka
         Lanka lanka1 = new Lanka(1, 543, "DMC");      
       
         String tiedNimi = "src\\testitiedostot\\testilanka.xml";
-        kasittely.KirjoitaLankaXML(lanka1, tiedNimi);             
+        
+        kasittely.KirjoitaLankaXML(lanka1, tiedNimi, paluukoodi);             
         
         if (kasittely.OnkoTiedostoOlemassa(tiedNimi)){     
             ArrayList lueLankaXml = kasittely.LueLankaXml(tiedNimi);        

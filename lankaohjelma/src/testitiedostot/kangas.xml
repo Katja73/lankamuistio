@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<Kankaat>
+    <Kangas>
+        <KangasId>1</KangasId>
+        <KangasMerkki>aida</KangasMerkki>
+    </Kangas>
+    <Kangas>
+        <KangasId>2</KangasId>
+        <KangasMerkki>aida</KangasMerkki>
+    </Kangas>
+    <Kangas>
+        <KangasId>3</KangasId>
+        <KangasMerkki>pellava</KangasMerkki>
+    </Kangas>
+</Kankaat>

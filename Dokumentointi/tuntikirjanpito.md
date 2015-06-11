@@ -63,5 +63,20 @@
 **Su 7.6.2015**
 - 5 h Tein testejä XML:lle ja piirsin käyttöliittymää. Sen lisäksi kirjoitin käyttötapauksia.
 
+**Ma 8.6.2015**
+- 2 h Käyttöliittymän jatkamista
+
+**Ti 9.6.2015**
+- 3 h Käyttöliittymän jatkamista. Kävin koululla ja sain toimimaan sen, että näytetään tablessa luokan tiedot.
+
+**Ke 10.6.2015**
+- 2 Käyttöliittymän jatkamista. Ensimmäiset näytöt ovat valmiita. Tarkistuksia puuttuu.
+
+**To 11.6.2015**
+- 2 Käyttöliittymän jatkamista. Nyt sain lisää toiminnallisuutta. Muutama sekvenssikaavio. Kohta täytyy alkaa tekemään 
+   viimeistelyä. Piti tehdä jo tähän palautukseen, mutta en ehtinyt.
+
+
+
 
 

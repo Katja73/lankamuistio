@@ -57,9 +57,6 @@ public class RistipistoTyo {
         setKorkeus(korkeus);
     }
     
-    public void LisaaLanka(TyonLanka uusiLanka){}    
-    public void LisaaKangas (Kangas uusiKangas){}
-    
     public ArrayList getLangat()  {
         return tyonLangat;
     }
@@ -111,22 +108,5 @@ public class RistipistoTyo {
                 + tyonKangas + ", "               
                 + leveys + " pistoa ,"
                 + korkeus + " pistoa.";    
-    } 
-    
-//        /**
-//     * Lisätään ristipistotyö 
-//     * @param lisattavaTyo
-//     * @throws Exception
-//     */
-//    public void lisaaRistipistotyo(RistipistoTyo lisattavaTyo) throws Exception {
-//    
-//        XmlKasittely xmlKasittely = new XmlKasittely();
-//        String tiedNimi = "src\\testitiedostot\\ristipistotyo.xml";
-//
-//        try {        
-//            xmlKasittely.KirjoitaRistipistoTyoXML(lisattavaTyo, tiedNimi);           
-//        } catch (Exception ex) {
-//            Logger.getLogger(LankaKl.class.getName()).log(Level.SEVERE, null, ex);
-//        }        
-//    }
+    }    
 }

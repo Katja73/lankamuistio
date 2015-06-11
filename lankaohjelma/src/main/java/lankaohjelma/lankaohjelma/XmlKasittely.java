@@ -36,6 +36,7 @@ import org.w3c.dom.NodeList;
 import java.io.File;
 
 import java.io.FileNotFoundException;
+import javax.swing.JOptionPane;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -51,12 +52,14 @@ public class XmlKasittely {
 
     /**
      * Kirjoitetaan Lanka -luokan XML-dokumentti
-     * @param list Langat jotka kirjoitetaan XML:n
+     * @param lisattavaLanka
+     * @param tiedNimi
+     * @param paluukoodi
      */
-    public void KirjoitaLankaXML(Lanka lisattavaLanka, String tiedNimi) {
+    public void KirjoitaLankaXML(Lanka lisattavaLanka, String tiedNimi, int paluukoodi) {
         
         ArrayList<Lanka> list = new ArrayList<Lanka>();
-        list.add(lisattavaLanka);
+        int sama = 0;
         
     try {
         DocumentBuilderFactory dFact = DocumentBuilderFactory.newInstance();
@@ -67,23 +70,36 @@ public class XmlKasittely {
         doc.appendChild(root);      
         
         // Ei haluta tuhota jo valmiina olevia lankoja, joten haetaan ne ensin 
-        if (OnkoTiedostoOlemassa(tiedNimi)) {
-            ArrayList lueLankaXml = LueLankaXml(tiedNimi);           
+        if (!OnkoTiedostoOlemassa(tiedNimi)) {
+             list.add(lisattavaLanka);
+        }else 
+        {
+            ArrayList lueLankaXml = LueLankaXml(tiedNimi);
+            list.addAll(lueLankaXml);
 
             for (int i = 0; i < lueLankaXml.size(); i++) {
                 // Haetaan langan nroarvo
                 String oma = lueLankaXml.get(i).toString();
                 String[] riviArvot = oma.split(",");
                 int lankaNro = Integer.parseInt(riviArvot[0]);
+                
                
                 // Verrataan parametrina tullutta arvoa taulukon arvoon
                 // Jos arvo on sama, ei lisata 
                 // TODO: huomautuksen antaminen
+                if (lisattavaLanka.getLankaid() == lankaNro){   
+                    paluukoodi = 1;
+                    sama = 1;
+                   break; 
+                } 
                 if (lisattavaLanka.getLankaid() != lankaNro){
-                 list.addAll(lueLankaXml);                    
+                    sama = 0;               
                 }
             }
-        } 
+             if (sama == 0){
+            list.add(lisattavaLanka);      
+        }
+        }       
         
         // Kaydaan langat lapi ja lisataan jokainen XML:n
         for (Lanka dt1 : list) {
@@ -142,35 +158,45 @@ public class XmlKasittely {
     public void KirjoitaKangasXML(Kangas lisattavaKangas, String tiedNimi) throws Exception {
         
         ArrayList<Kangas> list = new ArrayList<Kangas>();
-        list.add(lisattavaKangas);
-
-    try {
-        DocumentBuilderFactory dFact = DocumentBuilderFactory.newInstance();
-        DocumentBuilder build = dFact.newDocumentBuilder();
-        org.w3c.dom.Document doc = build.newDocument();        
+        int sama = 0;
         
-        org.w3c.dom.Element root = doc.createElement("Kankaat");
-        doc.appendChild(root);
+        try {
+            DocumentBuilderFactory dFact = DocumentBuilderFactory.newInstance();
+            DocumentBuilder build = dFact.newDocumentBuilder();
+            org.w3c.dom.Document doc = build.newDocument();        
         
-        // Ei haluta tuhota jo valmiina olevia kankaita, joten haetaan ne ensin 
-        if (OnkoTiedostoOlemassa(tiedNimi)) {
-            ArrayList lueKangasXml = LueKangasXml(tiedNimi);           
+            org.w3c.dom.Element root = doc.createElement("Kankaat");
+            doc.appendChild(root);      
+        
+            // Ei haluta tuhota jo valmiina olevia lankoja, joten haetaan ne ensin 
+            if (!OnkoTiedostoOlemassa(tiedNimi)) {
+                list.add(lisattavaKangas);
+            }else {
+                ArrayList lueKangasXml = LueKangasXml(tiedNimi);
+                list.addAll(lueKangasXml);
 
-            for (int i = 0; i < lueKangasXml.size(); i++) {
-                // Haetaan kangasnroarvo
-                String oma = lueKangasXml.get(i).toString();
-                String[] riviArvot = oma.split(",");
-                int kangasNro = Integer.parseInt(riviArvot[0]);
+                for (int i = 0; i < lueKangasXml.size(); i++) {
+                    // Haetaan langan nroarvo
+                    String oma = lueKangasXml.get(i).toString();
+                    String[] riviArvot = oma.split(",");
+                    int kangasNro = Integer.parseInt(riviArvot[0]);                
                
                 // Verrataan parametrina tullutta arvoa taulukon arvoon
                 // Jos arvo on sama, ei lisata 
                 // TODO: huomautuksen antaminen
-                if (lisattavaKangas.getKangasnro()!= kangasNro){
-                 list.addAll(lueKangasXml);                        
+                if (lisattavaKangas.getKangasnro()== kangasNro){   
+                   sama = 1;
+                   break; 
+                } 
+                if (lisattavaKangas.getKangasnro() != kangasNro){
+                    sama = 0;               
                 }
             }
-        }        
-       
+            if (sama == 0){
+                list.add(lisattavaKangas);      
+            }
+        }
+            
         // Kaydaan langat lapi ja lisataan jokainen XML:n
         for (Kangas dt1 : list) {
             org.w3c.dom.Element kangas = doc.createElement("Kangas");

@@ -10,8 +10,15 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import lankaohjelma.lankaohjelma.XmlKasittely;
 import lankaohjelma.perusluokat.Lanka;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 /**
  *
@@ -162,13 +169,10 @@ public class LankaKl extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3"
             }
         ));
         jScrollPane3.setViewportView(jTable2);
@@ -179,40 +183,41 @@ public class LankaKl extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(canvas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addContainerGap())
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(243, 243, 243))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addComponent(canvas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3)))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(149, 149, 149)
-                                .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(126, 126, 126)
-                                .addComponent(canvas2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                        .addGap(149, 149, 149)
+                        .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(canvas2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(97, 97, 97))
         );
 
         pack();
@@ -221,9 +226,7 @@ public class LankaKl extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int lankaid, lankanro;
         String lankaMerkki;
-        String tulos;
-        Lanka lisattavaLanka = new Lanka();
-        String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\lanka.xml";
+        int paluukoodi = 0;
         
         lankaid = Integer.parseInt(jTextField1.getText());
         lankanro = Integer.parseInt(jTextField2.getText());
@@ -235,35 +238,15 @@ public class LankaKl extends javax.swing.JFrame {
         lanka.setMerkki(lankaMerkki);      
         
         try {
-            lanka.lisaaLanka(lanka);            
+            lanka.lisaaLanka(lanka, paluukoodi);   
+            if (paluukoodi == 1){
+                JOptionPane.showMessageDialog(this, "Samalla Id:llä on jo lanka.", "VIRHE",JOptionPane.ERROR_MESSAGE);
+                jTextField1.requestFocus();
+            }
     
         } catch (Exception ex) {
             Logger.getLogger(LankaKl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-
-        
-        //Haetaan vanhat langat, ja lisätään perään
-//        Tiedosto tiedosto = new Tiedosto();
-//        try {
-//            ArrayList LataaLankaTiedosto = tiedosto.LataaLankaTiedosto(tiedNimi);
-//        } catch (Exception ex) {
-//            Logger.getLogger(LankaKl.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        
-        
-//        
-//        try {
-//            lanka.lisaaLanka(lankaLista);
-//        } catch (Exception ex) {
-//            Logger.getLogger(LankaKl.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        
-        tulos = String.valueOf(lankaid) + String.valueOf(lankanro)+lankaMerkki;      
-        
-       // jTextArea1.setText(String.valueOf(tulos));
-      //  jTextArea1.setText(String.valueOf(lankaLista));
-       
+        }       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -271,24 +254,38 @@ public class LankaKl extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-//          if (jTextField2.getText() == null)
-//        {
-//        JOptionPane.showMessageDialog(this, "Nro on pakollinen tieto", "VIRHE",JOptionPane.ERROR_MESSAGE);
-//        jTextField1.requestFocus();
-//        }
+          if (jTextField2.getText() == null)
+        {
+        JOptionPane.showMessageDialog(this, "Nro on pakollinen tieto", "VIRHE",JOptionPane.ERROR_MESSAGE);
+        jTextField2.requestFocus();
+        }
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
       
-        XmlKasittely kasittely = new XmlKasittely();
-        String tiedNimi = "src\\testitiedostot\\lanka.xml";   
+        DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
+      
         try {
-            ArrayList LueLankaXml = kasittely.LueLankaXml(tiedNimi);
-          //  jTable2.add(LueLankaXml);
+             DocumentBuilder builder = domFactory.newDocumentBuilder();
+             Document doc = builder.parse("src\\testitiedostot\\lanka.xml");
+             
+            Element root = doc.getDocumentElement();
+            NodeList nodelist1 = root.getElementsByTagName("Lanka");
+
+            // Tyhjennetään taulu edellisen haun jäljiltä
+            ((DefaultTableModel) jTable2.getModel()).setRowCount(0);
+            String[] st= new String[3];
+
+            for(int i=0;i<nodelist1.getLength();i++){
+                Node node=nodelist1.item(i);
+                st[0]= node.getChildNodes().item(1).getTextContent();
+                st[1]= node.getChildNodes().item(3).getTextContent();
+                st[2]= node.getChildNodes().item(5).getTextContent();        
+                ((DefaultTableModel) jTable2.getModel()).addRow(st);
+            }             
         } catch (Exception ex) {
             Logger.getLogger(LankaKl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        }   
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -300,11 +297,11 @@ public class LankaKl extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-//         if (jTextField3.getText() == null)
-//        {
-//        JOptionPane.showMessageDialog(this, "Merkki on pakollinen tieto", "VIRHE",JOptionPane.ERROR_MESSAGE);
-//        jTextField3.requestFocus();
-//        }
+         if (jTextField3.getText() == null)
+        {
+        JOptionPane.showMessageDialog(this, "Merkki on pakollinen tieto", "VIRHE",JOptionPane.ERROR_MESSAGE);
+        jTextField3.requestFocus();
+        }
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     /**

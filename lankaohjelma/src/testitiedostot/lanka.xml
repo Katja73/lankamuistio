@@ -2,7 +2,22 @@
 <Langat>
     <Lanka>
         <LankaId>1</LankaId>
-        <MerkkiNro>567</MerkkiNro>
-        <Merkki>DMC</Merkki>
+        <MerkkiNro>777</MerkkiNro>
+        <Merkki>yyy</Merkki>
+    </Lanka>
+    <Lanka>
+        <LankaId>2</LankaId>
+        <MerkkiNro>888</MerkkiNro>
+        <Merkki>ttt</Merkki>
+    </Lanka>
+    <Lanka>
+        <LankaId>3</LankaId>
+        <MerkkiNro>333</MerkkiNro>
+        <Merkki>tyu</Merkki>
+    </Lanka>
+    <Lanka>
+        <LankaId>4</LankaId>
+        <MerkkiNro>678</MerkkiNro>
+        <Merkki>ert</Merkki>
     </Lanka>
 </Langat>
