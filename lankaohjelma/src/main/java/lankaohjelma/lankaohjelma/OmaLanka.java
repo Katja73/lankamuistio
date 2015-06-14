@@ -7,11 +7,10 @@ package lankaohjelma.lankaohjelma;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import lankaohjelma.perusluokat.Kayttaja;
 import lankaohjelma.perusluokat.Lanka;
 
 /**
- *
+ * OmaLanka -luokka
  * @author Katja
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -28,16 +27,20 @@ public class OmaLanka {
     {       
         setLanka(null);
         setMaara(0);
-        setOsta(false); 
-        
+        setOsta(false);         
     }
 
+    /**
+     * Konstruktori joka ottaa vastaa parametreja
+     * @param lanka Lanka
+     * @param maara Yhden langan maara
+     * @param osta Pitaako lankaa ostaa (true / false)
+     */
     public OmaLanka(Lanka lanka, int maara, boolean osta)
     {
         setLanka(lanka);
         setMaara(maara);
-        setOsta(osta);  
-        
+        setOsta(osta);          
     }    
    
     public Lanka getLanka()  {
@@ -73,6 +76,5 @@ public class OmaLanka {
         return lanka + ", " 
                 + maara + ", "
                 + osta + ". ";    
-    }    
-    
+    }     
 }

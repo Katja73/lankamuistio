@@ -36,7 +36,6 @@ import org.w3c.dom.NodeList;
 import java.io.File;
 
 import java.io.FileNotFoundException;
-import javax.swing.JOptionPane;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -48,61 +47,62 @@ import lankaohjelma.kokoelmat.KayttajaKokoelma;
 import lankaohjelma.kokoelmat.LankaKokoelma;
 import lankaohjelma.kokoelmat.RistipistoTyoKokoelma;
 
+/**
+ * Luokka, jossa kirjoitetaan ja haetaan XML -tiedostoja
+ * @author Katja
+ */
 public class XmlKasittely {
-
     /**
      * Kirjoitetaan Lanka -luokan XML-dokumentti
-     * @param lisattavaLanka
-     * @param tiedNimi
-     * @param paluukoodi
+     * @param lisattavaLanka lanka, joka lisataan xml -sanomaan
+     * @param tiedNimi xml -tiedoston nimi
+     * @param paluukoodi paluukoodi, kaytetaan myohemmin
      */
     public void KirjoitaLankaXML(Lanka lisattavaLanka, String tiedNimi, int paluukoodi) {
         
         ArrayList<Lanka> list = new ArrayList<Lanka>();
         int sama = 0;
         
-    try {
-        DocumentBuilderFactory dFact = DocumentBuilderFactory.newInstance();
-        DocumentBuilder build = dFact.newDocumentBuilder();
-        org.w3c.dom.Document doc = build.newDocument();        
+        try {
+            DocumentBuilderFactory dFact = DocumentBuilderFactory.newInstance();
+            DocumentBuilder build = dFact.newDocumentBuilder();
+            org.w3c.dom.Document doc = build.newDocument();        
         
-        org.w3c.dom.Element root = doc.createElement("Langat");
-        doc.appendChild(root);      
+            org.w3c.dom.Element root = doc.createElement("Langat");
+            doc.appendChild(root);      
         
-        // Ei haluta tuhota jo valmiina olevia lankoja, joten haetaan ne ensin 
-        if (!OnkoTiedostoOlemassa(tiedNimi)) {
-             list.add(lisattavaLanka);
-        }else 
-        {
-            ArrayList lueLankaXml = LueLankaXml(tiedNimi);
-            list.addAll(lueLankaXml);
+            // Ei haluta tuhota jo valmiina olevia lankoja, joten haetaan ne ensin 
+            if (!OnkoTiedostoOlemassa(tiedNimi)) {
+                list.add(lisattavaLanka);
+            }else {
+                ArrayList lueLankaXml = LueLankaXml(tiedNimi);
+                list.addAll(lueLankaXml);
 
-            for (int i = 0; i < lueLankaXml.size(); i++) {
-                // Haetaan langan nroarvo
-                String oma = lueLankaXml.get(i).toString();
-                String[] riviArvot = oma.split(",");
-                int lankaNro = Integer.parseInt(riviArvot[0]);
+                for (int i = 0; i < lueLankaXml.size(); i++) {
+                    
+                    // Haetaan langan nroarvo
+                    String oma = lueLankaXml.get(i).toString();
+                    String[] riviArvot = oma.split(",");
+                    int lankaNro = Integer.parseInt(riviArvot[0]);
                 
-               
-                // Verrataan parametrina tullutta arvoa taulukon arvoon
-                // Jos arvo on sama, ei lisata 
-                // TODO: huomautuksen antaminen
-                if (lisattavaLanka.getLankaid() == lankaNro){   
-                    paluukoodi = 1;
-                    sama = 1;
-                   break; 
-                } 
-                if (lisattavaLanka.getLankaid() != lankaNro){
-                    sama = 0;               
+                    // Verrataan parametrina tullutta arvoa taulukon arvoon
+                    // Jos arvo on sama, ei lisata 
+                    if (lisattavaLanka.getLankaid() == lankaNro){   
+                        paluukoodi = 1;
+                        sama = 1;
+                        break; 
+                    } 
+                    if (lisattavaLanka.getLankaid() != lankaNro){
+                        sama = 0;               
+                    }
                 }
-            }
-             if (sama == 0){
-            list.add(lisattavaLanka);      
-        }
-        }       
+                if (sama == 0){
+                    list.add(lisattavaLanka);      
+                }
+            }       
         
-        // Kaydaan langat lapi ja lisataan jokainen XML:n
-        for (Lanka dt1 : list) {
+            // Kaydaan langat lapi ja lisataan jokainen XML:n
+            for (Lanka dt1 : list) {
             org.w3c.dom.Element lanka = doc.createElement("Lanka");
             root.appendChild(lanka);
 
@@ -153,7 +153,9 @@ public class XmlKasittely {
     
     /**
      * Kirjoitetaan Kangas -luokan XML-dokumentti
-     * @param list Kankaat jotka kirjoitetaan XML:n
+     * @param lisattavaKangas lisattava kangas
+     * @param tiedNimi xml -tiedoston nimi
+     * @throws java.lang.Exception nostetaan virhe
      */
     public void KirjoitaKangasXML(Kangas lisattavaKangas, String tiedNimi) throws Exception {
         
@@ -182,8 +184,7 @@ public class XmlKasittely {
                     int kangasNro = Integer.parseInt(riviArvot[0]);                
                
                 // Verrataan parametrina tullutta arvoa taulukon arvoon
-                // Jos arvo on sama, ei lisata 
-                // TODO: huomautuksen antaminen
+                // Jos arvo on sama, ei lisata                 
                 if (lisattavaKangas.getKangasnro()== kangasNro){   
                    sama = 1;
                    break; 
@@ -243,8 +244,9 @@ public class XmlKasittely {
     
     /**
      * Luetaan levylla oleva Kangas.xml
+     * @param tiedNimi xml -tiedoston nimi
      * @return listan kangaista
-     * @throws Exception
+     * @throws Exception nostetaan virhe
      */
     public ArrayList LueKangasXml(String tiedNimi) throws Exception{
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -256,13 +258,8 @@ public class XmlKasittely {
             builder = factory.newDocumentBuilder();
             doc = builder.parse(tiedNimi);
             
-            doc.getDocumentElement().normalize();         
-            
-            NodeList listaKankaista = doc.getElementsByTagName("Kangas");
-            int kaikkiKankaat = listaKankaista.getLength();         
-            
+            doc.getDocumentElement().normalize();           
             XPathFactory xpathFactory = XPathFactory.newInstance();
-
             XPath xpath = xpathFactory.newXPath();
             
             ArrayList<Kangas> kankaat = HaeKaikkiKankaat(doc, xpath);        
@@ -278,7 +275,7 @@ public class XmlKasittely {
     * Luetaan levylla oleva Lanka.xml
      * @param tiedNimi xml -tiedoston nimi
     * @return listan langoista
-    * @throws Exception
+    * @throws Exception nostetaan virhe
     */
     public ArrayList LueLankaXml(String tiedNimi) throws Exception{
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -299,8 +296,7 @@ public class XmlKasittely {
 
             XPath xpath = xpathFactory.newXPath();
             
-            ArrayList<Lanka> langat = HaeKaikkiLangat(doc, xpath);
-            System.out.println("Langat: "+langat);
+            ArrayList<Lanka> langat = HaeKaikkiLangat(doc, xpath);            
             return langat;
             
         } catch (ParserConfigurationException | IOException e) {
@@ -318,7 +314,7 @@ public class XmlKasittely {
              XPathExpression expr2 =
                 xpath.compile("/Kankaat/Kangas/KangasMerkki/text()");
             
-             //Evaluoidaan tiedot noodeihin
+             //Haetaan tiedot noodeihin
             NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
             NodeList nodes2 = (NodeList) expr2.evaluate(doc, XPathConstants.NODESET);
             
@@ -331,7 +327,7 @@ public class XmlKasittely {
         return kangasLista;
     }
     
-        private static ArrayList<Lanka> HaeKaikkiLangat(Document doc, XPath xpath){
+    private static ArrayList<Lanka> HaeKaikkiLangat(Document doc, XPath xpath){
         ArrayList<Lanka> lankaLista = new ArrayList<Lanka>();        
         try {
             //Luodaan XPath Expression
@@ -374,8 +370,9 @@ public class XmlKasittely {
     
      /**
      * Kirjoittaa XML:n kayttajista
+     * @param kayttajat kayttajat
      * @param tiedNimi tiedoston nimi
-     * @throws Exception
+     * @throws Exception nostetaan virhe
      */
     public void KirjoitaKayttajaXml(KayttajaKokoelma kayttajat, String tiedNimi) throws Exception{
         
@@ -395,10 +392,10 @@ public class XmlKasittely {
     
     /**
      * Haetaan kaikki kayttajat
-     * @param tiedNimi
-     * @return
-     * @throws FileNotFoundException
-     * @throws JAXBException
+     * @param tiedNimi xml -tiedoston nimi
+     * @return Kayttajakokoelman 
+     * @throws FileNotFoundException tiedostoa ei loydy
+     * @throws JAXBException xml -virhe
      */
     public KayttajaKokoelma HaeKaikkiKayttajat(String tiedNimi) throws FileNotFoundException, JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(KayttajaKokoelma.class);
@@ -407,15 +404,14 @@ public class XmlKasittely {
         File xml = new File(tiedNimi);
         
         KayttajaKokoelma kayttajaKokoelma = (KayttajaKokoelma) unmarshaller.unmarshal(xml);
-        //ArrayList<Kayttaja> kayttajat = new ArrayList<Kayttaja>();
-//        kayttajat.add(kayttaja);
         return kayttajaKokoelma;
     }  
     
        /**
      * Kirjoittaa XML:n lankakokoelmista
-     * @param tiedNimi tiedoston nimi
-     * @throws Exception
+     * @param lankaKokoelma kokoelma langoista
+     * @param tiedNimi xml -tiedoston nimi
+     * @throws Exception nostaa virheen
      */
     public void KirjoitaLankaKokoelmaXml(LankaKokoelma lankaKokoelma, String tiedNimi) throws Exception{
         
@@ -431,13 +427,13 @@ public class XmlKasittely {
     } catch (JAXBException e) {
         e.printStackTrace();
         }   
-    } 
-    
+    }     
     
      /**
      * Kirjoittaa XML:n ristipistotöistä
+     * @param ristipistotyoKokoelma ristipistotyökokoelma
      * @param tiedNimi tiedoston nimi
-     * @throws Exception
+     * @throws Exception nostaa virheen
      */
     public void KirjoitaRistipistoTyoKokoelmaXml(RistipistoTyoKokoelma ristipistotyoKokoelma, String tiedNimi) throws Exception{
         
@@ -448,7 +444,7 @@ public class XmlKasittely {
 
         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         jaxbMarshaller.marshal(ristipistotyoKokoelma, file);
-        jaxbMarshaller.marshal(ristipistotyoKokoelma, System.out);
+        jaxbMarshaller.marshal(ristipistotyoKokoelma, System.out);      
    
     } catch (JAXBException e) {
         e.printStackTrace();
@@ -457,10 +453,10 @@ public class XmlKasittely {
     
     /**
      * Haetaan kaikki ristipistotyöt
-     * @param tiedNimi
-     * @return
-     * @throws FileNotFoundException
-     * @throws JAXBException
+     * @param tiedNimi xml -tiedoston nimi
+     * @return RistipistoTyoKokoelman 
+     * @throws FileNotFoundException virheen tiedostosta, jos sitä ei loydy
+     * @throws JAXBException virheen xml -kirjoittamisesta
      */
     public RistipistoTyoKokoelma HaeKaikkiRistipistoTyoKokoelma(String tiedNimi) throws FileNotFoundException, JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(RistipistoTyoKokoelma.class);
@@ -471,49 +467,4 @@ public class XmlKasittely {
         RistipistoTyoKokoelma ristipistoTyoKokoelma = (RistipistoTyoKokoelma) unmarshaller.unmarshal(xml);
         return ristipistoTyoKokoelma;
     }  
-
-// Hakuun liittyviä käyttökelpoisia metodeja
-
-//    private static List<String> getFemaleEmployeesName(Document doc, XPath xpath) {
-//        List<String> list = new ArrayList<>();
-//        try {
-//            //create XPathExpression object
-//            XPathExpression expr =
-//                xpath.compile("/Employees/Employee[gender='Female']/name/text()");
-//            //evaluate expression result on XML document
-//            NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
-//            for (int i = 0; i < nodes.getLength(); i++)
-//                list.add(nodes.item(i).getNodeValue());
-//        } catch (XPathExpressionException e) {
-//            e.printStackTrace();
-//        }
-//        return list;
-//    }
-
-//    private static List<String> getEmployeeNameWithAge(Document doc, XPath xpath, int age) {
-//        List<String> list = new ArrayList<>();
-//        try {
-//            XPathExpression expr =
-//                xpath.compile("/Employees/Employee[age>" + age + "]/name/text()");
-//            NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
-//            for (int i = 0; i < nodes.getLength(); i++)
-//                list.add(nodes.item(i).getNodeValue());
-//        } catch (XPathExpressionException e) {
-//            e.printStackTrace();
-//        }
-//        return list;
-//    }
-
-//    private static String getEmployeeNameById(Document doc, XPath xpath, int id) {
-//        String name = null;
-//        try {
-//            XPathExpression expr =
-//                xpath.compile("/Employees/Employee[@id='" + id + "']/name/text()");
-//            name = (String) expr.evaluate(doc, XPathConstants.STRING);
-//        } catch (XPathExpressionException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return name;
-//    }
 }

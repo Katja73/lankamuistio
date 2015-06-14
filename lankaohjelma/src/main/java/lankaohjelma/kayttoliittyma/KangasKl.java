@@ -5,21 +5,23 @@
  */
 package lankaohjelma.kayttoliittyma;
 
+import java.awt.event.KeyEvent;
+import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import lankaohjelma.perusluokat.Kangas;
-import lankaohjelma.perusluokat.Lanka;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
- *
+ * Kangas -kayttoliittyma
  * @author Katja
  */
 public class KangasKl extends javax.swing.JFrame {
@@ -30,6 +32,8 @@ public class KangasKl extends javax.swing.JFrame {
     public KangasKl() {
         initComponents();
     }
+    
+     private int numPeriods = 30;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,6 +53,7 @@ public class KangasKl extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,8 +66,18 @@ public class KangasKl extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
 
         jTextField2.setToolTipText("");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Tallenna");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +86,7 @@ public class KangasKl extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Poistu");
+        jButton2.setText("Palaa päävalikkoon");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -83,17 +98,28 @@ public class KangasKl extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2"
+                "Kankaan id", "Kankaan merkin nimi"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
-        jButton3.setText("Nayta kankaat");
+        jButton3.setText("Näytä kankaat");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setText("Kankaat");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,26 +128,31 @@ public class KangasKl extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3))
+                    .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jButton1))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel2))
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -129,46 +160,53 @@ public class KangasKl extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(148, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)
-                        .addGap(163, 163, 163))))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     /**
+     * Tallennetaan kangas
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int kangasNro;
-        String kangasMerkki;
-    //    int paluukoodi = 0;
         
-        kangasNro = Integer.parseInt(jTextField1.getText());       
-        kangasMerkki = jTextField2.getText();
+        // Pakollisuustarkistukset
+        if (jTextField1.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(this, "ID on pakollinen tieto", "VIRHE",JOptionPane.ERROR_MESSAGE);
+            jTextField1.requestFocus();
+        } else if ("".equals(jTextField2.getText())) {
+            JOptionPane.showMessageDialog(this, "Merkki on pakollinen tieto", "VIRHE",JOptionPane.ERROR_MESSAGE);
+            jTextField2.requestFocus();
+        } else {
         
-        Kangas kangas = new Kangas();
-        kangas.setKangasnro(kangasNro);
-        kangas.setKangasMerkki(kangasMerkki);          
-        
-        try {
-            kangas.lisaaKangas(kangas);
-//            if (paluukoodi == 1){
-//                JOptionPane.showMessageDialog(this, "Samalla Id:llä on jo kangas.", "VIRHE",JOptionPane.ERROR_MESSAGE);
-//                jTextField1.requestFocus();
-//            }
-    
-        } catch (Exception ex) {
-            Logger.getLogger(LankaKl.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+            int kangasNro;
+            String kangasMerkki;
+            String tiedNimi = "src\\testitiedostot\\kangas.xml";
+
+            kangasNro = Integer.parseInt(jTextField1.getText());       
+            kangasMerkki = jTextField2.getText();
+
+            Kangas kangas = new Kangas();
+            kangas.setKangasnro(kangasNro);
+            kangas.setKangasMerkki(kangasMerkki);          
+
+            try {
+                kangas.lisaaKangas(kangas, tiedNimi);
+
+            } catch (Exception ex) {
+                Logger.getLogger(LankaKl.class.getName()).log(Level.SEVERE, null, ex);
+            }  
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -179,34 +217,59 @@ public class KangasKl extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+     /**
+     * Naytetaan kankaat
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-            DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
+            
+        String tiedNimi = "src\\testitiedostot\\kangas.xml";
+        File nimi = new File(tiedNimi);
+        if (nimi.exists()) {
       
-        try {
-             DocumentBuilder builder = domFactory.newDocumentBuilder();
-             Document doc = builder.parse("src\\testitiedostot\\kangas.xml");
+            try {
+                DocumentBuilder builder = domFactory.newDocumentBuilder();
+                Document doc = builder.parse(tiedNimi);
              
-            Element root = doc.getDocumentElement();
-            NodeList nodelist1 = root.getElementsByTagName("Kangas");
+                Element root = doc.getDocumentElement();
+                NodeList nodelist1 = root.getElementsByTagName("Kangas");
 
-            // Tyhjennetään taulu edellisen haun jäljiltä
-            ((DefaultTableModel) jTable1.getModel()).setRowCount(0);
-            String[] st= new String[2];
+                // Tyhjennetään taulu edellisen haun jäljiltä
+                ((DefaultTableModel) jTable1.getModel()).setRowCount(0);
+                String[] st= new String[2];
 
-            for(int i=0;i<nodelist1.getLength();i++){
-                Node node=nodelist1.item(i);
-                st[0]= node.getChildNodes().item(1).getTextContent();
-                st[1]= node.getChildNodes().item(3).getTextContent();                    
-                ((DefaultTableModel) jTable1.getModel()).addRow(st);
-            }             
-        } catch (Exception ex) {
+                for(int i=0;i<nodelist1.getLength();i++){
+                    Node node=nodelist1.item(i);
+                    st[0]= node.getChildNodes().item(1).getTextContent();
+                    st[1]= node.getChildNodes().item(3).getTextContent();                    
+                    ((DefaultTableModel) jTable1.getModel()).addRow(st);
+                }             
+            } catch (Exception ex) {
             Logger.getLogger(KangasKl.class.getName()).log(Level.SEVERE, null, ex);
-        }   
+            }
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         System.exit(0);
+        this.dispose();
+        new PaaKayttoliittyma().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        if ("".equals(jTextField2.getText()))
+        {
+            JOptionPane.showMessageDialog(this, "Merkki on pakollinen tieto", "VIRHE",JOptionPane.ERROR_MESSAGE);
+            jTextField2.requestFocus();
+        }
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            evt.consume();            
+        }
+    }//GEN-LAST:event_jTextField1KeyTyped
 
     /**
      * @param args the command line arguments
@@ -249,6 +312,7 @@ public class KangasKl extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;

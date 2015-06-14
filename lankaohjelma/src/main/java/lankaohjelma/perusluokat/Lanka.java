@@ -6,24 +6,17 @@
 package lankaohjelma.perusluokat;
 
 import lankaohjelma.kayttoliittyma.LankaKl;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import lankaohjelma.lankaohjelma.XmlKasittely;
 
 /**
- * Luokka käsittelee langan tietoja. Langat koostuvat aina nimestä ja
+ * Luokka, joka kasittelee langan tietoja. Langat koostuvat aina nimestä ja
  * numerosta. Esim. DMC 365. Molemmat ovat pakollisia tietoja.
  * @author Katja
  */
@@ -49,11 +42,11 @@ public class Lanka implements Serializable {
     }
     
     /**
-     *
+     * Lanka luokan parametrillinen konstruktori
      * 
-     * @param lankaid
-     * @param lankanro
-     * @param merkki
+     * @param lankaid Lankan yksilöivä tunniste
+     * @param lankanro Langan nro
+     * @param merkki Langan merkki
      */
     public Lanka(int lankaid, int lankanro, String merkki)
     {
@@ -63,27 +56,23 @@ public class Lanka implements Serializable {
     }
     
     public int getLankaid()
-    {return lankaid;}
-    
-//    @XmlElement
+    {return lankaid;}    
+
     public void setLankaid(int lankaid) {
         this.lankaid = lankaid;
     }
 
     public int getLankanro()
-    {return merkkinro;}
-    
-//    @XmlElement
+    {return merkkinro;}    
+
     public void setLankanro(int lankanro) {
         this.merkkinro = lankanro;
     }
     
-    public String getMerkki()
-    {
+    public String getMerkki() {
         return merkki;
     }
 
-//    @XmlElement
     public void setMerkki(String merkki) {
         this.merkki = merkki;
     }
@@ -101,9 +90,10 @@ public class Lanka implements Serializable {
     }  
 
     /**
-     * Lisätään lanka 
-     * @param lankaLista
-     * @throws Exception
+     * Lisätään lanka. Kutsutaan xml -tiedoston kirjoittavaa metodia
+     * @param lisattavaLanka lisattava lanka
+     * @param paluukoodi paluukoodi, myohempaa kayttoa varten
+     * @throws Exception nostaa virheen
      */
     public void lisaaLanka(Lanka lisattavaLanka, int paluukoodi) throws Exception {
     
@@ -120,7 +110,7 @@ public class Lanka implements Serializable {
     
     /**
      * Tulostetaan langat, jotka ovat listalla
-     * @param lankaLista
+     * @param lankaLista lista tulostettavista langoista
      */
     public void tulostaLanka(ArrayList<Lanka> lankaLista)
     {
@@ -137,33 +127,26 @@ public class Lanka implements Serializable {
             System.out.println("Listassa ei ole vielä tuotteita");
     }
 
-    public void etsiLanka(ArrayList<Lanka> lankaLista) {
+    /**
+     * Etsitään lanka annetun parametrin perusteella
+     * @param lankaLista lista, josta etsitään
+     * @param etsittava etittävän tiedon nimi
+     * @return Halutun langan
+     */
+    public Lanka etsiLanka(ArrayList<Lanka> lankaLista, int etsittava) {
         // jos listassa on jotakin,
-        if (lankaLista.size() > 0) {
-       Scanner lukija = new Scanner(System.in);
-        String etsittava;
-        boolean loytyiko = false;
-        
-        System.out.println("Anna etsittävän tuotteen langan merkki");
-        etsittava = lukija.nextLine();
+        if (lankaLista.size() > 0) {               
 
-        // luodaan ja kysellään juttuja ja etsiskellään lista läpi.
-        for (int i = 0; i < lankaLista.size(); i++) {
-        // jos tuoteListan rivillä i oleva Nimi-muuttuja on juuri sama
-        // kuin etsittävä String,
-        if (lankaLista.get(i).getMerkki().toUpperCase().trim()
-        .equals(etsittava.trim().toUpperCase())) {
-        // tulostetaan,
-        System.out.println(lankaLista.get(i));
-        // ja muutetaan boolean todeksi.
-        loytyiko = true;
-        }
-        }
-        // jos boolean ei ole muuttunut todeksi, ei ole löytynyt.
-        if (loytyiko == false)
-        System.out.println("Tuotetta " + etsittava + " ei löytynyt.");
-        // jos lista oli nollan pituinen, siinä ei varmaan ollut mitään.
-        } else
-        System.out.println("Listassa ei ole vielä tuotteita.");
+            // luodaan ja kysellään juttuja ja etsiskellään lista läpi.
+            for (int i = 0; i < lankaLista.size(); i++) {               
+                  if (lankaLista.get(i).getLankaid() == etsittava) {
+                 
+                    // palautetaan haluttu lanka
+                    return (lankaLista.get(i));
+                    // muutetaan boolean todeksi.                    
+                }
+            }        
     }           
-   } 
+        return null;       
+   }
+}

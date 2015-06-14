@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import lankaohjelma.perusluokat.RistipistoTyo;
 
 /**
- *
+ * RistipistoTyoKokoelma -luokka
  * @author ylikrkat
  */
 @XmlRootElement
@@ -24,14 +24,19 @@ public class RistipistoTyoKokoelma {
     /**
      * Oletuskonstruktori
      */
-    public RistipistoTyoKokoelma()
-    {
-        setRistipistoTyot(null);
-       
-    }
-
-    public void setRistipistoTyot(ArrayList<RistipistoTyo> tyot) {
-        this.ristipistotyot = tyot;
+    public RistipistoTyoKokoelma() {
+        setRistipistoTyot(null);       
     }
     
+    public ArrayList getRistipistoTyot() {
+        return ristipistotyot;
+    }
+
+    /**
+     * Asetetaan lista ristipistotoista
+     * @param tyot lista ristipistotoista
+     */
+    public void setRistipistoTyot(ArrayList<RistipistoTyo> tyot) {
+        this.ristipistotyot = tyot;
+    }    
 }

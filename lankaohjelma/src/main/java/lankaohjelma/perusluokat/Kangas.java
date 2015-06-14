@@ -7,14 +7,13 @@ package lankaohjelma.perusluokat;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import lankaohjelma.kayttoliittyma.LankaKl;
 import lankaohjelma.lankaohjelma.XmlKasittely;
 
 /**
- *
+ * Luokka, joka kasittelee kankaan tietoja.
  * @author Katja
  */
 public class Kangas implements Serializable {
@@ -30,6 +29,11 @@ public class Kangas implements Serializable {
         setKangasMerkki(null);
     }
     
+    /**
+     * Kangas -luokan parametrillinen konstruktori
+     * @param kangasnro kankaan nro
+     * @param kangasmerkki kangasmerkki
+     */
     public Kangas(int kangasnro, String kangasmerkki)
     {
         setKangasnro(kangasnro);
@@ -64,14 +68,14 @@ public class Kangas implements Serializable {
     }    
 
     /**
-     * Lisätään kankaat 
-     * @param kangasLista Lista lisättävistä kankaista
+     * Lisätään kankaat. Kutsutaan luokkaa, joka kirjoittaa xml -tiedoston. 
+     * @param lisattavaKangas lisattava kangas
+     * @param tiedNimi xml -tiedoston nimi
      */
-    public void lisaaKangas(Kangas lisattavaKangas) {
+    public void lisaaKangas(Kangas lisattavaKangas, String tiedNimi) {
                 
         XmlKasittely xmlKasittely = new XmlKasittely();
-        String tiedNimi = "src\\testitiedostot\\kangas.xml";
-
+       
         try {        
             xmlKasittely.KirjoitaKangasXML(lisattavaKangas, tiedNimi);           
         } catch (Exception ex) {
@@ -79,47 +83,25 @@ public class Kangas implements Serializable {
         }        
     }
 
-    private void tulostaKankaat(ArrayList<Kangas> kangasLista) {
-        // tulostetaan, jos listassa on jotain
-        if (kangasLista.size() > 0)
-            // loopataan läpi ja tulostetaan
-            {
-                for (int i = 0; i < kangasLista.size(); i++) {
-                    System.out.println(kangasLista.get(i));
-            }
-        }
-        // jos ei ole mitään, tulostetaan
-        else    
-            System.out.println("Listassa ei ole vielä tuotteita");
-    }
-
-    private void etsiKangas(ArrayList<Kangas> kangasLista) {
+    /**
+     * Etsitään Kangas -luokan tiedot saadulla kangasid:llä
+     * @param kangasLista lista kankaista
+     * @param etsittava kangas
+     * @return kankaan tiedot
+     */
+    public Kangas etsiKangas(ArrayList<Kangas> kangasLista, int etsittava) {
         // jos listassa on jotakin,
-        if (kangasLista.size() > 0) {
-           Scanner lukija = new Scanner(System.in);
-           String etsittava;
-           boolean loytyiko = false;
-
-           System.out.println("Anna etsittävän tuotteen kankaan merkki");
-           etsittava = lukija.nextLine();
+        if (kangasLista.size() > 0) {               
 
             // luodaan ja kysellään juttuja ja etsiskellään lista läpi.
-            for (int i = 0; i < kangasLista.size(); i++) {
-                // jos tuoteListan rivillä i oleva Merkki-muuttuja on juuri sama
-                // kuin etsittävä String,
-                if (kangasLista.get(i).getKangasMerkki().toUpperCase().trim()
-                .equals(etsittava.trim().toUpperCase())) {
-                // tulostetaan,
-                System.out.println(kangasLista.get(i));
-                // ja muutetaan boolean todeksi.
-                loytyiko = true;
+            for (int i = 0; i < kangasLista.size(); i++) {               
+                  if (kangasLista.get(i).getKangasnro()== etsittava) {
+                 
+                    // palautetaan haluttu lanka
+                    return (kangasLista.get(i));                                        
                 }
-            }
-        // jos boolean ei ole muuttunut todeksi, ei ole löytynyt.
-        if (loytyiko == false)
-            System.out.println("Tuotetta " + etsittava + " ei löytynyt.");
-            // jos lista oli nollan pituinen, siinä ei varmaan ollut mitään.
-            } else
-            System.out.println("Listassa ei ole vielä tuotteita.");
-    }      
+            }        
+        }           
+        return null;
+    }  
 }

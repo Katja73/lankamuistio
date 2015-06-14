@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import lankaohjelma.perusluokat.Kayttaja;
 
 /**
- *
+ * KayttajaKokoelma -luokka
  * @author ylikrkat
  */
 @XmlRootElement
@@ -26,10 +26,13 @@ public class KayttajaKokoelma {
      */
     public KayttajaKokoelma()
     {
-        setKayttajat(null);
-       
+        setKayttajat(null);       
     }
 
+    /**
+     * Asetetaan lista kayttajia
+     * @param kayttajat lista kayttajista
+     */
     public void setKayttajat(ArrayList<Kayttaja> kayttajat) {
         this.kayttajat = kayttajat;
     }

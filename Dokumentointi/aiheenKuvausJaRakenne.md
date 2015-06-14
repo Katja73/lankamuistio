@@ -1,23 +1,34 @@
 #Aiheen kuvaus ja rakenne
 
 **Aihe:** 
-Ohjelman avulla voidaan pitää kirjaa kaikista ristipistotöihin tarvittavista langoista. 
-Ohjelmassa on kaksi toimintoa. Toisessa langat lasketaan työn mukaan ja toisella toiminnolla voi syöttää listan kaikista omistamistaan langoista.
-Ristipistotyön tallentavaan osuuteen syötetään työn nimi, aloituspäivä, lankamerkki, neulan koko, kangas ja kaikki langat, joita työhön tarvitaan. Langat voidaan 
-valita alasvetovalikosta merkin mukaan lajiteltuna. Ohjelma näyttää, onko käyttäjällä tarpeeksi lankaa työhön. Myöhemmässä vaiheessa ohjelmaan lisätään ostoslista
--toiminta, joka voidaan generoidan suoraan puuttuvista langoista.
+Ohjelman avulla voidaan pitää kirjaa kaikista ristipistotöihin tarvittavista langoista ja kankaista.
+Käyttäjä voi syöttää lankoja, kankaita, yhden käyttäjän ja yhden ristipistotyön. Seuraavissa versiossa on mahdollista syöttää useampi käyttäjä tai ristipistotyö.
 
-Toisessa osassa käyttäjä voi syöttää listalle omistamansa langat (merkki, määrä, värinro ja paikka säilytyslokerikossa. Lokerikkoja voi olla useita).
+Ristipistotyön tallentavaan osuuteen syötetään työn nimi, lankamerkki, nkangas ja kaikki langat, joita työhön tarvitaan. Myöhemmässä vaiheessa ohjelmaan lisätään ostoslista
+-toiminto, joka voidaan generoida suoraan puuttuvista langoista.
+
+Toisessa osassa käyttäjä voi syöttää listalle omistamansa langat (merkki, määrä, värinro).
 
 **Käyttäjät:** 
 Ristipistojen tekijät.  
 
 **Kaikkien käyttäjien toiminnot:**
 - Ristipistotyön syöttäminen. 
-    - Työ-ikkunalla voidaan syöttää työn tiedot pistojen määrän mukaan (yhteispistot tai väreittäin)
+    - Työ-ikkunalla voidaan syöttää työn tiedot sisältäen langat, korkeus, leveys ja kangas
 - Lankojen ja merkkien tietojen syöttäminen
-- Kaikkien lankojen listaus hakuehdon mukaan
+- Kaikkien lankojen ja kankaiden listaus
 
 **Jatkokehittelyn mahdollisuus**
 - Mahdollisuus tallentaa kuvana värikarttoja
+- Useamman käyttäjän syöttäminen
+- Useamman ristipistotyön syöttäminen
 
+**Ohjelman rakenne:**
+Ohjelma koostuu käyttöliittymästä, muutamasta kokoelma-luokasta ja muutamasta perusluokasta. Perusluokissa tehdään ohjelman perusominaisuudet, kuten lisäys ja etsiminen.
+Kokoelmaluokat kasaavat eri asioita yhteen (esim. käyttäjän lankoja ja työn lankoja).
+XML -käsittelyssä kirjoitetaan kaikki tiedot talteen erilaisiin XML -sanomiin. Niissä on käytetty kahta erilaista rakennetta. 
+
+Kun käyttäjä avaan ohjelman, hän syöttää ensin kankaat ja langat. Tätä ei ole pakotettu, mutta ohjeissa on maininta aiheesta. Myös ristipistotyöt kannattaa syöttää ensin.
+Viimeisenä tallennetaan käyttäjä. Töille voidaan valita työn langat, ja kangas. Ne tallennetaan työn xml -tiedostoon.
+
+Käyttäjä -ikkunalla valitaan työt ja käyttäjälle omat langat. Nämä ovat niitä lankoja, joita käyttäjällä on omasta takaa. 

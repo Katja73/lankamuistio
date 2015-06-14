@@ -18,7 +18,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * RistipistoTyo -testit
  * @author Katja
  */
 public class RistipistoTyoTest {
@@ -61,12 +61,13 @@ public class RistipistoTyoTest {
     public void TestaaparametriKonstruktori() {
         
         // Syötetään testitiedot
-        ArrayList<TyonLanka> langat = null;        
+        ArrayList<TyonLanka> langat = null;  
+        String nimi = "Testi";
         Kangas kangas = new Kangas();       
         int leveys = 10;
         int korkeus = 5;      
         
-       new RistipistoTyo(1, langat, kangas, leveys, korkeus);    
+       new RistipistoTyo(1, nimi, langat, kangas, leveys, korkeus);    
       
     }
     
@@ -79,17 +80,58 @@ public class RistipistoTyoTest {
         // Syötetään testitiedot
         ArrayList<TyonLanka> langat = null;          
         Kangas kangas = new Kangas();
+        String nimi = "Testi";
         
         int leveys = 30;
         int korkeus = 45;       
         
-        RistipistoTyo oletusTyo = new RistipistoTyo(1, langat, kangas, leveys, korkeus);
+        RistipistoTyo oletusTyo = new RistipistoTyo(1, nimi, langat, kangas, leveys, korkeus);
         int korkeus1 = oletusTyo.getKorkeus();
         int leveys1 = oletusTyo.getLeveys();
         
         assertEquals(45, korkeus1);
-        assertEquals(30, leveys1);
-      
+        assertEquals(30, leveys1);      
    }
+   
+    @Test
+    public void TestaaEtsiRistipistoTyoLoytyy(){
+        
+        // Syötetään testitiedot
+        ArrayList<TyonLanka> langat = null;        
+        Kangas kangas = new Kangas();       
+        int leveys = 10;
+        int korkeus = 5;   
+        String nimi = "Testi";
+        
+        RistipistoTyo ristipistoTyo = new RistipistoTyo(1, nimi, langat, kangas, leveys, korkeus);   
+        ArrayList<RistipistoTyo> tyot = new ArrayList<RistipistoTyo>();
+        tyot.add(ristipistoTyo);
+        
+        int etsittava;
+        etsittava = 1;       
+        
+        RistipistoTyo etsiTyo = ristipistoTyo.etsiRistipistoTyo(tyot, etsittava);
+        assertEquals(10, etsiTyo.getLeveys());       
+    }
+    
+    @Test
+    public void TestaaEtsiRistipistoTyoEiLoydy(){
+    // Syötetään testitiedot
+        ArrayList<TyonLanka> langat = null;        
+        Kangas kangas = new Kangas();       
+        int leveys = 10;
+        int korkeus = 5;      
+        String nimi = "Testi";
+        
+        RistipistoTyo ristipistoTyo = new RistipistoTyo(1, nimi, langat, kangas, leveys, korkeus);   
+        ArrayList<RistipistoTyo> tyot = new ArrayList<RistipistoTyo>();
+        tyot.add(ristipistoTyo);
+        
+        int etsittava;
+        etsittava = 2;       
+        
+        RistipistoTyo etsiTyo = ristipistoTyo.etsiRistipistoTyo(tyot, etsittava);
+        assertEquals(null, etsiTyo);       
+    }    
     
 }

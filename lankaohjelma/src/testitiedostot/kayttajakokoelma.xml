@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kayttajaKokoelma>
+    <kayttajat>
+        <nro>1</nro>
+        <etunimi>Katja</etunimi>
+        <lankaKokoelma>
+            <omatLangat>
+                <lanka>
+                    <lankaid>1</lankaid>
+                    <merkkinro>543</merkkinro>
+                    <merkki>DMC</merkki>
+                    <toimintokoodi>0</toimintokoodi>
+                </lanka>
+                <maara>5</maara>
+                <osta>false</osta>
+            </omatLangat>
+            <omatLangat>
+                <lanka>
+                    <lankaid>2</lankaid>
+                    <merkkinro>567</merkkinro>
+                    <merkki>DMC</merkki>
+                    <toimintokoodi>0</toimintokoodi>
+                </lanka>
+                <maara>4</maara>
+                <osta>true</osta>
+            </omatLangat>
+        </lankaKokoelma>
+    </kayttajat>
+</kayttajaKokoelma>

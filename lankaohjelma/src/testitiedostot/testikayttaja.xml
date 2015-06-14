@@ -5,6 +5,7 @@
         <etunimi>Katja</etunimi>
         <ristipistotyot>
             <tyoId>1</tyoId>
+            <tyoNimi>testi</tyoNimi>
             <tyonKangas>
                 <kangasMerkki>Aida</kangasMerkki>
                 <kangasnro>1</kangasnro>
@@ -14,6 +15,7 @@
         </ristipistotyot>
         <ristipistotyot>
             <tyoId>2</tyoId>
+            <tyoNimi>testi</tyoNimi>
             <tyonKangas>
                 <kangasMerkki>Aidas</kangasMerkki>
                 <kangasnro>2</kangasnro>
@@ -27,6 +29,7 @@
         <etunimi>Liisa</etunimi>
         <ristipistotyot>
             <tyoId>3</tyoId>
+            <tyoNimi>testi</tyoNimi>
             <tyonKangas>
                 <kangasMerkki>Pellava</kangasMerkki>
                 <kangasnro>1</kangasnro>
@@ -36,6 +39,7 @@
         </ristipistotyot>
         <ristipistotyot>
             <tyoId>4</tyoId>
+            <tyoNimi>testi</tyoNimi>
             <tyonKangas>
                 <kangasMerkki>Aidas</kangasMerkki>
                 <kangasnro>2</kangasnro>

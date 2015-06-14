@@ -6,6 +6,11 @@ package lankaohjelma.perusluokat;
  * and open the template in the editor.
  */
 
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import lankaohjelma.lankaohjelma.XmlKasittely;
+import lankaohjelma.lankaohjelma.XmlKasittelyTest;
 import lankaohjelma.perusluokat.Kangas;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -18,26 +23,7 @@ import static org.junit.Assert.*;
  *
  * @author Katja
  */
-public class KangasTest {
-    
-    public KangasTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
+public class KangasTest { 
 
   /**
      * Testataan oletuskonstruktori
@@ -53,8 +39,50 @@ public class KangasTest {
      * Testataan parametrikonstruktori
      */
     @Test
-    public void TestaaParametrikonstruktori() {    
-        
+    public void TestaaParametrikonstruktori() {          
        new Kangas(10, "Aida");            
+    }
+    
+    @Test
+    public void TestaaEtsiKangasLoytyy(){
+        Kangas kangas = new Kangas(1, "Aida");
+        Kangas kangas1 = new Kangas(2, "Pellava");
+        ArrayList<Kangas> kankaat = new ArrayList();
+        kankaat.add(kangas);
+        kankaat.add(kangas1);
+        
+        int etsittava;
+        etsittava = 1;       
+        
+        Kangas etsiKangas = kangas.etsiKangas(kankaat, etsittava);
+        assertEquals(1, etsiKangas.getKangasnro());       
+    }
+    
+    @Test
+    public void TestaaEtsiKangasEiLoydy(){
+        Kangas kangas = new Kangas(1, "Aida");
+        Kangas kangas1 = new Kangas(2, "Pellava");
+        ArrayList<Kangas> kankaat = new ArrayList();
+        kankaat.add(kangas);
+        kankaat.add(kangas1);
+        
+        int etsittava;
+        etsittava = 3;       
+        
+        Kangas etsiKangas = kangas.etsiKangas(kankaat, etsittava);
+        assertEquals(null, etsiKangas);           
+    }
+    
+    @Test
+    public void TestaaLisaaKangas(){
+        try {
+            Kangas kangas = new Kangas(1, "Aida");          
+            String tiedNimi = "src\\testitiedostot\\testikangas1.xml";      
+            
+            kangas.lisaaKangas(kangas, tiedNimi);  
+            
+        } catch (Exception ex) {
+            Logger.getLogger(XmlKasittelyTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

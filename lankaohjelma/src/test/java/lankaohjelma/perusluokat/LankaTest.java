@@ -7,6 +7,7 @@ package lankaohjelma.perusluokat;
 
 import lankaohjelma.perusluokat.Lanka;
 import java.util.ArrayList;
+import lankaohjelma.lankaohjelma.XmlKasittely;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,26 +19,7 @@ import static org.junit.Assert.*;
  *
  * @author Katja
  */
-public class LankaTest {
-    
-    public LankaTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
+public class LankaTest { 
   
     /**
      * Testataan oletuskonstruktori
@@ -95,4 +77,59 @@ public class LankaTest {
         lanka.tulostaLanka(langat);       
     }
     
+    @Test
+    public void TestaaEtsiLankaLoytyy(){
+        Lanka lanka = new Lanka(1, 456, "DMC");
+        Lanka lanka1 = new Lanka(2, 789, "Anchor");
+        ArrayList<Lanka> langat = new ArrayList();
+        langat.add(lanka);
+        langat.add(lanka1);
+        
+        int etsittava;
+        etsittava = 1;       
+        
+        Lanka etsiLanka = lanka.etsiLanka(langat, etsittava);
+        assertEquals(456, etsiLanka.getLankanro());       
+    }
+    
+    @Test
+    public void TestaaEtsiLankaEiLoydy(){
+        Lanka lanka = new Lanka(1, 456, "DMC");
+        Lanka lanka1 = new Lanka(2, 789, "Anchor");
+        ArrayList<Lanka> langat = new ArrayList();
+        langat.add(lanka);
+        langat.add(lanka1);
+        
+        int etsittava;
+        etsittava = 3;       
+        
+        Lanka etsiLanka = lanka.etsiLanka(langat, etsittava);
+        assertEquals(null, etsiLanka);       
+    }
+    
+     /**
+     * Testataan langan lisays
+     */
+    @Test
+    public void TestaaLisaaLanka() throws Exception {  
+  
+        Lanka lanka1 = new Lanka(1, 543, "DMC");      
+        int paluukoodi = 0;
+        
+        lanka1.lisaaLanka(lanka1, paluukoodi);        
+    }
+    
+    /**
+     * Testataan langan tulostus
+     */
+    @Test
+    public void TestaaTulostaLanka() throws Exception {  
+  
+        Lanka lanka1 = new Lanka(1, 543, "DMC");  
+        ArrayList<Lanka> langat = new ArrayList<Lanka>();
+       
+        langat.add(lanka1);
+        
+        lanka1.tulostaLanka(langat);        
+    }
 }

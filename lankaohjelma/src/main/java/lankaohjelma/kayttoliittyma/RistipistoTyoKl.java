@@ -5,25 +5,23 @@
  */
 package lankaohjelma.kayttoliittyma;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+
+import java.awt.event.KeyEvent;
+
 import java.util.ArrayList;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JList;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+
+import javax.swing.JOptionPane;
+
 import javax.swing.table.DefaultTableModel;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import lankaohjelma.kokoelmat.RistipistoTyoKokoelma;
 import lankaohjelma.lankaohjelma.TyonLanka;
 import lankaohjelma.lankaohjelma.XmlKasittely;
+import lankaohjelma.perusluokat.Kangas;
 import lankaohjelma.perusluokat.Lanka;
 import lankaohjelma.perusluokat.RistipistoTyo;
 import org.w3c.dom.Document;
@@ -32,7 +30,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
- *
+ * Ristipistotyo -kayttoliittyma
  * @author Katja
  */
 public class RistipistoTyoKl extends javax.swing.JFrame {
@@ -43,9 +41,8 @@ public class RistipistoTyoKl extends javax.swing.JFrame {
     public RistipistoTyoKl() {
         initComponents();
     }
-    
-      TyonLanka tyonLanka = new TyonLanka();
-            Lanka lanka = new Lanka();
+
+    ArrayList<TyonLanka> tyonlangat = new ArrayList<TyonLanka>();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,7 +59,6 @@ public class RistipistoTyoKl extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
@@ -71,8 +67,6 @@ public class RistipistoTyoKl extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
         jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jTextField14 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -84,12 +78,29 @@ public class RistipistoTyoKl extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jTextField5 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField12 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Työn nro");
 
         jTextField1.setToolTipText("");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
 
         jLabel2.setText("Leveys");
 
@@ -100,12 +111,80 @@ public class RistipistoTyoKl extends javax.swing.JFrame {
                 jTextField2ActionPerformed(evt);
             }
         });
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField2KeyTyped(evt);
+            }
+        });
 
-        jLabel4.setText("Tyon langat");
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField3KeyTyped(evt);
+            }
+        });
 
-        jLabel5.setText("Tyon langan nro ja maara");
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField4KeyTyped(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setText("Työn langat");
+
+        jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField6KeyTyped(evt);
+            }
+        });
+
+        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField7KeyTyped(evt);
+            }
+        });
+
+        jTextField8.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField8KeyTyped(evt);
+            }
+        });
+
+        jTextField9.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField9KeyTyped(evt);
+            }
+        });
+
+        jTextField10.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField10KeyTyped(evt);
+            }
+        });
+
+        jTextField11.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField11KeyTyped(evt);
+            }
+        });
 
         jLabel6.setText("Kangas");
+
+        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField14ActionPerformed(evt);
+            }
+        });
+        jTextField14.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField14KeyTyped(evt);
+            }
+        });
 
         jButton1.setText("Tallenna");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -114,27 +193,27 @@ public class RistipistoTyoKl extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Poistu");
+        jButton2.setText("Palaa päävalikkoon");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Langan id", "Langan merkkinro", "Langan merkki", "Maara"
+                "Langan id", "Langan merkkinro", "Langan merkki"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
-            }
-        });
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(jTable1);
@@ -164,12 +243,37 @@ public class RistipistoTyoKl extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable2);
 
-        jButton4.setText("Nayta kankaat");
+        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField5KeyTyped(evt);
+            }
+        });
+
+        jButton4.setText("Näytä kankaat");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
+
+        jLabel7.setText("Nimi");
+
+        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField12ActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setText("Ristipistotyöt");
+
+        jLabel9.setText("Langan nro");
+
+        jLabel10.setText("Määrä");
+
+        jLabel4.setText("pistojen määrä");
+
+        jLabel11.setText("pistojen määrä");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -177,192 +281,271 @@ public class RistipistoTyoKl extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jLabel10))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextField9)
+                                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextField11)
+                                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton3)
+                                    .addComponent(jButton4)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel11))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel4))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel1))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField7)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField9)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField11)
-                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField13)
-                                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addContainerGap(212, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(7, 7, 7)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))))
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addComponent(jLabel5)
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10))))
+                        .addGap(76, 76, 76)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton4)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(344, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
+         if (jTextField2.getText().length() == 0)
+        {
+        JOptionPane.showMessageDialog(this, "Leveys pitää enemmän kuin 0", "VIRHE",JOptionPane.ERROR_MESSAGE);
+        jTextField2.requestFocus();
+        }
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    /**
+    * Tallennetaan ristipistotyo
+    */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         RistipistoTyoKokoelma tyoKokoelma = new RistipistoTyoKokoelma();
         XmlKasittely kasittely = new XmlKasittely();
         String tiedNimi = "src\\testitiedostot\\ristipistotyokokoelma.xml";        
-        ArrayList<RistipistoTyo> ristipistotyot = new ArrayList<RistipistoTyo>();
-        
+        ArrayList<RistipistoTyo> ristipistotyot = new ArrayList<RistipistoTyo>();               
         RistipistoTyo tyo = new RistipistoTyo();
         
-        // kenttien lisäys luokkaan
-        tyo.tyoId = Integer.parseInt(jTextField1.getText());
-        tyo.leveys = Integer.parseInt(jTextField2.getText());
-        tyo.korkeus = Integer.parseInt(jTextField3.getText());
+        //Pakolliset kenttätarkistukset
+        if (jTextField1.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(this, "ID on pakollinen tieto", "VIRHE",JOptionPane.ERROR_MESSAGE);
+            jTextField1.requestFocus();        
+        } else if (jTextField2.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(this, "Leveys pitää enemmän kuin 0", "VIRHE",JOptionPane.ERROR_MESSAGE);
+            jTextField2.requestFocus();
+        } else if (jTextField3.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(this, "Korkeus pitää enemmän kuin 0", "VIRHE",JOptionPane.ERROR_MESSAGE);
+            jTextField3.requestFocus();
+        } else  if ("".equals(jTextField12.getText()))
+        {
+            JOptionPane.showMessageDialog(this, "Nimi on pakollinen tieto", "VIRHE",JOptionPane.ERROR_MESSAGE);
+            jTextField12.requestFocus();
+        }else 
         
-        try {
-            // Haetaan langat, jotta voidaan näyttää ne listalla
-            ArrayList LueLankaXml = kasittely.LueLankaXml("src\\testitiedostot\\lanka.xml");
-
-            // Valitaan taulukosta ne langat, jotka halutaan työlle
-//             tyonLanka.setMaara(Integer.parseInt(jTextField5.getText())); 
-             
-             
+        // Yksi lanka on pakollinen
+        if (jTextField4.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(this, "Syötä ainakin yksi lanka. Voit laittaa sille määräksi 0.", "VIRHE",JOptionPane.ERROR_MESSAGE);
+            jTextField4.requestFocus();
+        } else if (jTextField5.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(this, "Määrä on pakollinen. Voit syöttää määräksi 0", "VIRHE",JOptionPane.ERROR_MESSAGE);
+            jTextField5.requestFocus();
             
-        } catch (Exception ex) {
-            Logger.getLogger(RistipistoTyoKl.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        } else if (jTextField6.getText().length() != 0 && (jTextField7.getText().length() == 0)) {                
+            JOptionPane.showMessageDialog(this, "Määrä on pakollinen. Voit syöttää määräksi 0", "VIRHE",JOptionPane.ERROR_MESSAGE);
+            jTextField7.requestFocus();  
+            
+        } else if (jTextField8.getText().length() != 0 && (jTextField9.getText().length() == 0)) {                
+            JOptionPane.showMessageDialog(this, "Määrä on pakollinen. Voit syöttää määräksi 0", "VIRHE",JOptionPane.ERROR_MESSAGE);
+            jTextField9.requestFocus();     
+            
+        } else if (jTextField10.getText().length() != 0 && (jTextField11.getText().length() == 0)) {                
+            JOptionPane.showMessageDialog(this, "Määrä on pakollinen. Voit syöttää määräksi 0", "VIRHE",JOptionPane.ERROR_MESSAGE);
+            jTextField11.requestFocus();        
+             
+        } else if (jTextField14.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(this, "Kangas on pakollinen tieto", "VIRHE",JOptionPane.ERROR_MESSAGE);
+            jTextField14.requestFocus();
+            
+        // Muut tiedot    
+        } else {
         
-        ArrayList<TyonLanka> tyoLangat = new ArrayList<TyonLanka>();
-//        TyonLanka tyoLanka1 = new TyonLanka(Integer.parseInt(jTextField4.getText()), null);
-//        TyonLanka tyoLanka2 = new TyonLanka();
-//        TyonLanka tyoLanka3 = new TyonLanka();
-//        TyonLanka tyoLanka4 = new TyonLanka();
-//        TyonLanka tyoLanka5 = new TyonLanka(); 
+            // kenttien lisäys luokkaan
+            tyo.tyoId = Integer.parseInt(jTextField1.getText());
+            tyo.tyoNimi = jTextField12.getText();
+            tyo.leveys = Integer.parseInt(jTextField2.getText());
+            tyo.korkeus = Integer.parseInt(jTextField3.getText());
         
-        tyoLangat.add(tyonLanka);
+            try {
+                // Haetaan langat, jotta voidaan näyttää ne listalla
+                ArrayList LueLankaXml = kasittely.LueLankaXml("src\\testitiedostot\\lanka.xml");
+
+                KeraaLankaTieto(LueLankaXml,tyonlangat);             
+                tyo.setLangat(tyonlangat);    
+
+            } catch (Exception ex) {
+                Logger.getLogger(RistipistoTyoKl.class.getName()).log(Level.SEVERE, null, ex);
+            }   
         
-        tyo.setLangat(tyoLangat);
-        
-        
-        
-        
-        
-//        tyo.tyonLangat.add(tyoLanka1);
-//        tyo.tyonLangat.add(tyoLanka2);
-//        tyo.tyonLangat.add(tyoLanka3);
-//        tyo.tyonLangat.add(tyoLanka4);
-//        tyo.tyonLangat.add(tyoLanka5);
-        
-        tyo.tyonKangas = null;  
-        
-        ristipistotyot.add(tyo);
-        
-        tyoKokoelma.setRistipistoTyot(ristipistotyot);        
+            try {
+                // Haetaan kankaat, jotta voidaan näyttää ne listalla
+                ArrayList LueKangasXml = kasittely.LueKangasXml("src\\testitiedostot\\kangas.xml");
+
+                Kangas kangas = new Kangas();
+                 
+                // Työssä voi olla maksimissaan 4 lankaa. Haetaan ne lankaid:n perusteella taulukosta
+                int etsittava = Integer.parseInt(jTextField14.getText());
+                Kangas etsiKangas = kangas.etsiKangas(LueKangasXml, etsittava);
                 
-        try {   
-            kasittely.KirjoitaRistipistoTyoKokoelmaXml(tyoKokoelma, tiedNimi);
-        } catch (Exception ex) {
-            Logger.getLogger(RistipistoTyoKl.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                // Kankaan täytyy löytyä listasta
+                if (etsiKangas==null){                
+                    JOptionPane.showMessageDialog(this, "Kankaan numero täytyy löytyä listasta", "VIRHE",JOptionPane.ERROR_MESSAGE);        
+                    jTextField14.requestFocus();
+                } 
+                
+                kangas.setKangasnro(etsiKangas.getKangasnro());
+                kangas.setKangasMerkki(etsiKangas.getKangasMerkki());
+        
+                tyo.tyonKangas = kangas;     
+            
+                } catch (Exception ex) {
+                    Logger.getLogger(RistipistoTyoKl.class.getName()).log(Level.SEVERE, null, ex);
+                }   
+        
+                // Lisätään täytetty luokka kokoelmaan
+                ristipistotyot.add(tyo);        
+                tyoKokoelma.setRistipistoTyot(ristipistotyot);        
+                
+                try {   
+                    kasittely.KirjoitaRistipistoTyoKokoelmaXml(tyoKokoelma, tiedNimi);
+                } catch (Exception ex) {
+                    Logger.getLogger(RistipistoTyoKl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+    * Naytetaan langat taulukossa
+    */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-          DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
       
         try {
              DocumentBuilder builder = domFactory.newDocumentBuilder();
@@ -387,6 +570,9 @@ public class RistipistoTyoKl extends javax.swing.JFrame {
         }   
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    /**
+    * Naytetaan kankaat taulukossa
+    */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
             DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
       
@@ -412,47 +598,139 @@ public class RistipistoTyoKl extends javax.swing.JFrame {
         }   
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-
-        jTable1.addMouseListener(new MouseAdapter() {
-        public void mouseClicked(MouseEvent e) {
-        if (e.getClickCount() == 2) {
-            JTable target = (JTable)e.getSource();
-            int row = target.getSelectedRow();
-            int column = target.getSelectedColumn();
-            int sarakkeidenMaara = jTable1.getColumnCount();
-         
-//            TyonLanka tyonLanka = new TyonLanka();
-//            Lanka lanka = new Lanka();
-         
-          //  System.out.println("row "+row);
-          //  System.out.println("column "+column);
-          // do some action
-          //int[] selectedRows = jTable1.getSelectedRows();
-          //for (int i = 0; i < sarakkeidenMaara; i++) {
-            
-          // Haetaan langan tiedot ja lisätään ne taulukkoon ja näytölle
-          Object lankaId = jTable1.getValueAt(row, 0);
-          Object lankaNro = jTable1.getValueAt(row, 1);
-          Object lankaMerkki = jTable1.getValueAt(row, 2);     
-          Object langanMaara = jTable1.getValueAt(row, 3);
-          target.setSelectionBackground(Color.red);
-          
-          lanka.setLankaid((Integer.parseInt((String) lankaId)));
-          lanka.setLankanro((Integer.parseInt((String) lankaNro)));          
-          lanka.setMerkki(((String) lankaMerkki));          
-          tyonLanka.setLankamerkki(lanka); 
-          tyonLanka.setMaara((Integer.parseInt((String) langanMaara)));
-          
-          jTextField4.setText((String) lankaId); 
-            System.out.println("tyonLanka "+tyonLanka);
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        if (jTextField1.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(this, "ID on pakollinen tieto", "VIRHE",JOptionPane.ERROR_MESSAGE);
+            jTextField1.requestFocus();
         }
-   }
-});
-                
-    }//GEN-LAST:event_jTable1MouseClicked
-       
-    
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        if (jTextField3.getText().length() == 0)
+        {
+        JOptionPane.showMessageDialog(this, "Korkeus pitää enemmän kuin 0", "VIRHE",JOptionPane.ERROR_MESSAGE);
+        jTextField3.requestFocus();
+        }
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.dispose();
+        new PaaKayttoliittyma().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+        if ("".equals(jTextField12.getText()))
+        {
+            JOptionPane.showMessageDialog(this, "Merkki on pakollinen tieto", "VIRHE",JOptionPane.ERROR_MESSAGE);
+            jTextField12.requestFocus();
+        }
+    }//GEN-LAST:event_jTextField12ActionPerformed
+
+    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+        if (jTextField14.getText().length() == 0)
+        {
+        JOptionPane.showMessageDialog(this, "Kangas on pakollinen tieto", "VIRHE",JOptionPane.ERROR_MESSAGE);
+        jTextField14.requestFocus();
+        }
+    }//GEN-LAST:event_jTextField14ActionPerformed
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            evt.consume();            
+        }
+    }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            evt.consume();            
+        }
+    }//GEN-LAST:event_jTextField2KeyTyped
+
+    private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            evt.consume();            
+        }
+    }//GEN-LAST:event_jTextField3KeyTyped
+
+    private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            evt.consume();            
+        }
+    }//GEN-LAST:event_jTextField4KeyTyped
+
+    private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            evt.consume();            
+        }
+    }//GEN-LAST:event_jTextField6KeyTyped
+
+    private void jTextField8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            evt.consume();            
+        }
+    }//GEN-LAST:event_jTextField8KeyTyped
+
+    private void jTextField10KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            evt.consume();            
+        }
+    }//GEN-LAST:event_jTextField10KeyTyped
+
+    private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            evt.consume();            
+        }
+    }//GEN-LAST:event_jTextField5KeyTyped
+
+    private void jTextField7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            evt.consume();            
+        }
+    }//GEN-LAST:event_jTextField7KeyTyped
+
+    private void jTextField9KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            evt.consume();            
+        }
+    }//GEN-LAST:event_jTextField9KeyTyped
+
+    private void jTextField11KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField11KeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            evt.consume();            
+        }
+    }//GEN-LAST:event_jTextField11KeyTyped
+
+    private void jTextField14KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField14KeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            evt.consume();            
+        }
+    }//GEN-LAST:event_jTextField14KeyTyped
+   
     /**
      * @param args the command line arguments
      */
@@ -487,6 +765,99 @@ public class RistipistoTyoKl extends javax.swing.JFrame {
             }
         });
     }
+        /**
+        * Kerataan lankatiedot kayttajan syottamista kentista
+        */
+        private void KeraaLankaTieto(ArrayList LueLankaXml, ArrayList<TyonLanka> tyonlangat) throws NumberFormatException {
+        Lanka lanka = new Lanka();
+        Lanka lanka2 = new Lanka();
+        Lanka lanka3 = new Lanka();
+        Lanka lanka4 = new Lanka();       
+        
+        TyonLanka tyonLanka1 = new TyonLanka();
+        TyonLanka tyonLanka2 = new TyonLanka();
+        TyonLanka tyonLanka3 = new TyonLanka();
+        TyonLanka tyonLanka4 = new TyonLanka();       
+        
+        // Työssä voi olla maksimissaan 4 lankaa. Haetaan ne lankaid:n perusteella taulukosta
+        int etsittava = Integer.parseInt(jTextField4.getText());
+        Lanka etsiLanka = lanka.etsiLanka(LueLankaXml, etsittava);
+        
+        // Langan täytyy löytyä listasta
+        if (etsiLanka==null){        
+            JOptionPane.showMessageDialog(this, "Langan numero täytyy löytyä listasta", "VIRHE",JOptionPane.ERROR_MESSAGE);        
+            jTextField4.requestFocus();
+        } 
+        
+        lanka.setLankaid(etsiLanka.getLankaid());
+        lanka.setLankanro(etsiLanka.getLankanro());
+        lanka.setMerkki(etsiLanka.getMerkki());
+        
+        tyonLanka1.setLankamerkki(lanka);
+        tyonLanka1.setMaara(Integer.parseInt(jTextField5.getText()));
+        
+        tyonlangat.add(tyonLanka1);
+        
+        if(!"".equals(jTextField6.getText())){
+            int etsittava2 = Integer.parseInt(jTextField6.getText());
+            Lanka etsiLanka2 = lanka.etsiLanka(LueLankaXml, etsittava2);
+            
+            // Langan täytyy löytyä listasta
+            if (etsiLanka2==null){            
+                JOptionPane.showMessageDialog(this, "Langan numero täytyy löytyä listasta", "VIRHE",JOptionPane.ERROR_MESSAGE);        
+                jTextField6.requestFocus();
+            } 
+        
+            lanka2.setLankaid(etsiLanka2.getLankaid());
+            lanka2.setLankanro(etsiLanka2.getLankanro());
+            lanka2.setMerkki(etsiLanka2.getMerkki());
+
+            tyonLanka2.setLankamerkki(lanka2);
+            tyonLanka2.setMaara(Integer.parseInt(jTextField7.getText()));
+
+            tyonlangat.add(tyonLanka2);
+        }
+        
+        if(!"".equals(jTextField8.getText())){
+            int etsittava3 = Integer.parseInt(jTextField8.getText());
+            Lanka etsiLanka3 = lanka3.etsiLanka(LueLankaXml, etsittava3);
+            
+            // Langan täytyy löytyä listasta
+            if (etsiLanka3==null){            
+                JOptionPane.showMessageDialog(this, "Langan numero täytyy löytyä listasta", "VIRHE",JOptionPane.ERROR_MESSAGE);        
+                jTextField8.requestFocus();
+            } 
+            
+            lanka3.setLankaid(etsiLanka3.getLankaid());
+            lanka3.setLankanro(etsiLanka3.getLankanro());
+            lanka3.setMerkki(etsiLanka3.getMerkki());
+
+            tyonLanka3.setLankamerkki(lanka3);
+            tyonLanka3.setMaara(Integer.parseInt(jTextField9.getText()));
+
+            tyonlangat.add(tyonLanka3);
+        }
+        
+        if(!"".equals(jTextField10.getText())){
+            int etsittava4 = Integer.parseInt(jTextField10.getText());
+            Lanka etsiLanka4 = lanka4.etsiLanka(LueLankaXml, etsittava4);
+            
+            // Langan täytyy löytyä listasta
+            if (etsiLanka4==null){            
+                JOptionPane.showMessageDialog(this, "Langan numero täytyy löytyä listasta", "VIRHE",JOptionPane.ERROR_MESSAGE);        
+                jTextField10.requestFocus();
+            } 
+            
+            lanka4.setLankaid(etsiLanka4.getLankaid());
+            lanka4.setLankanro(etsiLanka4.getLankanro());
+            lanka4.setMerkki(etsiLanka4.getMerkki());
+
+            tyonLanka4.setLankamerkki(lanka4);
+            tyonLanka4.setMaara(Integer.parseInt(jTextField11.getText()));
+
+            tyonlangat.add(tyonLanka4);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -494,11 +865,16 @@ public class RistipistoTyoKl extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
@@ -507,7 +883,6 @@ public class RistipistoTyoKl extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

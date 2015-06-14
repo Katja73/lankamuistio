@@ -9,7 +9,6 @@ import lankaohjelma.kokoelmat.KayttajaKokoelma;
 import lankaohjelma.kokoelmat.LankaKokoelma;
 import lankaohjelma.kayttoliittyma.LankaKl;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -17,7 +16,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import lankaohjelma.lankaohjelma.XmlKasittely;
 
 /**
- * Kayttajaluokka, joka sisältää käyttäjän tiedot
+ * Luokka, joka kasittelee kayttajan tietoja.
  * @author Katja
  */
 
@@ -41,10 +40,10 @@ public class Kayttaja {
     
     /**
      * Parametrit vastaanottava konstruktori
-     * @param nro
-     * @param etunimi
-     * @param ristipistotyot
-     * @param lankaKokoelma    
+     * @param nro Kayttajan nro
+     * @param etunimi Kayttajan etunimi
+     * @param ristipistotyot Lista kayttajan ristipistotoista
+     * @param lankaKokoelma Kayttakan lankakokoelma
      */    
     public Kayttaja(int nro, String etunimi, ArrayList<RistipistoTyo> ristipistotyot, LankaKokoelma lankaKokoelma)
     {
@@ -97,58 +96,11 @@ public class Kayttaja {
                 + lankaKokoelma + ", "
                 + ristipistotyot + ".";               
     } 
-    
-   public void aja() throws Exception{
-    //luodaan lista Kayttaja-tyyppisille olioille
-    ArrayList<Kayttaja> kayttajaLista = new ArrayList<Kayttaja>();
-    while (true)
-    {
-        Scanner lukija = new Scanner(System.in);
-        int valinta;
-
-        System.out.println("Valitse toiminto: ");
-        System.out.println("1. Käyttjän lisäys");
-        System.out.println("2. Käyttäjän haku");
-        System.out.println("3. Käyttäjän poisto");
-        System.out.println("4. Käyttjäjälista");
-        System.out.println("0. Lopeta");         
-        valinta = lukija.nextInt();
-
-//        switch (valinta) {
-//            case 1:
-//            lisaaKayttaja(kayttajaLista);
-//            break;
-//            case 2:
-//            etsiKayttaja(kayttajaLista);
-//            break;
-////                case 3:
-////                poistaLanka(lankaLista);
-////                break;
-//            case 4:
-//            tulostaKayttaja(kayttajaLista);
-//            break;
-//            case 0:
-//            System.out.println("Kiitos ohjelman käytöstä!");
-//
-//            //Tallennetaan tiedosto talteen seuraavaa kertaa varten
-//            Tiedosto tiedosto = new Tiedosto();
-//            String tiedNimi = "C:\\Users\\Katja.Katja-PC\\lankamuistio\\Tiedostot\\kayttaja.txt";
-////                String tiedNimi = "C:\\Omat\\testi.txt";
-//
-//            tiedosto.Tallenna(tiedNimi, kayttajaLista);
-////                tiedosto.LataaTiedosto(tiedNimi);
-//
-//            System.exit(0);
-//            default:
-//            System.out.println("Virheellinen valinta.");
-//        }
-    }
-}  
    
     /**
-     *
-     * @param kayttajaKokoelma
-     * @throws Exception
+     * Lisataan kayttajat. Kutsutaan xml-tiedostoa kirjoittavaa luokkaa
+     * @param kayttajaKokoelma kayttajakokoelma
+     * @throws Exception nostaa virheen
      */
     public void lisaaKayttaja(KayttajaKokoelma kayttajaKokoelma) throws Exception {
     
@@ -160,70 +112,5 @@ public class Kayttaja {
         } catch (Exception ex) {
             Logger.getLogger(LankaKl.class.getName()).log(Level.SEVERE, null, ex);
         }        
-    }
-
-//private void lisaaKayttaja(ArrayList<Kayttaja> kayttajaLista) {
-//    // Pyydetään tiedot
-//    Scanner lukija = new Scanner(System.in);
-//    System.out.println("Anna käyttäjän numero: ");
-//    nro = lukija.nextInt();        
-//     System.out.println("Anna käyttäjän nimi: ");
-//    etunimi = lukija.next();
-//     System.out.println("Syötä käyttäjän omat langat (lankaid)");
-//     while (lukija.hasNextInt()) {
-//         int i = lukija.nextInt();
-//         omatLangat.add(new Lanka());
-//     }
-////    omatLangat = lukija.   lukija.next();
-////     System.out.println("Syötä käyttäjän omat ristipistotyöt");
-////    merkki = lukija.next();
-//
-//    // tallennetaan ne listaan
-//    kayttajaLista.add(new Kayttaja(nro, etunimi, merkki));        
-//}
-//
-//private void tulostaLanka(ArrayList<Lanka> lankaLista)
-//{
-//    // tulostetaan, jos listassa on jotain
-//    if (lankaLista.size() > 0)
-//        // loopataan läpi ja tulostetaan
-//        {
-//            for (int i = 0; i < lankaLista.size(); i++) {
-//                System.out.println(lankaLista.get(i));
-//        }
-//    }
-//    // jos ei ole mitään, tulostetaan
-//    else    
-//        System.out.println("Listassa ei ole vielä tuotteita");
-//}
-//
-//private void etsiLanka(ArrayList<Lanka> lankaLista) {
-//    // jos listassa on jotakin,
-//    if (lankaLista.size() > 0) {
-//   Scanner lukija = new Scanner(System.in);
-//    String etsittava;
-//    boolean loytyiko = false;
-//
-//    System.out.println("Anna etsittävän tuotteen langan merkki");
-//    etsittava = lukija.nextLine();
-//
-//    // luodaan ja kysellään juttuja ja etsiskellään lista läpi.
-//    for (int i = 0; i < lankaLista.size(); i++) {
-//    // jos tuoteListan rivillä i oleva Nimi-muuttuja on juuri sama
-//    // kuin etsittävä String,
-//    if (lankaLista.get(i).getMerkki().toUpperCase().trim()
-//    .equals(etsittava.trim().toUpperCase())) {
-//    // tulostetaan,
-//    System.out.println(lankaLista.get(i));
-//    // ja muutetaan boolean todeksi.
-//    loytyiko = true;
-//    }
-//    }
-//    // jos boolean ei ole muuttunut todeksi, ei ole löytynyt.
-//    if (loytyiko == false)
-//    System.out.println("Tuotetta " + etsittava + " ei löytynyt.");
-//    // jos lista oli nollan pituinen, siinä ei varmaan ollut mitään.
-//    } else
-//    System.out.println("Listassa ei ole vielä tuotteita.");
-//}           
+    }         
 }

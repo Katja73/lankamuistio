@@ -60,37 +60,20 @@ public class XmlKasittelyTest {
      */
     @Test
     public void TestaaKayttajaXmlTallennus() throws Exception {  
-  
-        ArrayList<Integer> tyot = new ArrayList<Integer>();
-        tyot.add(1);
-        tyot.add(2);
-        tyot.add(3);
+
+        Kayttaja kayttaja1 = new Kayttaja(1, "Katja", null, null);
+        Kayttaja kayttaja2 = new Kayttaja(2, "Liisa", null, null);    
+     
+        ArrayList<Kayttaja>kayttajat  = new ArrayList();
+        kayttajat.add(kayttaja1);
+        kayttajat.add(kayttaja2);
         
-        ArrayList<Integer> langat = new ArrayList<Integer>();
-        langat.add(10);
-        langat.add(20);
-        langat.add(30);
-        
-        ArrayList<Integer> tyot2 = new ArrayList<Integer>();
-        tyot2.add(5);
-        tyot2.add(6);
-        tyot2.add(7);
-        
-        ArrayList<Integer> langat2 = new ArrayList<Integer>();
-        langat2.add(11);
-        langat2.add(21);
-        langat2.add(31);
-        
-//        Kayttaja kayttaja1 = new Kayttaja(1, "Katja", tyot, langat);
-//        Kayttaja kayttaja2 = new Kayttaja(2, "Liisa", tyot2, langat2);    
-//     
-//        ArrayList<Kayttaja>kayttajat  = new ArrayList();
-//        kayttajat.add(kayttaja1);
-//        kayttajat.add(kayttaja2);
-//               
-//        XmlKasittely wr = new XmlKasittely();
-//        String tiedNimi = "src\\testitiedostot\\testikayttaja.xml";
-//        wr.KirjoitaKayttajaXML(kayttajat, tiedNimi);      
+        KayttajaKokoelma kayttajakokoelma = new KayttajaKokoelma();
+        kayttajakokoelma.setKayttajat(kayttajat);
+               
+        XmlKasittely wr = new XmlKasittely();
+        String tiedNimi = "src\\testitiedostot\\testikayttaja.xml";
+        wr.KirjoitaKayttajaXml(kayttajakokoelma, tiedNimi);      
     }
     
     /**
@@ -119,7 +102,7 @@ public class XmlKasittelyTest {
         XmlKasittely kasittely = new XmlKasittely();
         int paluukoodi = 0;
         
-        // Lisätään ensin lanka
+        // Lisataan ensin lanka
         Lanka lanka1 = new Lanka(1, 543, "DMC");      
       
         String tiedNimi = "src\\testitiedostot\\testilanka.xml";
@@ -163,8 +146,8 @@ public class XmlKasittelyTest {
          ArrayList<RistipistoTyo> tyot = new ArrayList<RistipistoTyo>();
          Kangas kangas = new Kangas(1, "Aida");
          Kangas kangas2 = new Kangas(2, "Aidas");
-        tyot.add(new RistipistoTyo(1, null, kangas, 10, 20));
-        tyot.add(new RistipistoTyo(2, null, kangas2, 15, 45));
+        tyot.add(new RistipistoTyo(1, "testi", null, kangas, 10, 20));
+        tyot.add(new RistipistoTyo(2, "testi", null, kangas2, 15, 45));
     
         ArrayList<Lanka> langat = new ArrayList<Lanka>();
         langat.add(new Lanka(1, 456, "DMC"));
@@ -173,8 +156,8 @@ public class XmlKasittelyTest {
         ArrayList<RistipistoTyo> tyot2 = new ArrayList<RistipistoTyo>();
          Kangas kangas3 = new Kangas(1, "Pellava");
          Kangas kangas4 = new Kangas(2, "Aidas");
-        tyot2.add(new RistipistoTyo(3, null, kangas3, 20, 30));
-        tyot2.add(new RistipistoTyo(4, null, kangas4, 30, 50));
+        tyot2.add(new RistipistoTyo(3, "testi", null, kangas3, 20, 30));
+        tyot2.add(new RistipistoTyo(4, "testi", null, kangas4, 30, 50));
         
         // ToDO:Muuta kokoelmaksi
        ArrayList<Lanka> langat2 = new ArrayList<Lanka>();
@@ -236,8 +219,8 @@ public class XmlKasittelyTest {
         tyonLangat2.add(tyonLanka2);
         tyonLangat2.add(tyonLanka4);
         
-        tyot.add(new RistipistoTyo(1, tyonLangat, kangas, 10, 20));
-        tyot.add(new RistipistoTyo(2, tyonLangat2, kangas2, 15, 75));
+        tyot.add(new RistipistoTyo(1, "testi", tyonLangat, kangas, 10, 20));
+        tyot.add(new RistipistoTyo(2, "testi", tyonLangat2, kangas2, 15, 75));
         
         RistipistoTyoKokoelma ristipistoKokoelma = new RistipistoTyoKokoelma();
         ristipistoKokoelma.setRistipistoTyot(tyot);

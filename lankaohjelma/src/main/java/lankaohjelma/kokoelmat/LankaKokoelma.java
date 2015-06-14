@@ -35,6 +35,10 @@ public class LankaKokoelma {
        
     }
 
+    /**
+     * Asetetaan lista omista langoista
+     * @param omatLangat Omat langat
+     */
     public void setOmatLangat(ArrayList<OmaLanka> omatLangat) {
         this.omatLangat = omatLangat;
     }
@@ -43,10 +47,10 @@ public class LankaKokoelma {
         this.kayttaja = kayttaja;
     }
     
-       /**
-     *
-     * @param kayttajaKokoelma
-     * @throws Exception
+     /**
+     * Kirjoitetaan lankakokoelma. Kutsutaan xml -tiedoston kirjoittavaa luokkaa
+     * @param lankaKokoelma lankakokoelma
+     * @throws Exception nostetaan virhe
      */
     public void lisaaLankaKokoelma(LankaKokoelma lankaKokoelma) throws Exception {
     

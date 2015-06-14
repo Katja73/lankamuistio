@@ -19,30 +19,11 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * Kayttaja -luokan testit
  * @author Katja
  */
-public class KayttajaTest {
-    
-    public KayttajaTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
+public class KayttajaTest {    
+   
      /**
      * Testataan oletuskonstruktori
      */
@@ -63,20 +44,20 @@ public class KayttajaTest {
     }   
     
      /**
-     * Testataan käyttäjäm lisäys
+     * Testataan kayttajan lisäys
      */
     @Test
     public void TestaaLisaaKayttaja() throws Exception {  
     
         Kayttaja kayttaja = new Kayttaja();
         
-        // Lisätään ristipistot
+        // Lisataan ristipistot
         ArrayList<RistipistoTyo> tyot = new ArrayList<RistipistoTyo>();
         Kangas kangas = new Kangas(1, "Aida");
         Kangas kangas2 = new Kangas(2, "Aidas");
         
-        tyot.add(new RistipistoTyo(1, null, kangas, 10, 20));
-        tyot.add(new RistipistoTyo(2, null, kangas2, 15, 45));
+        tyot.add(new RistipistoTyo(1, "testi", null, kangas, 10, 20));
+        tyot.add(new RistipistoTyo(2, "testi", null, kangas2, 15, 45));
            
         ArrayList<OmaLanka> omatLangat = new ArrayList<OmaLanka>();
         Lanka lanka = new Lanka(1, 567, "DMC");
@@ -90,19 +71,19 @@ public class KayttajaTest {
         LankaKokoelma lankaKokoelma = new LankaKokoelma();
         lankaKokoelma.setOmatLangat(omatLangat);       
         
-        // Lisätään toinen työ
+        // Lisataan toinen tyo
         ArrayList<RistipistoTyo> tyot2 = new ArrayList<RistipistoTyo>();
         Kangas kangas3 = new Kangas(1, "Pellava");
         Kangas kangas4 = new Kangas(2, "Aidas");
-        tyot2.add(new RistipistoTyo(3, null, kangas3, 20, 30));
-        tyot2.add(new RistipistoTyo(4, null, kangas4, 30, 50));
+        tyot2.add(new RistipistoTyo(3, "testi", null, kangas3, 20, 30));
+        tyot2.add(new RistipistoTyo(4, "testi", null, kangas4, 30, 50));
         
-        // Lisätään toiselle työlle langat
+        // Lisataan toiselle tyolle langat
         ArrayList<Lanka> langat2 = new ArrayList<Lanka>();
         langat2.add(new Lanka(1, 456, "DMC"));
         langat2.add(new Lanka(4, 847, "DMC"));
         
-        // Lisätään kayttajat
+        // Lisataan kayttajat
         Kayttaja kayttaja1 = new Kayttaja(1, "Katja", tyot, lankaKokoelma);
         Kayttaja kayttaja2 = new Kayttaja(2, "Liisa", tyot2, lankaKokoelma);    
      
@@ -117,7 +98,7 @@ public class KayttajaTest {
     }    
     
       /**
-     * Testataan oman langan lisäys
+     * Testataan oman langan lisays
      */
     @Test
     public void TestaaLisaaLankaKokoelma() throws Exception {  
@@ -128,5 +109,6 @@ public class KayttajaTest {
         omatLangat.add(omaLanka);
         
         lankaKokoelma.setOmatLangat(omatLangat);        
-    }    
+    }   
+
 }

@@ -2,14 +2,10 @@
 <Kankaat>
     <Kangas>
         <KangasId>1</KangasId>
-        <KangasMerkki>aida</KangasMerkki>
+        <KangasMerkki>Aida</KangasMerkki>
     </Kangas>
     <Kangas>
         <KangasId>2</KangasId>
-        <KangasMerkki>aida</KangasMerkki>
-    </Kangas>
-    <Kangas>
-        <KangasId>3</KangasId>
-        <KangasMerkki>pellava</KangasMerkki>
+        <KangasMerkki>Pellava</KangasMerkki>
     </Kangas>
 </Kankaat>

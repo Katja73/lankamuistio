@@ -70,11 +70,29 @@
 - 3 h Käyttöliittymän jatkamista. Kävin koululla ja sain toimimaan sen, että näytetään tablessa luokan tiedot.
 
 **Ke 10.6.2015**
-- 2 Käyttöliittymän jatkamista. Ensimmäiset näytöt ovat valmiita. Tarkistuksia puuttuu.
+- 2 h Käyttöliittymän jatkamista. Ensimmäiset näytöt ovat valmiita. Tarkistuksia puuttuu.
 
 **To 11.6.2015**
-- 2 Käyttöliittymän jatkamista. Nyt sain lisää toiminnallisuutta. Muutama sekvenssikaavio. Kohta täytyy alkaa tekemään 
+- 2 h Käyttöliittymän jatkamista. Nyt sain lisää toiminnallisuutta. Muutama sekvenssikaavio. Kohta täytyy alkaa tekemään 
    viimeistelyä. Piti tehdä jo tähän palautukseen, mutta en ehtinyt.
+
+**Pe 12.6.2015**
+- 3 h Joku muu tekisi perjantai-iltana ehkä jotain muuta, mutta ehei. Tässä sitä istutaan koodin kimpussa. Nyt on pakko tehdä kompromisseja.
+      Kaikkea toiminnallisuutta en saa toimimaan. Tällä hetkellä ohjelmaan pystyy tallentamaan kyllä paljon lankoja ja kankaita,
+      mutta vain yhden ristipistotyön. En saa jabx toimimaan siten, että samaan luokkaan pystyisi lisäämään uuden työn.
+      Toki tämä on mahdollista, mutta en löydä oikeaa syntaxia. Muuten olen saanut näytöt aika hyvin toimimaan yhtä lukuunottamatta.
+      Myös käyttäjässä pitää tehdä nyt kompromissi. Teen vain näytön, en varmaan paljon toiminnallisuutta.
+
+**La 13.6.2015**
+-  8 h Koodikatselmointi. Aihe oli hauska. Tein käyttöliittymät loppuun. Samoin testausraportin ja käytön ohjeet. Aurinkoisen
+    päivän olisi toki voinut viettää ulkona, mutta pitää tämä nyt saada loppuun. Sunnuntaille jäi loput kuvaukset, yksikkö-
+    testi ja viimeistely. Sitten työn voi palauttaa. 
+
+**Su 14.6.2015**
+-  8 h. Onneksi sataa. Koodin viimeistely. Testausraportti loppuun. Käytönohjeiden viimeistely. Testauksen kattavuuden 
+   lisäys. Vielä muutamia kenttätarkistuksia. JavaDoccien teko. Käyttötapaukset, luokkakaavio ja sekvenssikaavioiden teko.
+   
+
 
 
 

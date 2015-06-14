@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import lankaohjelma.perusluokat.Lanka;
 
 /**
- *
+ * TyonLanka -luokka
  * @author Katja
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -31,8 +31,8 @@ public class TyonLanka {
     
     /**
      * Parametrit vastaanottava konstruktori
-     * @param maara
-     * @param lanka
+     * @param maara tyon langan maara
+     * @param lankamerkki lankan merkki
      */
     public TyonLanka(double maara, Lanka lankamerkki)
     {
@@ -42,7 +42,7 @@ public class TyonLanka {
     
     /**
      * Getteri
-     * @return maara
+     * @return maara palauttaa maaran
      */
     public double getMaara(){return maara;}
 
@@ -52,7 +52,7 @@ public class TyonLanka {
     
      /**
      * Getteri
-     * @return lankamerkki
+     * @return lankamerkki palauttaa lankamerkin
      */
     public Lanka getLankamerkki(){return lankamerkki;}
 
