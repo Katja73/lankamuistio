@@ -8,4 +8,8 @@
         <KangasId>2</KangasId>
         <KangasMerkki>Pellava</KangasMerkki>
     </Kangas>
+    <Kangas>
+        <KangasId>3</KangasId>
+        <KangasMerkki>Muu</KangasMerkki>
+    </Kangas>
 </Kankaat>
