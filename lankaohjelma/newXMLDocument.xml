@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ristipistoTyoKokoelma>
+    <ristipistotyot>
+        <tyoId>1</tyoId>
+        <tyoNimi>Kukat</tyoNimi>
+        <tyonLangat>
+            <maara>10.0</maara>
+            <lankamerkki>
+                <lankaid>1</lankaid>
+                <merkkinro>234</merkkinro>
+                <merkki>DMC</merkki>
+                <toimintokoodi>0</toimintokoodi>
+            </lankamerkki>
+        </tyonLangat>
+        <tyonLangat>
+            <maara>5.0</maara>
+            <lankamerkki>
+                <lankaid>2</lankaid>
+                <merkkinro>678</merkkinro>
+                <merkki>DMC</merkki>
+                <toimintokoodi>0</toimintokoodi>
+            </lankamerkki>
+        </tyonLangat>
+        <tyonKangas>
+            <kangasMerkki>Pellava</kangasMerkki>
+            <kangasnro>2</kangasnro>
+        </tyonKangas>
+        <leveys>10</leveys>
+        <korkeus>20</korkeus>
+    </ristipistotyot>
+</ristipistoTyoKokoelma>

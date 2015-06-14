@@ -497,9 +497,7 @@ public class KayttajaKl extends javax.swing.JFrame {
             ArrayList<RistipistoTyo> tyolista = new ArrayList<RistipistoTyo>();
             tyolista.add(etsiRistipistoTyo);
            
-            kayttaja.setRistipistotyot(tyolista);
-         
-            kayttaja.setRistipistotyot(null);
+            kayttaja.setRistipistotyot(tyolista);       
 
             // Lisätään käyttäjän valitsemat langat
             LankaKokoelma lankaKokoelma = new LankaKokoelma();
@@ -539,7 +537,11 @@ public class KayttajaKl extends javax.swing.JFrame {
     */
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
 
+        XmlKasittely kasittely = new XmlKasittely();
+        RistipistoTyoKokoelma LueTyoXml = null;
+            
         jTable1.addMouseListener(new MouseAdapter() {
+        @Override
         public void mouseClicked(MouseEvent e) {
         if (e.getClickCount() == 2) {
             JTable target = (JTable)e.getSource();
@@ -562,7 +564,7 @@ public class KayttajaKl extends javax.swing.JFrame {
             
             ArrayList ristipistoTyot = LueTyoXml.getRistipistoTyot();
             RistipistoTyo tyo = new RistipistoTyo();
-            etsiRistipistoTyo = tyo.etsiRistipistoTyo(ristipistoTyot, Integer.parseInt((String) tyoId));         
+            etsiRistipistoTyo = tyo.etsiRistipistoTyo(ristipistoTyot, Integer.parseInt((String) tyoId));       
                   
         }
    }

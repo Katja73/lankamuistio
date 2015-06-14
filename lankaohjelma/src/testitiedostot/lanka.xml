@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<Langat>
+    <Lanka>
+        <LankaId>1</LankaId>
+        <MerkkiNro>456</MerkkiNro>
+        <Merkki>trr</Merkki>
+    </Lanka>
+    <Lanka>
+        <LankaId>2</LankaId>
+        <MerkkiNro>567</MerkkiNro>
+        <Merkki>DMC</Merkki>
+    </Lanka>
+</Langat>
