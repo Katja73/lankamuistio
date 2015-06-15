@@ -318,8 +318,8 @@ public class LankaKl extends javax.swing.JFrame {
     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
       
-        DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
-        String tiedNimi = "src\\testitiedostot\\lanka.xml";
+        DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();        
+        String tiedNimi = "lanka.xml";
         File nimi = new File(tiedNimi);
         if (nimi.exists()) {
             try {

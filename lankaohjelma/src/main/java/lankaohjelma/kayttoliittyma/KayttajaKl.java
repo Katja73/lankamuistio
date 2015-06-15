@@ -388,7 +388,7 @@ public class KayttajaKl extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
          
-        String tiedNimi = "src\\testitiedostot\\lanka.xml";
+        String tiedNimi = "lanka.xml";
         File nimi = new File(tiedNimi);
         if (nimi.exists()) {
       
@@ -422,7 +422,7 @@ public class KayttajaKl extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
       
-        String tiedNimi = "src\\testitiedostot\\ristipistotyokokoelma.xml";
+        String tiedNimi = "ristipistotyokokoelma.xml";
         File nimi = new File(tiedNimi);
         if (nimi.exists()) {
         
@@ -486,7 +486,7 @@ public class KayttajaKl extends javax.swing.JFrame {
             Kayttaja kayttaja = new Kayttaja();
               
             XmlKasittely kasittely = new XmlKasittely();
-            String tiedNimi = "src\\testitiedostot\\kayttajakokoelma.xml"; 
+            String tiedNimi = "kayttajakokoelma.xml"; 
             ArrayList<Kayttaja> kayttajat = new ArrayList<Kayttaja>();
             KayttajaKokoelma kayttajaKokoelma = new KayttajaKokoelma();
         
@@ -504,8 +504,8 @@ public class KayttajaKl extends javax.swing.JFrame {
             
             // Haetaan langat, jotta voidaan näyttää ne listalla
             ArrayList LueLankaXml = null;
-            try {
-                LueLankaXml = kasittely.LueLankaXml("src\\testitiedostot\\lanka.xml");
+            try {               
+                LueLankaXml = kasittely.LueLankaXml("lanka.xml");
             } catch (Exception ex) {
                 Logger.getLogger(KayttajaKl.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -555,7 +555,7 @@ public class KayttajaKl extends javax.swing.JFrame {
             XmlKasittely kasittely = new XmlKasittely();
             RistipistoTyoKokoelma LueTyoXml = null;
             try {
-                LueTyoXml = kasittely.HaeKaikkiRistipistoTyoKokoelma("src\\testitiedostot\\ristipistotyokokoelma.xml");
+                LueTyoXml = kasittely.HaeKaikkiRistipistoTyoKokoelma("ristipistotyokokoelma.xml");
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(KayttajaKl.class.getName()).log(Level.SEVERE, null, ex);
             } catch (JAXBException ex) {

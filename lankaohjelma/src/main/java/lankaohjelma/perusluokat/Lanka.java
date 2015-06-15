@@ -97,8 +97,8 @@ public class Lanka implements Serializable {
      */
     public void lisaaLanka(Lanka lisattavaLanka, int paluukoodi) throws Exception {
     
-        XmlKasittely xmlKasittely = new XmlKasittely();
-        String tiedNimi = "src\\testitiedostot\\lanka.xml";        
+        XmlKasittely xmlKasittely = new XmlKasittely();        
+        String tiedNimi = "lanka.xml";
 
         try {        
             xmlKasittely.KirjoitaLankaXML(lisattavaLanka, tiedNimi, paluukoodi); 

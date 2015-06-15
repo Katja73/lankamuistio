@@ -55,7 +55,7 @@ public class LankaKokoelma {
     public void lisaaLankaKokoelma(LankaKokoelma lankaKokoelma) throws Exception {
     
         XmlKasittely xmlKasittely = new XmlKasittely();
-        String tiedNimi = "src\\testitiedostot\\kayttaja.xml";   
+        String tiedNimi = "kayttaja.xml";   
         
         try {        
             xmlKasittely.KirjoitaLankaKokoelmaXml(lankaKokoelma, tiedNimi);           

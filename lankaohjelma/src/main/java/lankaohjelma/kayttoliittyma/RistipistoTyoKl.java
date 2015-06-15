@@ -434,7 +434,7 @@ public class RistipistoTyoKl extends javax.swing.JFrame {
         
         RistipistoTyoKokoelma tyoKokoelma = new RistipistoTyoKokoelma();
         XmlKasittely kasittely = new XmlKasittely();
-        String tiedNimi = "src\\testitiedostot\\ristipistotyokokoelma.xml";        
+        String tiedNimi = "ristipistotyokokoelma.xml";        
         ArrayList<RistipistoTyo> ristipistotyot = new ArrayList<RistipistoTyo>();               
         RistipistoTyo tyo = new RistipistoTyo();
         
@@ -494,8 +494,8 @@ public class RistipistoTyoKl extends javax.swing.JFrame {
             tyo.korkeus = Integer.parseInt(jTextField3.getText());
         
             try {
-                // Haetaan langat, jotta voidaan näyttää ne listalla
-                ArrayList LueLankaXml = kasittely.LueLankaXml("src\\testitiedostot\\lanka.xml");
+                // Haetaan langat, jotta voidaan näyttää ne listalla                
+                ArrayList LueLankaXml = kasittely.LueLankaXml("lanka.xml");
 
                 KeraaLankaTieto(LueLankaXml,tyonlangat);             
                 tyo.setLangat(tyonlangat);    
@@ -506,7 +506,7 @@ public class RistipistoTyoKl extends javax.swing.JFrame {
         
             try {
                 // Haetaan kankaat, jotta voidaan näyttää ne listalla
-                ArrayList LueKangasXml = kasittely.LueKangasXml("src\\testitiedostot\\kangas.xml");
+                ArrayList LueKangasXml = kasittely.LueKangasXml("kangas.xml");
 
                 Kangas kangas = new Kangas();
                  
@@ -548,8 +548,8 @@ public class RistipistoTyoKl extends javax.swing.JFrame {
         DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
       
         try {
-             DocumentBuilder builder = domFactory.newDocumentBuilder();
-             Document doc = builder.parse("src\\testitiedostot\\lanka.xml");
+             DocumentBuilder builder = domFactory.newDocumentBuilder();             
+             Document doc = builder.parse("lanka.xml");
              
             Element root = doc.getDocumentElement();
             NodeList nodelist1 = root.getElementsByTagName("Lanka");
@@ -578,7 +578,7 @@ public class RistipistoTyoKl extends javax.swing.JFrame {
       
         try {
              DocumentBuilder builder = domFactory.newDocumentBuilder();
-             Document doc = builder.parse("src\\testitiedostot\\kangas.xml");
+             Document doc = builder.parse("kangas.xml");
              
             Element root = doc.getDocumentElement();
             NodeList nodelist1 = root.getElementsByTagName("Kangas");

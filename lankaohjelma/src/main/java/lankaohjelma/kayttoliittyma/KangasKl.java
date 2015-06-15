@@ -191,7 +191,7 @@ public class KangasKl extends javax.swing.JFrame {
         
             int kangasNro;
             String kangasMerkki;
-            String tiedNimi = "src\\testitiedostot\\kangas.xml";
+            String tiedNimi = "kangas.xml";
 
             kangasNro = Integer.parseInt(jTextField1.getText());       
             kangasMerkki = jTextField2.getText();
@@ -223,7 +223,7 @@ public class KangasKl extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
             
-        String tiedNimi = "src\\testitiedostot\\kangas.xml";
+        String tiedNimi = "kangas.xml";
         File nimi = new File(tiedNimi);
         if (nimi.exists()) {
       

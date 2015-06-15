@@ -105,7 +105,7 @@ public class Kayttaja {
     public void lisaaKayttaja(KayttajaKokoelma kayttajaKokoelma) throws Exception {
     
         XmlKasittely xmlKasittely = new XmlKasittely();
-        String tiedNimi = "src\\testitiedostot\\kayttaja.xml";   
+        String tiedNimi = "kayttaja.xml";   
         
         try {        
             xmlKasittely.KirjoitaKayttajaXml(kayttajaKokoelma, tiedNimi);           
