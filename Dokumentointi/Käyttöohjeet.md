@@ -39,9 +39,11 @@ Kentät
 Selitys: Langan id on yksilöivä numeerinen tunniste. Kannattaa katsoa Näytä langat –painikkeella jo valmiina olevat langat, ja ottaa seuraava numero. Samalla numerolla ei voi syöttää uutta lankaa. Ohjelma ei ilmoita päällekkäisyydestä, mutta lanka ei tallennu.
 
 - Merkin nro:	Pakollisuus: Pakollinen, numeerinen kenttä.
-Selitys: Jokaisella langalla on oma yksilöivä tunnistenumero ja merkki. Tähän syötetään langan värin numero, esim. 456 (DMC)
+  
+Selitys: Jokaisella langalla on oma yksilöivä tunnistenumero ja merkki. Tähän syötetään langan värin numero, esim.    456 (DMC)
 
--Merkki: 	Pakollisuus: Pakollinen
+- Merkki: 	Pakollisuus: Pakollinen
+
 Selitys: Tähän tulee langan merkki, joka yhdessä Merkin nro:n kanssa yksilöi värin. Töissä värit ilmoitetaan aina merkki + nro –muodossa. Esim. DMC 345 tai Anchor 1050.
 
 Painikkeet
@@ -53,19 +55,19 @@ Painikkeet
  
 Kentät
 
--Kangas id: 	Pakollisuus: Pakollinen, numeerinen kenttä
+- Kangas id: 	Pakollisuus: Pakollinen, numeerinen kenttä
 
 Selitys: Kankaan id on yksilöivä numeerinen tunniste. Kannattaa katsoa Näytä kankaat –painikkeella jo valmiina olevat kankaat, ja ottaa seuraava numero.  Samalla numerolla ei voi syöttää uutta kangasta. Ohjelma ei ilmoita päällekkäisyydestä, mutta kangas ei tallennu.
 
--Kangasmerkki: 
+- Kangasmerkki: 
 Pakollisuus: Pakollinen
 Selitys: Tähän tulee kankaan merkki. Kangas voi olla merkiltään mikä tahansa. Yleisimmät ovat Aida ja Pellava. Halutessaan kenttään voi kirjoittaa myös kankaan koon. Se ilmoitetaan numerona nimen perässä. Esim. Aida 18. Mitä suurempi numero, sen tiheämpi kangas.
 
 Painikkeet
 
--Näytä kankaat: Näytetään jo valmiina olevat kankaat taulukossa. Taulukkoa ei voi muokata tai valita lankoja.
--Tallenna: Tallennetaan kankaat.
--Palaa päävalikkoon: Palataan päävalikkoon
+- Näytä kankaat: Näytetään jo valmiina olevat kankaat taulukossa. Taulukkoa ei voi muokata tai valita lankoja.
+- Tallenna: Tallennetaan kankaat.
+- Palaa päävalikkoon: Palataan päävalikkoon
 
 **3.4.	Käyttäjät –ikkuna**
  
@@ -92,11 +94,9 @@ Painikkeet
 - Näytä ristipistotyöt: Näytetään jo valmiina oleva ristipistotyö taulukossa. Tässä versiossa on näkyvissä vain yksi työ, josta näkyy työn id ja nimi. Työtä tuplaklikkaamalla se valitaan käyttäjän työksi. Valittu rivi muuttuu punaiseksi.
 - Tallenna: Tallennetaan käyttäjän tiedot.
 - Palaa päävalikkoon: Palataan päävalikkoon
- 
 
 **3.5.	Ristipistotyöt –ikkuna**
 
- 
 Kentät
 - Työn nro:  	Pakollisuus: Pakollinen, numeerinen kenttä
 Selitys: työn nro on yksilöivä numeerinen tunniste. Tämän hetken versio tallentaa aina edellisen päälle, joten numeroksi voi antaa mitä vaan. 
@@ -108,7 +108,7 @@ Selitys: Työn nimi
 Selitys: Työn leveys pistojen määränä
 
 - Korkeus:	Pakollisuus: Pakollinen, numeerinen kenttä
-	Selitys: Työn korkeus pistojen määränä 
+  Selitys: Työn korkeus pistojen määränä 
 
 - Langan nro: 	Pakollisuus: Yksi lanka on pakollinen, numeerinen kenttä
 Selitys:  Omat langat kohtaan voi syöttää maksimissaan neljä eri lankaa. Ohjelma tekee tarkistuksen, ovatko langat jo olemassa, joten paina Näytä langat –painiketta, jotta saat näkyviin kaikki tiedostoon tallennetut langat. 
