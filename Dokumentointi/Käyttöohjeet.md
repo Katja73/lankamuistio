@@ -1,129 +1,126 @@
-# RISTIPISTOTYÖOHJELMA – OHJEET
+# RISTIPISTOTYÃ–OHJELMA â€“ OHJEET
 
-** Sisällys **
-1.	Yleistä	1
-2.	Ohjelmassa olevat toiminnalliset puutteet ja virheet:	1
-3.	Ohjeet	2
-3.1.	Päävalikko	2
-3.2.	Langat –ikkuna	3
-3.3.	Kankaat –ikkuna	4
-3.4.	Käyttäjät –ikkuna	5
-3.5.	Ristipistotyöt –ikkuna	7
+**1.	YleistÃ¤**
+Ohjelmalla pystyy syÃ¶ttÃ¤mÃ¤Ã¤n ristipistotyÃ¶ssÃ¤ tarvittavia tietoja. Ohjelman ensimmÃ¤isessÃ¤ versiossa pystyy tekemÃ¤Ã¤n seuraavat tallennukset:
+-	SyÃ¶ttÃ¤mÃ¤Ã¤n lankoja
+-	SyÃ¶ttÃ¤mÃ¤Ã¤n kankaita
+-	SyÃ¶ttÃ¤mÃ¤Ã¤n yhden ristipistotyÃ¶n kerrallaan
+-	SyÃ¶ttÃ¤mÃ¤Ã¤n yhden kÃ¤yttÃ¤jÃ¤n kerrallaan.
 
-**1.	Yleistä**
-Ohjelmalla pystyy syöttämään ristipistotyössä tarvittavia tietoja. Ohjelman ensimmäisessä versiossa pystyy tekemään seuraavat tallennukset:
-•	Syöttämään lankoja
-•	Syöttämään kankaita
-•	Syöttämään yhden ristipistotyön kerrallaan
-•	Syöttämään yhden käyttäjän kerrallaan.
+Seuraavassa versiossa tulee mahdolliseksi useamman kÃ¤yttÃ¤jÃ¤n ja ristipistotyÃ¶n syÃ¶ttÃ¤minen.
 
-Seuraavassa versiossa tulee mahdolliseksi useamman käyttäjän ja ristipistotyön syöttäminen.
-HUOM! .JAR pitää ajaa kansiossa, jossa on kirjoitusoikeudet. XML –sanomat tallentuvat tähän kansioon. Myöhemmin ohjelmaan on tarkoitus lisätä tietokanta.
+HUOM! .JAR pitÃ¤Ã¤ ajaa kansiossa, jossa on kirjoitusoikeudet. XML â€“sanomat tallentuvat tÃ¤hÃ¤n kansioon. MyÃ¶hemmin ohjelmaan on tarkoitus lisÃ¤tÃ¤ tietokanta.
 
 ** 2.	Ohjelmassa olevat toiminnalliset puutteet ja virheet: **
-•	Tässä versiossa ei pysty syöttämään kuin yhden käyttäjän. Seuraavan syöttäminen tuhoaa edellisen. Ei myöskään pysty syöttämään kuin yhden ristipistotyön kerrallaan. Uuden tallentaminen tuhoaa edellisen. 
+-	TÃ¤ssÃ¤ versiossa ei pysty syÃ¶ttÃ¤mÃ¤Ã¤n kuin yhden kÃ¤yttÃ¤jÃ¤n. Seuraavan syÃ¶ttÃ¤minen tuhoaa edellisen. Ei myÃ¶skÃ¤Ã¤n pysty syÃ¶ttÃ¤mÃ¤Ã¤n kuin yhden ristipistotyÃ¶n kerrallaan. Uuden tallentaminen tuhoaa edellisen. 
 
-•	Käyttäjiä tai ristipistotöitä ei voi tarkastella kuin XML –tiedostojen kautta. Niille ei ole tarjolla omaa näyttöikkunaa.
+-	KÃ¤yttÃ¤jiÃ¤ tai ristipistotÃ¶itÃ¤ ei voi tarkastella kuin XML â€“tiedostojen kautta. Niille ei ole tarjolla omaa nÃ¤yttÃ¶ikkunaa.
 
-•	Lankojen ja kankaiden tallennuksessa ei ole poistoa tai muokkausta. Tässä versiossa voi vain lisätä uusia kankaita tai lankoja.
+.	Lankojen ja kankaiden tallennuksessa ei ole poistoa tai muokkausta. TÃ¤ssÃ¤ versiossa voi vain lisÃ¤tÃ¤ uusia kankaita tai lankoja.
 
-•	Eri kohtien id:t eivät tule sekvenssistä. Tämä mahdollistetaan seuraaviin versioihin.
+-	Eri kohtien id:t eivÃ¤t tule sekvenssistÃ¤. TÃ¤mÃ¤ mahdollistetaan seuraaviin versioihin.
 
 **3.	Ohjeet**
-**3.1.	Päävalikko**
+**3.1.	PÃ¤Ã¤valikko**
 
  
 Painikkeet:
-Langat: Avaa Langat –ikkunan
+Langat: Avaa Langat â€“ikkunan
 Kankaat: Avaa Kankaat ikkunan
-Ristipistotyöt: Avaa ristipistotyöt –ikkunan
-Käyttäjät: Avaa Käyttäjät –ikkunan
+RistipistotyÃ¶t: Avaa ristipistotyÃ¶t â€“ikkunan
+KÃ¤yttÃ¤jÃ¤t: Avaa KÃ¤yttÃ¤jÃ¤t â€“ikkunan
 Lopeta: Ohjelma suljetaan
-Aloita syöttämällä langat ja kankaat. Sen jälkeen syötä ristipistotyöt.  Näin ne ovat käytössä valmiina Käyttäjät -näytössä.
+Aloita syÃ¶ttÃ¤mÃ¤llÃ¤ langat ja kankaat. Sen jÃ¤lkeen syÃ¶tÃ¤ ristipistotyÃ¶t.  NÃ¤in ne ovat kÃ¤ytÃ¶ssÃ¤ valmiina KÃ¤yttÃ¤jÃ¤t -nÃ¤ytÃ¶ssÃ¤.
  
 
-**3.2.	Langat –ikkuna**
+**3.2.	Langat â€“ikkuna**
 
  
-Kentät
-Langan id: 	Pakollisuus: Pakollinen, numeerinen kenttä.
-Selitys: Langan id on yksilöivä numeerinen tunniste. Kannattaa katsoa Näytä langat –painikkeella jo valmiina olevat langat, ja ottaa seuraava numero. Samalla numerolla ei voi syöttää uutta lankaa. Ohjelma ei ilmoita päällekkäisyydestä, mutta lanka ei tallennu.
+KentÃ¤t
+Langan id: 	Pakollisuus: Pakollinen, numeerinen kenttÃ¤.
+Selitys: Langan id on yksilÃ¶ivÃ¤ numeerinen tunniste. Kannattaa katsoa NÃ¤ytÃ¤ langat â€“painikkeella jo valmiina olevat langat, ja ottaa seuraava numero. Samalla numerolla ei voi syÃ¶ttÃ¤Ã¤ uutta lankaa. Ohjelma ei ilmoita pÃ¤Ã¤llekkÃ¤isyydestÃ¤, mutta lanka ei tallennu.
 
 
-Merkin nro:	Pakollisuus: Pakollinen, numeerinen kenttä.
-Selitys: Jokaisella langalla on oma yksilöivä tunnistenumero ja merkki. Tähän syötetään langan värin numero, esim. 456 (DMC)
+Merkin nro:	Pakollisuus: Pakollinen, numeerinen kenttÃ¤.
+Selitys: Jokaisella langalla on oma yksilÃ¶ivÃ¤ tunnistenumero ja merkki. TÃ¤hÃ¤n syÃ¶tetÃ¤Ã¤n langan vÃ¤rin numero, esim. 456 (DMC)
 
 Merkki: 	Pakollisuus: Pakollinen
-Selitys: Tähän tulee langan merkki, joka yhdessä Merkin nro:n kanssa yksilöi värin. Töissä värit ilmoitetaan aina merkki + nro –muodossa. Esim. DMC 345 tai Anchor 1050.
+Selitys: TÃ¤hÃ¤n tulee langan merkki, joka yhdessÃ¤ Merkin nro:n kanssa yksilÃ¶i vÃ¤rin. TÃ¶issÃ¤ vÃ¤rit ilmoitetaan aina merkki + nro â€“muodossa. Esim. DMC 345 tai Anchor 1050.
 Painikkeet
-Näytä langat: Näytetään jo valmiina olevat langat taulukossa. Taulukkoa ei voi muokata tai valita lankoja.
+NÃ¤ytÃ¤ langat: NÃ¤ytetÃ¤Ã¤n jo valmiina olevat langat taulukossa. Taulukkoa ei voi muokata tai valita lankoja.
 Tallenna: Tallennetaan langat
-Palaa päävalikkoon: Palataan päävalikkoon 
+Palaa pÃ¤Ã¤valikkoon: Palataan pÃ¤Ã¤valikkoon 
 
-**3.3.	Kankaat –ikkuna**
+**3.3.	Kankaat â€“ikkuna**
 
  
-Kentät
-Kangas id: 	Pakollisuus: Pakollinen, numeerinen kenttä
-Selitys: Kankaan id on yksilöivä numeerinen tunniste. Kannattaa katsoa Näytä kankaat –painikkeella jo valmiina olevat kankaat, ja ottaa seuraava numero.  Samalla numerolla ei voi syöttää uutta kangasta. Ohjelma ei ilmoita päällekkäisyydestä, mutta kangas ei tallennu.
+KentÃ¤t
+Kangas id: 	Pakollisuus: Pakollinen, numeerinen kenttÃ¤
+Selitys: Kankaan id on yksilÃ¶ivÃ¤ numeerinen tunniste. Kannattaa katsoa NÃ¤ytÃ¤ kankaat â€“painikkeella jo valmiina olevat kankaat, ja ottaa seuraava numero.  Samalla numerolla ei voi syÃ¶ttÃ¤Ã¤ uutta kangasta. Ohjelma ei ilmoita pÃ¤Ã¤llekkÃ¤isyydestÃ¤, mutta kangas ei tallennu.
 
 Kangasmerkki: 
 	Pakollisuus: Pakollinen
-Selitys: Tähän tulee kankaan merkki. Kangas voi olla merkiltään mikä tahansa. Yleisimmät ovat Aida ja Pellava. Halutessaan kenttään voi kirjoittaa myös kankaan koon. Se ilmoitetaan numerona nimen perässä. Esim. Aida 18. Mitä suurempi numero, sen tiheämpi kangas.
+Selitys: TÃ¤hÃ¤n tulee kankaan merkki. Kangas voi olla merkiltÃ¤Ã¤n mikÃ¤ tahansa. YleisimmÃ¤t ovat Aida ja Pellava. Halutessaan kenttÃ¤Ã¤n voi kirjoittaa myÃ¶s kankaan koon. Se ilmoitetaan numerona nimen perÃ¤ssÃ¤. Esim. Aida 18. MitÃ¤ suurempi numero, sen tiheÃ¤mpi kangas.
 Painikkeet
-Näytä kankaat: Näytetään jo valmiina olevat kankaat taulukossa. Taulukkoa ei voi muokata tai valita lankoja.
+NÃ¤ytÃ¤ kankaat: NÃ¤ytetÃ¤Ã¤n jo valmiina olevat kankaat taulukossa. Taulukkoa ei voi muokata tai valita lankoja.
 Tallenna: Tallennetaan kankaat.
-Palaa päävalikkoon: Palataan päävalikkoon
+Palaa pÃ¤Ã¤valikkoon: Palataan pÃ¤Ã¤valikkoon
  
 
-**3.4.	Käyttäjät –ikkuna**
+**3.4.	KÃ¤yttÃ¤jÃ¤t â€“ikkuna**
 
  
-Kentät
-Käyttäjän nro: 
-	Pakollisuus: Pakollinen, numeerinen kenttä
-Selitys: Käyttäjän nro on yksilöivä numeerinen tunniste. Tämän hetken tallentaa aina edellisen päälle, joten numeroksi voi antaa mitä vaan. 
+KentÃ¤t
+KÃ¤yttÃ¤jÃ¤n nro: 
+	Pakollisuus: Pakollinen, numeerinen kenttÃ¤
+Selitys: KÃ¤yttÃ¤jÃ¤n nro on yksilÃ¶ivÃ¤ numeerinen tunniste. TÃ¤mÃ¤n hetken tallentaa aina edellisen pÃ¤Ã¤lle, joten numeroksi voi antaa mitÃ¤ vaan. 
 
-Käyttäjän etunimi: 	
+KÃ¤yttÃ¤jÃ¤n etunimi: 	
 Pakollisuus: Pakollinen
-Selitys: Käyttäjän nimi. Pelkkä etunimi riittää. 
-Langan nro: 	Pakollisuus: Yksi lanka on pakollinen, numeerinen kenttä
-Selitys:  Omat langat kohtaan voi syöttää maksimissaan neljä eri lankaa. Ohjelma tekee tarkistuksen, ovatko langat jo olemassa joten kannattaa painaa Näytä langat –painiketta, jotta saa näkyviin kaikki tiedostoon tallennetut langat. 
-Määrä:	Pakollisuus: Ensimmäisen langan määrä on pakollinen, mutta siihen voidaan syöttää myös 0. Numeerinen kenttä. Muiden määrä on pakollinen vain, jos myös lanka on syötetty.
-Selitys: Kuinka monta tokkaa kyseistä lankaa käyttäjällä on (langat myydään tokissa). Yksi tokka sisältää n. 8 metriä lankaa.
+Selitys: KÃ¤yttÃ¤jÃ¤n nimi. PelkkÃ¤ etunimi riittÃ¤Ã¤. 
+Langan nro: 	Pakollisuus: Yksi lanka on pakollinen, numeerinen kenttÃ¤
+Selitys:  Omat langat kohtaan voi syÃ¶ttÃ¤Ã¤ maksimissaan neljÃ¤ eri lankaa. Ohjelma tekee tarkistuksen, ovatko langat jo olemassa joten kannattaa painaa NÃ¤ytÃ¤ langat â€“painiketta, jotta saa nÃ¤kyviin kaikki tiedostoon tallennetut langat. 
+MÃ¤Ã¤rÃ¤:	Pakollisuus: EnsimmÃ¤isen langan mÃ¤Ã¤rÃ¤ on pakollinen, mutta siihen voidaan syÃ¶ttÃ¤Ã¤ myÃ¶s 0. Numeerinen kenttÃ¤. Muiden mÃ¤Ã¤rÃ¤ on pakollinen vain, jos myÃ¶s lanka on syÃ¶tetty.
+Selitys: Kuinka monta tokkaa kyseistÃ¤ lankaa kÃ¤yttÃ¤jÃ¤llÃ¤ on (langat myydÃ¤Ã¤n tokissa). Yksi tokka sisÃ¤ltÃ¤Ã¤ n. 8 metriÃ¤ lankaa.
 Osta:	Pakollisuus: Ei pakollinen.
-	Selitys: Tähän valitaan, jos käyttäjä haluaa tallentaa tiedon, että lankaa pitää ostaa lisää. Ominaisuutta hyödynnetään seuraaviin versioihin tulevissa ostoslista –toiminnoissa.
+	Selitys: TÃ¤hÃ¤n valitaan, jos kÃ¤yttÃ¤jÃ¤ haluaa tallentaa tiedon, ettÃ¤ lankaa pitÃ¤Ã¤ ostaa lisÃ¤Ã¤. Ominaisuutta hyÃ¶dynnetÃ¤Ã¤n seuraaviin versioihin tulevissa ostoslista â€“toiminnoissa.
 
 Painikkeet
-Näytä langat: Näytetään jo valmiina olevat langat taulukossa. Taulukkoa ei voi muokata tai valita lankoja.
-Näytä ristipistotyöt: Näytetään jo valmiina oleva ristipistotyö taulukossa. Tässä versiossa on näkyvissä vain yksi työ, josta näkyy työn id ja nimi. Työtä tuplaklikkaamalla se valitaan käyttäjän työksi. Valittu rivi muuttuu punaiseksi.
-Tallenna: Tallennetaan käyttäjän tiedot.
-Palaa päävalikkoon: Palataan päävalikkoon
+NÃ¤ytÃ¤ langat: NÃ¤ytetÃ¤Ã¤n jo valmiina olevat langat taulukossa. Taulukkoa ei voi muokata tai valita lankoja.
+NÃ¤ytÃ¤ ristipistotyÃ¶t: NÃ¤ytetÃ¤Ã¤n jo valmiina oleva ristipistotyÃ¶ taulukossa. TÃ¤ssÃ¤ versiossa on nÃ¤kyvissÃ¤ vain yksi tyÃ¶, josta nÃ¤kyy tyÃ¶n id ja nimi. TyÃ¶tÃ¤ tuplaklikkaamalla se valitaan kÃ¤yttÃ¤jÃ¤n tyÃ¶ksi. Valittu rivi muuttuu punaiseksi.
+Tallenna: Tallennetaan kÃ¤yttÃ¤jÃ¤n tiedot.
+Palaa pÃ¤Ã¤valikkoon: Palataan pÃ¤Ã¤valikkoon
  
 
-**3.5.	Ristipistotyöt –ikkuna**
+**3.5.	RistipistotyÃ¶t â€“ikkuna**
 
  
-Kentät
-Työn nro:  	Pakollisuus: Pakollinen, numeerinen kenttä
-Selitys: työn nro on yksilöivä numeerinen tunniste. Tämän hetken versio tallentaa aina edellisen päälle, joten numeroksi voi antaa mitä vaan. 
+KentÃ¤t
+- TyÃ¶n nro:  	Pakollisuus: Pakollinen, numeerinen kenttÃ¤
+Selitys: tyÃ¶n nro on yksilÃ¶ivÃ¤ numeerinen tunniste. TÃ¤mÃ¤n hetken versio tallentaa aina edellisen pÃ¤Ã¤lle, joten numeroksi voi antaa mitÃ¤ vaan. 
 
-Nimi: 	Pakollisuus: Pakollinen, numeerinen kenttä
-Selitys: Työn nimi
-Leveys: 	Pakollisuus: Pakollinen, numeerinen kenttä
-Selitys: Työn leveys pistojen määränä
-Korkeus:	Pakollisuus: Pakollinen, numeerinen kenttä
-	Selitys: Työn korkeus pistojen määränä 
-Langan nro: 	Pakollisuus: Yksi lanka on pakollinen, numeerinen kenttä
-Selitys:  Omat langat kohtaan voi syöttää maksimissaan neljä eri lankaa. Ohjelma tekee tarkistuksen, ovatko langat jo olemassa, joten paina Näytä langat –painiketta, jotta saat näkyviin kaikki tiedostoon tallennetut langat. 
-Määrä:	Pakollisuus: Ensimmäisen langan määrä on pakollinen, mutta siihen voidaan syöttää myös 0. Numeerinen kenttä. Muiden määrä on pakollinen vain, jos myös lanka on syötetty.
-Selitys: Kuinka monta tokkaa kyseistä lankaa tarvitaan työhön. Tokat ilmoitetaan kokonaislukuna. 
-Kangas:	Pakollisuus: Pakollinen. Pitää valita joku olemassa oleva id.	
-Selitys: Syötetään kankaan id. Kankaat saadaan näkyviin Näytä kankaat –painikkeella. Kankaaksi pitää valita, joku listan id –numeroista. 
+- Nimi: 	Pakollisuus: Pakollinen, numeerinen kenttÃ¤
+Selitys: TyÃ¶n nimi
+
+- Leveys: 	Pakollisuus: Pakollinen, numeerinen kenttÃ¤
+Selitys: TyÃ¶n leveys pistojen mÃ¤Ã¤rÃ¤nÃ¤
+
+- Korkeus:	Pakollisuus: Pakollinen, numeerinen kenttÃ¤
+	Selitys: TyÃ¶n korkeus pistojen mÃ¤Ã¤rÃ¤nÃ¤ 
+
+Langan nro: 	Pakollisuus: Yksi lanka on pakollinen, numeerinen kenttÃ¤
+Selitys:  Omat langat kohtaan voi syÃ¶ttÃ¤Ã¤ maksimissaan neljÃ¤ eri lankaa. Ohjelma tekee tarkistuksen, ovatko langat jo olemassa, joten paina NÃ¤ytÃ¤ langat â€“painiketta, jotta saat nÃ¤kyviin kaikki tiedostoon tallennetut langat. 
+
+MÃ¤Ã¤rÃ¤:	Pakollisuus: EnsimmÃ¤isen langan mÃ¤Ã¤rÃ¤ on pakollinen, mutta siihen voidaan syÃ¶ttÃ¤Ã¤ myÃ¶s 0. Numeerinen kenttÃ¤. Muiden mÃ¤Ã¤rÃ¤ on pakollinen vain, jos myÃ¶s lanka on syÃ¶tetty.
+Selitys: Kuinka monta tokkaa kyseistÃ¤ lankaa tarvitaan tyÃ¶hÃ¶n. Tokat ilmoitetaan kokonaislukuna. 
+
+Kangas:	Pakollisuus: Pakollinen. PitÃ¤Ã¤ valita joku olemassa oleva id.	
+Selitys: SyÃ¶tetÃ¤Ã¤n kankaan id. Kankaat saadaan nÃ¤kyviin NÃ¤ytÃ¤ kankaat â€“painikkeella. Kankaaksi pitÃ¤Ã¤ valita, joku listan id â€“numeroista. 
+
 Painikkeet
-Näytä langat: Näytetään langat taulukossa. Taulukkoa ei voi muokata.
-Näytä kankaat: Näytetään kankaat taulukossa. Taulukkoa ei voi muokata.
-Tallenna: Tallennetaan ristipistotyön tiedot.
-Palaa päävalikkoon: Palataan päävalikkoon
+NÃ¤ytÃ¤ langat: NÃ¤ytetÃ¤Ã¤n langat taulukossa. Taulukkoa ei voi muokata.
+NÃ¤ytÃ¤ kankaat: NÃ¤ytetÃ¤Ã¤n kankaat taulukossa. Taulukkoa ei voi muokata.
+Tallenna: Tallennetaan ristipistotyÃ¶n tiedot.
+Palaa pÃ¤Ã¤valikkoon: Palataan pÃ¤Ã¤valikkoon
 
 
