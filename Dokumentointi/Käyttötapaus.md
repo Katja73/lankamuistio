@@ -104,7 +104,9 @@ K4 Kaikki tiedot ovat pakollisia	P4
 Poikkeukset	
 
 P1 Ainakin yksi lanka on lisättävä.	V1 = ”Syötä ainakin yksi lanka. Voit laittaa sille määräksi 0.”
+
 P2 Jos lanka on syötetty, määrä on pakollinen	V2 = ”Määrä on pakollinen. Voit syöttää määräksi 0.”
+
 P3 Kangas täytyy löytyä listasta	V3 = ”Kankaan numeron täytyy löytyä listasta.”
 
 P4 Jos joku pakollinen tieto puuttuu, annetaan huomautus V1. 
@@ -117,7 +119,9 @@ Kuvaus
 2.	Käyttäjä avaa päävalikosta Käyttäjä -ikkunan	K1
 3.	Käyttäjä syöttää käyttäjästä pakolliset tiedot	K2, K3, K4
 4.	Kun työn tiedot ovat syötetty, painetaan Tallenna -painiketta	
+
 Käyttötapaukset	
+
 K1 Tietoja voidaan syöttää seuraavista tiedoista:
 •	Käyttäjän nro (yksilöivä tieto)
 •	Käyttäjän etunimi
@@ -131,8 +135,11 @@ K3 Ristipistotyön valinta	Näytetään ristipistotyöt taulukossa. Tässä vers
 K4 Kaikki tiedot ovat pakollisia	P3
 
 Poikkeukset	
+
 P1 Ainakin yksi lanka on lisättävä.	V1 = ”Syötä ainakin yksi lanka. Voit laittaa sille määräksi 0.”
+
 P2 Jos lanka on syötetty, määrä on pakollinen	V2 = ”Määrä on pakollinen. Voit syöttää määräksi 0.”
+
 P3 Jos joku pakollinen tieto puuttuu, annetaan huomautus V1. 
 	V4 =”XX on pakollinen tieto.”
 
