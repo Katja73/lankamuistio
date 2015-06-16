@@ -1,47 +1,49 @@
 #Testausraportti
 
-**Aihe:** Ristipistotyö –ohjelma
+**Aihe:** RistipistotyÃ¶ â€“ohjelma
 **Aika:** 13.6.2015
-**Yleistä**
-Testataan Ristipistotallennusohjelma. Ohjelmalla voidaan syöttää ristipistolankoja ja kankaita. Tämän hetken versiolla voidaan syöttää yksi ristipistotyö, joka sisältää maksimissaan 4 erilaista lankaa. Samoin voidaan syöttää yksi käyttäjä ja valita hänelle 4 kpl omia lankoja ja 1 työ. Lopullisessa versiossa käyttäjien, töiden tai lankojen määrää ei ole rajattu.
-Kaikkia asioita ei saatu testattua yksikkötesteillä. Niiden kokonaiskattavuus jäi alle 90 %, mutta alla olevilla testitapauksilla on yritetty kattaa testaus käyttöliittymän kautta.
+**YleistÃ¤**
+Testataan Ristipistotallennusohjelma. Ohjelmalla voidaan syÃ¶ttÃ¤Ã¤ ristipistolankoja ja kankaita. 
+TÃ¤mÃ¤n hetken versiolla voidaan syÃ¶ttÃ¤Ã¤ yksi ristipistotyÃ¶, joka sisÃ¤ltÃ¤Ã¤ maksimissaan 4 erilaista lankaa. Samoin voidaan syÃ¶ttÃ¤Ã¤ yksi kÃ¤yttÃ¤jÃ¤ ja valita hÃ¤nelle 4 kpl omia lankoja ja 1 tyÃ¶. Lopullisessa versiossa kÃ¤yttÃ¤jien, tÃ¶iden tai lankojen mÃ¤Ã¤rÃ¤Ã¤ ei ole rajattu.
+
+Kaikkia asioita ei saatu testattua yksikkÃ¶testeillÃ¤. Niiden kokonaiskattavuus jÃ¤i alle 90 %, mutta alla olevilla testitapauksilla on yritetty kattaa testaus kÃ¤yttÃ¶liittymÃ¤n kautta.
 
 **Testauskohteet ja lopputulokset:**
 
 Nro	Testauskohde	Testikuvaus	Haluttu lopputulos	Lopputulos
-1	Päävalikko	Näyttöjen painikkeet	Näytöt aukeavat	OK
-2	Päävalikko	Poistu –painike	Ohjelma sulkeutuu	OK
-3	Langat –ikkuna	Syötetään kaikki tiedot	Muodostuu oikeanlainen ”lanka.xml”	OK
-4	Langat -ikkuna	Jätetään pois joku kenttä	Saadaan huomautus puuttuvasta kentästä.	OK
-5	Langat –ikkuna	Näytä langat –painike	Taulukkoon haetaan tiedot langoista.	OK
-6	Langat –ikkuna	Näytä langat –painike	Jos taulukko on tyhjä, ohjelma ei kaadu virheeseen	OK
-7	Langat –ikkuna	Lanka -taulukko	Taulukkoa ei voi päivittää.	OK
-8	Langat –ikkuna	Sama id	Samalla id:llä ei voi syöttää uutta tietoa. Ohjelma ei anna ilmoitusta, mutta tieto ei mene xml:n	OK
-9	Kangas –ikkuna	Syötetään kaikki tiedot.	Muodostuu oikeanlainen ”kangas.xml”	OK
-10	Kangas -ikkuna	Jätetään pois joku kenttä	Saadaan huomautus puuttuvasta kentästä.	OK
-11	Kangas –ikkuna	Näytä kankaat –painike	Taulukkoon haetaan tiedot kankaista.	OK
-12	Kangas –ikkuna	Näytä langat –painike	Jos taulukko on tyhjä, ohjelma ei kaadu virheeseen	OK
-13	Kangas –ikkuna	Lanka -taulukko	Taulukkoa ei voi päivittää.	OK
-14	Kangas –ikkuna	Sama id	Samalla id:llä ei voi syöttää uutta tietoa. Ohjelma ei anna ilmoitusta, mutta tieto ei mene xml:n	OK
-15	Kangas –ikkuna	Palaa päävalikkoon	Palaa päävalikkoon –painike palaa päävalikkoon	OK
+1	PÃ¤Ã¤valikko	NÃ¤yttÃ¶jen painikkeet	NÃ¤ytÃ¶t aukeavat	OK
+2	PÃ¤Ã¤valikko	Poistu â€“painike	Ohjelma sulkeutuu	OK
+3	Langat â€“ikkuna	SyÃ¶tetÃ¤Ã¤n kaikki tiedot	Muodostuu oikeanlainen â€lanka.xmlâ€	OK
+4	Langat -ikkuna	JÃ¤tetÃ¤Ã¤n pois joku kenttÃ¤	Saadaan huomautus puuttuvasta kentÃ¤stÃ¤.	OK
+5	Langat â€“ikkuna	NÃ¤ytÃ¤ langat â€“painike	Taulukkoon haetaan tiedot langoista.	OK
+6	Langat â€“ikkuna	NÃ¤ytÃ¤ langat â€“painike	Jos taulukko on tyhjÃ¤, ohjelma ei kaadu virheeseen	OK
+7	Langat â€“ikkuna	Lanka -taulukko	Taulukkoa ei voi pÃ¤ivittÃ¤Ã¤.	OK
+8	Langat â€“ikkuna	Sama id	Samalla id:llÃ¤ ei voi syÃ¶ttÃ¤Ã¤ uutta tietoa. Ohjelma ei anna ilmoitusta, mutta tieto ei mene xml:n	OK
+9	Kangas â€“ikkuna	SyÃ¶tetÃ¤Ã¤n kaikki tiedot.	Muodostuu oikeanlainen â€kangas.xmlâ€	OK
+10	Kangas -ikkuna	JÃ¤tetÃ¤Ã¤n pois joku kenttÃ¤	Saadaan huomautus puuttuvasta kentÃ¤stÃ¤.	OK
+11	Kangas â€“ikkuna	NÃ¤ytÃ¤ kankaat â€“painike	Taulukkoon haetaan tiedot kankaista.	OK
+12	Kangas â€“ikkuna	NÃ¤ytÃ¤ langat â€“painike	Jos taulukko on tyhjÃ¤, ohjelma ei kaadu virheeseen	OK
+13	Kangas â€“ikkuna	Lanka -taulukko	Taulukkoa ei voi pÃ¤ivittÃ¤Ã¤.	OK
+14	Kangas â€“ikkuna	Sama id	Samalla id:llÃ¤ ei voi syÃ¶ttÃ¤Ã¤ uutta tietoa. Ohjelma ei anna ilmoitusta, mutta tieto ei mene xml:n	OK
+15	Kangas â€“ikkuna	Palaa pÃ¤Ã¤valikkoon	Palaa pÃ¤Ã¤valikkoon â€“painike palaa pÃ¤Ã¤valikkoon	OK
 
-16	Käyttäjät -ikkuna	Syötetään kaikki tiedot	Muodostuu oikeanlainen ”kayttajakokoelma.xml”	Ok, liian monta tasoa langoissa, mutta toimii
-17	Käyttäjät -ikkuna	Jätetään pois id tai nimi	Annetaan huomautus puuttuvasta kentästä	OK
-18	Käyttäjät -ikkuna	Yksi lanka	Yksi lanka on pakollinen, määrän voi laittaa nollaksi.	OK
-19	Käyttäjät –ikkuna	Ristipistotyöt 	Ristipistotyöt eivät ole pakollisia, sanoma muodostuu ilman niitäkin	OK
-20	Käyttäjät  –ikkuna	Palaa päävalikkoon	Palaa päävalikkoon –painike palaa päävalikkoon	OK
+16	KÃ¤yttÃ¤jÃ¤t -ikkuna	SyÃ¶tetÃ¤Ã¤n kaikki tiedot	Muodostuu oikeanlainen â€kayttajakokoelma.xmlâ€	Ok, liian monta tasoa langoissa, mutta toimii
+17	KÃ¤yttÃ¤jÃ¤t -ikkuna	JÃ¤tetÃ¤Ã¤n pois id tai nimi	Annetaan huomautus puuttuvasta kentÃ¤stÃ¤	OK
+18	KÃ¤yttÃ¤jÃ¤t -ikkuna	Yksi lanka	Yksi lanka on pakollinen, mÃ¤Ã¤rÃ¤n voi laittaa nollaksi.	OK
+19	KÃ¤yttÃ¤jÃ¤t â€“ikkuna	RistipistotyÃ¶t 	RistipistotyÃ¶t eivÃ¤t ole pakollisia, sanoma muodostuu ilman niitÃ¤kin	OK
+20	KÃ¤yttÃ¤jÃ¤t  â€“ikkuna	Palaa pÃ¤Ã¤valikkoon	Palaa pÃ¤Ã¤valikkoon â€“painike palaa pÃ¤Ã¤valikkoon	OK
 
-21	Ristipisto -ikkuna	Syötetään kaikki pakolliset tiedot	Muodostuu oikeanlainen ” ristipistotyokokoelma.xml”	OK
-22	Ristipisto -ikkuna	Jätetään pois joku kenttä	Annetaan huomautus puuttuvasta kentästä	OK
-23	Ristipisto -ikkuna	Lanka tai kangas eri kuin listassa	Annetaan huomautus, että lankaa tai kangasta ei löydy.	Ei toimi. Ohjelma antaa virheen
-24	Ristipisto -ikkuna	Näytä langat –painike	Näytetään kaikki langat	OK
-25	Ristipisto -ikkuna	Näytä langat –painike	Jos taulukko on tyhjä, ei tule virhettä	OK
-26	Ristipisto -ikkuna	Näytä kankaat –painike	Näytetään kaikki kankaat	OK
-27	Ristipisto -ikkuna	Näytä kankaat –painike	Jos taulukko on tyhjä, ei tule virhettä	OK
-28	Ristipisto –ikkuna	Palaa päävalikkoon	Palaa päävalikkoon –painike palaa päävalikkoon	OK
+21	Ristipisto -ikkuna	SyÃ¶tetÃ¤Ã¤n kaikki pakolliset tiedot	Muodostuu oikeanlainen â€ ristipistotyokokoelma.xmlâ€	OK
+22	Ristipisto -ikkuna	JÃ¤tetÃ¤Ã¤n pois joku kenttÃ¤	Annetaan huomautus puuttuvasta kentÃ¤stÃ¤	OK
+23	Ristipisto -ikkuna	Lanka tai kangas eri kuin listassa	Annetaan huomautus, ettÃ¤ lankaa tai kangasta ei lÃ¶ydy.	Ei toimi. Ohjelma antaa virheen
+24	Ristipisto -ikkuna	NÃ¤ytÃ¤ langat â€“painike	NÃ¤ytetÃ¤Ã¤n kaikki langat	OK
+25	Ristipisto -ikkuna	NÃ¤ytÃ¤ langat â€“painike	Jos taulukko on tyhjÃ¤, ei tule virhettÃ¤	OK
+26	Ristipisto -ikkuna	NÃ¤ytÃ¤ kankaat â€“painike	NÃ¤ytetÃ¤Ã¤n kaikki kankaat	OK
+27	Ristipisto -ikkuna	NÃ¤ytÃ¤ kankaat â€“painike	Jos taulukko on tyhjÃ¤, ei tule virhettÃ¤	OK
+28	Ristipisto â€“ikkuna	Palaa pÃ¤Ã¤valikkoon	Palaa pÃ¤Ã¤valikkoon â€“painike palaa pÃ¤Ã¤valikkoon	OK
 
-29	Kaikki ikkunat	Numeeriset kentät	Numeerisiksi määriteltyihin kenttiin ei voi syöttää muita kuin numeroita.	OK
-30	Käyttäjät –ikkuna	Määrä –kentät	Jos on syötetty lankanumero, myös määrä pitää olla syötetty	OK
-31	Ristipisto –ikkuna	Määrä –kentät	Jos on syötetty lankanumero, myös määrä pitää olla syötetty	OK
+29	Kaikki ikkunat	Numeeriset kentÃ¤t	Numeerisiksi mÃ¤Ã¤riteltyihin kenttiin ei voi syÃ¶ttÃ¤Ã¤ muita kuin numeroita.	OK
+30	KÃ¤yttÃ¤jÃ¤t â€“ikkuna	MÃ¤Ã¤rÃ¤ â€“kentÃ¤t	Jos on syÃ¶tetty lankanumero, myÃ¶s mÃ¤Ã¤rÃ¤ pitÃ¤Ã¤ olla syÃ¶tetty	OK
+31	Ristipisto â€“ikkuna	MÃ¤Ã¤rÃ¤ â€“kentÃ¤t	Jos on syÃ¶tetty lankanumero, myÃ¶s mÃ¤Ã¤rÃ¤ pitÃ¤Ã¤ olla syÃ¶tetty	OK
 
 
