@@ -6,8 +6,7 @@
 Kuvaus	
 1.	Käyttäjä avaa ristipistotyö -ohjelman	
 2.	Käyttäjä avaa päävalikosta Langat -ikkunan	K1
-3.	Käyttäjä syöttää langoista pakolliset tiedot.
-	K2
+3.	Käyttäjä syöttää langoista pakolliset tiedot. 	K2
 4.	Käyttäjä ei voi tallentaa samalla id:llä uutta lankaa	K3
 5.	Käyttäjä painaa Tallenna –painiketta.	
 
@@ -42,7 +41,7 @@ K2 Jos listalla ei ole lankoja, ei näytetä mitään.
 
 Poikkeukset	
 	
-**Kankaan tallennus **
+**Kankaan tallennus**
 
 Kuvaus	
 1.	Käyttäjä avaa ristipistotyö -ohjelman	
@@ -86,7 +85,8 @@ Kuvaus
 1.	Käyttäjä avaa ristipistotyö -ohjelman	
 2.	Käyttäjä avaa päävalikosta Ristipistotyö -ikkunan	K1
 3.	Käyttäjä syöttää ristipistotyöstä pakolliset tiedot	K2, K3, K4
-4.	Kun työn tiedot ovat syötetty, painetaan Tallenna -painiketta	
+4.	Kun työn tiedot ovat syötetty, painetaan Tallenna -painiketta
+
 Käyttötapaukset	
 K1 Tietoja voidaan syöttää seuraavista tiedoista:
 •	Työn id (yksilöivä tieto)
@@ -94,13 +94,19 @@ K1 Tietoja voidaan syöttää seuraavista tiedoista:
 •	Työn korkeus (pistojen määrä)
 •	Työn langat (valitaan listalta) 
 •	Työn kangas (valitaan listalta)	Tässä versiossa voi syöttää vain 4 lankaa per työ. Lopullisessa versiossa lankojen määrä on rajaton. 
+
 K2 Lankojen valinta	Lankoja voidaan syöttää 4 kpl. Ainakin yksi pitää valita. Jos langasta on syötetty numero, pitää olla myös määrä. P1, P2
+
 K3 Kankaan valinta	Kangas syötetään itse, mutta se pitää olla olemassa oleva kangas. P3
+
 K4 Kaikki tiedot ovat pakollisia	P4
+
 Poikkeukset	
+
 P1 Ainakin yksi lanka on lisättävä.	V1 = ”Syötä ainakin yksi lanka. Voit laittaa sille määräksi 0.”
 P2 Jos lanka on syötetty, määrä on pakollinen	V2 = ”Määrä on pakollinen. Voit syöttää määräksi 0.”
 P3 Kangas täytyy löytyä listasta	V3 = ”Kankaan numeron täytyy löytyä listasta.”
+
 P4 Jos joku pakollinen tieto puuttuu, annetaan huomautus V1. 
 	V4 =”XX on pakollinen tieto.”
 
@@ -117,9 +123,13 @@ K1 Tietoja voidaan syöttää seuraavista tiedoista:
 •	Käyttäjän etunimi
 •	Omat langat (numerot listalta) 
 •	Ristipistotyö (valitaan listalta)	Tässä versiossa voi syöttää vain 4 lankaa per käyttäjä. Lopullisessa versiossa lankojen määrä on rajaton. 
+
 K2 Lankojen valinta	Lankoja voidaan syöttää 4 kpl. Ainakin yksi pitää valita. Jos langasta on syötetty numero, pitää olla myös määrä. P1, P2
+
 K3 Ristipistotyön valinta	Näytetään ristipistotyöt taulukossa. Tässä versiossa niitä ei ole kuin yksi. Jos listassa ei ole töitä, pitää ne käydä syöttämässä ensin ristipistotyö –näytöllä. Käyttäjä tekee valinnan tuplaklikkaamalla riviä. Sen tausta muuttuu punaiseksi. 
+
 K4 Kaikki tiedot ovat pakollisia	P3
+
 Poikkeukset	
 P1 Ainakin yksi lanka on lisättävä.	V1 = ”Syötä ainakin yksi lanka. Voit laittaa sille määräksi 0.”
 P2 Jos lanka on syötetty, määrä on pakollinen	V2 = ”Määrä on pakollinen. Voit syöttää määräksi 0.”
