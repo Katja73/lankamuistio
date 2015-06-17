@@ -11,7 +11,7 @@ Seuraavassa versiossa tulee mahdolliseksi useamman käyttäjän ja ristipistoty�
 
 HUOM! .JAR pitää ajaa kansiossa, jossa on kirjoitusoikeudet. XML –sanomat tallentuvat tähän kansioon. Myöhemmin ohjelmaan on tarkoitus lisätä tietokanta.
 
-Yksikkötestit pitää ajaa sellaisessa kansiossa, jossa on polku src\testitiedostot -kansio. Muuten kaikki testit eivät käänny.
+Yksikkötestit pitää ajaa sellaisessa kansiossa, jossa on polku src\testitiedostot. Muuten kaikki testit eivät käänny.
 
 **2.	Ohjelmassa olevat toiminnalliset puutteet ja virheet:**
 -	Tässä versiossa ei pysty syöttämään kuin yhden käyttäjän. Seuraavan syöttäminen tuhoaa edellisen. Ei myöskään pysty syöttämään kuin yhden ristipistotyön kerrallaan. Uuden tallentaminen tuhoaa edellisen. 
